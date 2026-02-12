@@ -1,0 +1,2737 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HashLite - AI-Powered Growth Studio</title>
+    <meta
+      name="description"
+      content="HashLite is an AI-first growth and content studio building brands, launches and sales engines using AI, faster, smarter and at scale."
+    />
+    <link rel="icon" type="image/png" href="assets/favicon.png" />
+    <link rel="apple-touch-icon" href="assets/favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fontsource/space-grotesk@5.0.18/index.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      /* Tab content visibility */
+      .service-content {
+        display: none;
+      }
+      .service-content.active {
+        display: block;
+      }
+      
+      /* Scrollable tabs styling */
+      .services-tabs {
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: thin;
+        scrollbar-color: rgba(104, 206, 207, 0.3) transparent;
+      }
+      
+      .services-tabs::-webkit-scrollbar {
+        height: 6px;
+      }
+      
+      .services-tabs::-webkit-scrollbar-track {
+        background: transparent;
+        border-radius: 10px;
+      }
+      
+      .services-tabs::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #68cecf, #f876c0, #a0cd45);
+        border-radius: 10px;
+      }
+      
+      .services-tabs::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(90deg, #a0cd45, #f876c0, #68cecf);
+      }
+      
+      /* Smooth scroll behavior */
+      .services-tabs {
+        scroll-behavior: smooth;
+      }
+      
+      /* Hero Section Modern Animations */
+      @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+      
+      @keyframes float {
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        50% { transform: translateY(-20px) rotate(5deg); }
+      }
+      
+      @keyframes floatSlow {
+        0%, 100% { transform: translateY(0px) translateX(0px); }
+        50% { transform: translateY(-30px) translateX(10px); }
+      }
+      
+      @keyframes pulse {
+        0%, 100% { opacity: 0.6; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.05); }
+      }
+      
+      @keyframes shimmer {
+        0% { background-position: -1000px 0; }
+        100% { background-position: 1000px 0; }
+      }
+      
+      .hero-gradient-bg {
+        background: linear-gradient(135deg, #ffffff 0%, #f0f9ff 25%, #fef3f8 50%, #f7ffe6 75%, #ffffff 100%);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+      }
+      
+      .floating-element {
+        animation: float 6s ease-in-out infinite;
+      }
+      
+      .floating-slow {
+        animation: floatSlow 8s ease-in-out infinite;
+      }
+      
+      .shimmer-text {
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+        background-size: 200% 100%;
+        animation: shimmer 3s infinite;
+      }
+      
+      .magnetic-button {
+        transition: transform 0.2s ease;
+      }
+      
+      .magnetic-button:hover {
+        transform: scale(1.05);
+      }
+      
+      .hero-card-hover {
+        transition: all 0.3s ease;
+      }
+      
+      .hero-card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 60px rgba(104, 206, 207, 0.2);
+      }
+      
+      /* Glassy Badge Hover Effect */
+      .glassy-badge {
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+      
+      .glassy-badge:hover {
+        transform: scale(1.1);
+        background: rgba(104, 206, 207, 0.25);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        box-shadow: 0 8px 32px rgba(104, 206, 207, 0.3);
+        border: 1px solid rgba(104, 206, 207, 0.6);
+      }
+      
+      /* Gradient Layer Animations */
+      @keyframes float-layer-1 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+        }
+        33% {
+          transform: translate(50px, -30px) scale(1.1);
+        }
+        66% {
+          transform: translate(-30px, 40px) scale(0.95);
+        }
+      }
+      
+      @keyframes float-layer-2 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1) rotate(0deg);
+        }
+        50% {
+          transform: translate(-40px, 50px) scale(1.15) rotate(10deg);
+        }
+      }
+      
+      @keyframes float-layer-3 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+        }
+        40% {
+          transform: translate(-50px, -40px) scale(1.08);
+        }
+        80% {
+          transform: translate(30px, 35px) scale(0.92);
+        }
+      }
+      
+      @keyframes float-layer-4 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1) rotate(0deg);
+        }
+        33% {
+          transform: translate(40px, -35px) scale(1.12) rotate(-8deg);
+        }
+        66% {
+          transform: translate(-25px, 45px) scale(0.9) rotate(5deg);
+        }
+      }
+      
+      @keyframes float-layer-5 {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+        }
+        25% {
+          transform: translate(35px, 40px) scale(1.1);
+        }
+        50% {
+          transform: translate(-40px, -30px) scale(0.95);
+        }
+        75% {
+          transform: translate(30px, -35px) scale(1.05);
+        }
+      }
+      
+      /* 5s Looping Growth Engine Animation */
+      @keyframes growthEngine {
+        0% {
+          transform: scale(0.8) rotate(0deg);
+          opacity: 0;
+        }
+        20% {
+          transform: scale(1.2) rotate(72deg);
+          opacity: 0.6;
+        }
+        40% {
+          transform: scale(1) rotate(144deg);
+          opacity: 0.8;
+        }
+        60% {
+          transform: scale(1.3) rotate(216deg);
+          opacity: 0.5;
+        }
+        80% {
+          transform: scale(0.9) rotate(288deg);
+          opacity: 0.7;
+        }
+        100% {
+          transform: scale(0.8) rotate(360deg);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes orbitGrowth {
+        0% {
+          transform: rotate(0deg) translateX(150px) rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg) translateX(150px) rotate(-360deg);
+        }
+      }
+      
+      @keyframes pulseGrow {
+        0%, 100% {
+          transform: scale(0.5);
+          opacity: 0.3;
+        }
+        50% {
+          transform: scale(1.5);
+          opacity: 0.8;
+        }
+      }
+      
+      @keyframes waveRipple {
+        0% {
+          transform: scale(0.5);
+          opacity: 0.8;
+        }
+        100% {
+          transform: scale(2.5);
+          opacity: 0;
+        }
+      }
+      
+      @keyframes dataFlow {
+        0% {
+          transform: translateY(0) translateX(0);
+          opacity: 0;
+        }
+        20% {
+          opacity: 0.6;
+        }
+        80% {
+          opacity: 0.6;
+        }
+        100% {
+          transform: translateY(-100px) translateX(50px);
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <div class="fixed top-0 left-0 right-0 z-[100] h-[2px] bg-white/10">
+      <div id="progress" class="h-full w-0" style="background: linear-gradient(90deg, #68cecf, #a0cd45, #f876c0);"></div>
+    </div>
+
+    <header
+      id="navbar"
+      class="sticky top-0 z-[90] transition-all duration-300"
+      style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);"
+    >
+      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
+        <a href="#hero" class="flex items-center">
+          <img src="assets/logo.png" alt="HashLite" class="h-10" />
+        </a>
+        <nav class="hidden items-center gap-8 text-base font-bold md:flex" style="color: #374151;">
+          <a href="#who" class="transition hover:text-gray-900">About Us</a>
+          <a href="#what" class="transition hover:text-gray-900">Portfolio</a>
+          <a href="#cta" class="transition hover:text-gray-900">Contact Us</a>
+        </nav>
+        <a
+          href="#cta"
+          class="rounded-full px-6 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:shadow-lg"
+          style="background: #68cecf;"
+        >
+          Book a Strategy Call
+        </a>
+      </div>
+    </header>
+
+    <main class="relative overflow-hidden hero-gradient-bg">
+
+      <section id="hero" class="relative w-full" style="min-height: 100vh; padding-top: 140px; padding-bottom: 80px;">
+        
+        <!-- AI Growth Engine Animation (5s loop) -->
+        <div class="growth-engine-animation absolute inset-0 overflow-hidden pointer-events-none" style="opacity: 0.15;">
+          <!-- Central Engine Core -->
+          <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+            <!-- Rotating Core -->
+            <div class="absolute w-32 h-32 rounded-full" style="background: radial-gradient(circle, #68cecf 0%, transparent 70%); animation: growthEngine 5s ease-in-out infinite;"></div>
+            <div class="absolute w-32 h-32 rounded-full" style="background: radial-gradient(circle, #f876c0 0%, transparent 70%); animation: growthEngine 5s ease-in-out infinite 1.25s;"></div>
+            <div class="absolute w-32 h-32 rounded-full" style="background: radial-gradient(circle, #a0cd45 0%, transparent 70%); animation: growthEngine 5s ease-in-out infinite 2.5s;"></div>
+            <div class="absolute w-32 h-32 rounded-full" style="background: radial-gradient(circle, #f8c63f 0%, transparent 70%); animation: growthEngine 5s ease-in-out infinite 3.75s;"></div>
+            
+            <!-- Orbiting Growth Nodes -->
+            <div class="absolute w-8 h-8 rounded-full" style="background: #68cecf; animation: orbitGrowth 5s linear infinite;"></div>
+            <div class="absolute w-6 h-6 rounded-full" style="background: #f876c0; animation: orbitGrowth 5s linear infinite reverse; animation-delay: 0.5s;"></div>
+            <div class="absolute w-7 h-7 rounded-full" style="background: #a0cd45; animation: orbitGrowth 5s linear infinite; animation-delay: 1.5s;"></div>
+            
+            <!-- Pulse Rings -->
+            <div class="absolute w-64 h-64 rounded-full border-2 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2" style="border-color: #68cecf; animation: pulseGrow 5s ease-in-out infinite;"></div>
+            <div class="absolute w-64 h-64 rounded-full border-2 -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2" style="border-color: #f876c0; animation: pulseGrow 5s ease-in-out infinite 1.25s;"></div>
+            
+            <!-- Ripple Waves -->
+            <div class="absolute w-96 h-96 rounded-full -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2" style="background: radial-gradient(circle, transparent 60%, #68cecf 70%, transparent 80%); animation: waveRipple 5s ease-out infinite;"></div>
+            <div class="absolute w-96 h-96 rounded-full -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2" style="background: radial-gradient(circle, transparent 60%, #a0cd45 70%, transparent 80%); animation: waveRipple 5s ease-out infinite 2.5s;"></div>
+          </div>
+          
+          <!-- Data Flow Particles -->
+          <div class="absolute top-1/4 left-1/4">
+            <div class="w-3 h-3 rounded-full" style="background: #68cecf; animation: dataFlow 5s ease-in-out infinite;"></div>
+          </div>
+          <div class="absolute top-1/3 right-1/4">
+            <div class="w-2 h-2 rounded-full" style="background: #f876c0; animation: dataFlow 5s ease-in-out infinite 1s;"></div>
+          </div>
+          <div class="absolute bottom-1/3 left-1/3">
+            <div class="w-3 h-3 rounded-full" style="background: #a0cd45; animation: dataFlow 5s ease-in-out infinite 2s;"></div>
+          </div>
+          <div class="absolute bottom-1/4 right-1/3">
+            <div class="w-2 h-2 rounded-full" style="background: #f8c63f; animation: dataFlow 5s ease-in-out infinite 3s;"></div>
+          </div>
+          <div class="absolute top-2/3 left-2/3">
+            <div class="w-3 h-3 rounded-full" style="background: #68cecf; animation: dataFlow 5s ease-in-out infinite 4s;"></div>
+          </div>
+        </div>
+        
+        <!-- Animated Gradient Layers -->
+        <div class="gradient-layers absolute inset-0 overflow-hidden pointer-events-none">
+          <!-- Layer 1: Cyan to Lime -->
+          <div class="gradient-layer absolute" style="top: -20%; left: -10%; width: 600px; height: 600px; background: radial-gradient(circle, rgba(104, 206, 207, 0.4) 0%, rgba(160, 205, 69, 0.2) 50%, transparent 70%); animation: float-layer-1 20s ease-in-out infinite;"></div>
+          
+          <!-- Layer 2: Pink to Yellow -->
+          <div class="gradient-layer absolute" style="top: 10%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(248, 118, 192, 0.4) 0%, rgba(248, 198, 63, 0.2) 50%, transparent 70%); animation: float-layer-2 18s ease-in-out infinite;"></div>
+          
+          <!-- Layer 3: Lime to Cyan -->
+          <div class="gradient-layer absolute" style="bottom: -15%; left: 20%; width: 550px; height: 550px; background: radial-gradient(circle, rgba(160, 205, 69, 0.35) 0%, rgba(104, 206, 207, 0.2) 50%, transparent 70%); animation: float-layer-3 22s ease-in-out infinite;"></div>
+          
+          <!-- Layer 4: Yellow to Pink -->
+          <div class="gradient-layer absolute" style="bottom: 10%; right: 15%; width: 480px; height: 480px; background: radial-gradient(circle, rgba(248, 198, 63, 0.35) 0%, rgba(248, 118, 192, 0.2) 50%, transparent 70%); animation: float-layer-4 19s ease-in-out infinite;"></div>
+          
+          <!-- Layer 5: Multi-color gradient -->
+          <div class="gradient-layer absolute" style="top: 40%; left: 40%; width: 450px; height: 450px; background: radial-gradient(circle, rgba(104, 206, 207, 0.25) 0%, rgba(248, 118, 192, 0.15) 35%, rgba(160, 205, 69, 0.15) 65%, transparent 80%); animation: float-layer-5 25s ease-in-out infinite;"></div>
+        </div>
+        
+        <!-- Animated Background Blobs -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none" style="opacity: 0.3;">
+          <div class="floating-element absolute top-20 left-10 w-96 h-96 rounded-full blur-3xl" style="background: linear-gradient(135deg, #68cecf 0%, #a0cd45 100%);"></div>
+          <div class="floating-slow absolute top-40 right-20 w-80 h-80 rounded-full blur-3xl" style="background: linear-gradient(135deg, #f876c0 0%, #f8c63f 100%);"></div>
+          <div class="floating-element absolute bottom-20 left-1/3 w-72 h-72 rounded-full blur-3xl" style="background: linear-gradient(135deg, #a0cd45 0%, #68cecf 100%); animation-delay: 2s;"></div>
+        </div>
+        
+        <!-- Animated Particles -->
+        <div class="particles-container absolute inset-0 overflow-hidden pointer-events-none">
+          <div class="particle absolute w-2 h-2 rounded-full" style="background: #68cecf; top: 10%; left: 15%; opacity: 0.4;"></div>
+          <div class="particle absolute w-3 h-3 rounded-full" style="background: #f876c0; top: 20%; left: 85%; opacity: 0.5;"></div>
+          <div class="particle absolute w-2 h-2 rounded-full" style="background: #a0cd45; top: 60%; left: 10%; opacity: 0.3;"></div>
+          <div class="particle absolute w-4 h-4 rounded-full" style="background: #f8c63f; top: 70%; left: 80%; opacity: 0.4;"></div>
+          <div class="particle absolute w-2 h-2 rounded-full" style="background: #68cecf; top: 40%; left: 50%; opacity: 0.5;"></div>
+          <div class="particle absolute w-3 h-3 rounded-full" style="background: #f876c0; top: 85%; left: 30%; opacity: 0.3;"></div>
+          <div class="particle absolute w-2 h-2 rounded-full" style="background: #a0cd45; top: 25%; left: 70%; opacity: 0.4;"></div>
+          <div class="particle absolute w-3 h-3 rounded-full" style="background: #68cecf; top: 50%; left: 90%; opacity: 0.5;"></div>
+        </div>
+        
+        <!-- Animated Geometric Shapes -->
+        <div class="shapes-container absolute inset-0 overflow-hidden pointer-events-none" style="opacity: 0.15;">
+          <svg class="shape-circle absolute" style="top: 15%; left: 20%; width: 60px; height: 60px;" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#68cecf" stroke-width="3"/>
+          </svg>
+          <svg class="shape-triangle absolute" style="top: 65%; right: 15%; width: 70px; height: 70px;" viewBox="0 0 100 100">
+            <polygon points="50,10 90,90 10,90" fill="none" stroke="#f876c0" stroke-width="3"/>
+          </svg>
+          <svg class="shape-square absolute" style="top: 35%; right: 25%; width: 50px; height: 50px;" viewBox="0 0 100 100">
+            <rect x="10" y="10" width="80" height="80" fill="none" stroke="#a0cd45" stroke-width="3"/>
+          </svg>
+          <svg class="shape-hexagon absolute" style="bottom: 20%; left: 30%; width: 65px; height: 65px;" viewBox="0 0 100 100">
+            <polygon points="50,5 90,30 90,70 50,95 10,70 10,30" fill="none" stroke="#f8c63f" stroke-width="3"/>
+          </svg>
+        </div>
+        
+        <!-- SaaS Marketing Icons -->
+        <div class="saas-icons-container absolute inset-0 overflow-hidden pointer-events-none" style="opacity: 0.2;">
+          <!-- Growth Chart -->
+          <div class="saas-icon absolute" style="top: 12%; left: 8%; font-size: 40px;">📈</div>
+          
+          <!-- Target/Goal -->
+          <div class="saas-icon absolute" style="top: 45%; left: 5%; font-size: 35px;">🎯</div>
+          
+          <!-- Analytics -->
+          <div class="saas-icon absolute" style="top: 75%; right: 8%; font-size: 38px;">📊</div>
+          
+          <!-- Rocket (Growth) -->
+          <div class="saas-icon absolute" style="top: 20%; right: 10%; font-size: 42px;">🚀</div>
+          
+          <!-- Megaphone (Marketing) -->
+          <div class="saas-icon absolute" style="bottom: 15%; left: 12%; font-size: 36px;">📣</div>
+          
+          <!-- Lightning (Speed/Performance) -->
+          <div class="saas-icon absolute" style="top: 30%; right: 20%; font-size: 34px;">⚡</div>
+          
+          <!-- Globe (Global Reach) -->
+          <div class="saas-icon absolute" style="bottom: 35%; right: 12%; font-size: 40px;">🌍</div>
+          
+          <!-- Money Growth -->
+          <div class="saas-icon absolute" style="top: 55%; left: 15%; font-size: 35px;">💰</div>
+          
+          <!-- AI Brain -->
+          <div class="saas-icon absolute" style="bottom: 25%; right: 25%; font-size: 38px;">🧠</div>
+          
+          <!-- Video/Content -->
+          <div class="saas-icon absolute" style="top: 65%; right: 18%; font-size: 36px;">🎬</div>
+        </div>
+        
+        <!-- Digital Data Streams -->
+        <div class="data-streams-container absolute inset-0 overflow-hidden pointer-events-none" style="opacity: 0.1;">
+          <div class="data-stream absolute" style="top: 10%; left: 30%; font-family: monospace; font-size: 12px; color: #68cecf;">01101010</div>
+          <div class="data-stream absolute" style="top: 25%; right: 35%; font-family: monospace; font-size: 11px; color: #f876c0;">11001101</div>
+          <div class="data-stream absolute" style="bottom: 30%; left: 25%; font-family: monospace; font-size: 13px; color: #a0cd45;">10110011</div>
+          <div class="data-stream absolute" style="bottom: 15%; right: 30%; font-family: monospace; font-size: 12px; color: #f8c63f;">01011010</div>
+          <div class="data-stream absolute" style="top: 50%; left: 40%; font-family: monospace; font-size: 11px; color: #68cecf;">API</div>
+          <div class="data-stream absolute" style="top: 40%; right: 40%; font-family: monospace; font-size: 12px; color: #f876c0;">&lt;/&gt;</div>
+        </div>
+        
+        <!-- Floating Metrics/Stats -->
+        <div class="metrics-container absolute inset-0 overflow-hidden pointer-events-none" style="opacity: 0.15;">
+          <div class="metric-box absolute rounded-lg px-3 py-2" style="top: 18%; left: 25%; background: rgba(104, 206, 207, 0.2); border: 1px solid #68cecf;">
+            <div style="font-size: 10px; color: #68cecf; font-weight: bold;">ROI</div>
+            <div style="font-size: 16px; color: #000; font-weight: bold;">+340%</div>
+          </div>
+          
+          <div class="metric-box absolute rounded-lg px-3 py-2" style="top: 60%; right: 22%; background: rgba(248, 118, 192, 0.2); border: 1px solid #f876c0;">
+            <div style="font-size: 10px; color: #f876c0; font-weight: bold;">ENGAGEMENT</div>
+            <div style="font-size: 16px; color: #000; font-weight: bold;">+125%</div>
+          </div>
+          
+          <div class="metric-box absolute rounded-lg px-3 py-2" style="bottom: 25%; left: 20%; background: rgba(160, 205, 69, 0.2); border: 1px solid #a0cd45;">
+            <div style="font-size: 10px; color: #a0cd45; font-weight: bold;">CONVERSIONS</div>
+            <div style="font-size: 16px; color: #000; font-weight: bold;">+280%</div>
+          </div>
+        </div>
+        
+        <!-- Content Container with max-width -->
+        <div class="relative mx-auto max-w-7xl px-6">
+          <div class="relative text-center mx-auto max-w-5xl" style="padding-top: 40px;">
+            <h1
+              id="heroHeadline"
+              class="text-5xl font-bold leading-tight md:text-6xl lg:text-7xl"
+              style="color: #000000; letter-spacing: -0.02em; position: relative; z-index: 10;"
+            >
+              We build <span style="color: #68cecf; font-weight: 800;">powerful brands</span>, high-impact launches, and<br/><span style="color: #f876c0; font-weight: 800;">intelligent sales engines</span>, powered by<br/><span style="color: #a0cd45; font-size: 1.2em; font-weight: 900;">AI</span> to move faster, think smarter,<br/>and scale without limits.
+            </h1>
+          
+          <p class="mx-auto mt-8 max-w-3xl text-lg leading-relaxed" style="color: #333333;">
+            HashLite partners with startups, enterprises, and modern brands to unlock scalable growth through AI-powered videos, high-performance ads, strategic events, and intelligent automation, delivering speed, efficiency, and measurable impact without the delays or overhead of traditional agencies.
+          </p>
+          
+          <div class="mt-12 flex flex-wrap justify-center gap-4">
+            <a
+              href="#cta"
+              class="magnetic-button rounded-full px-10 py-5 text-lg font-bold text-white relative overflow-hidden group"
+              style="background: linear-gradient(135deg, #68cecf, #a0cd45); box-shadow: 0 10px 40px rgba(104, 206, 207, 0.4);"
+            >
+              <span class="relative z-10 flex items-center gap-2">
+                <span>🎯</span> Book a Strategy Call
+              </span>
+              <div class="absolute inset-0 bg-gradient-to-r from-[#a0cd45] to-[#68cecf] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+            <a
+              href="#what"
+              class="magnetic-button rounded-full border-2 px-10 py-5 text-lg font-bold bg-white/80 backdrop-blur-sm relative overflow-hidden group"
+              style="color: #333333; border-color: #68cecf;"
+            >
+              <span class="relative z-10 flex items-center gap-2">
+                <span>👀</span> See How It Works
+              </span>
+              <div class="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300" style="background: linear-gradient(135deg, #68cecf, #a0cd45);"></div>
+            </a>
+          </div>
+          
+          <!-- Stats/Features Cards -->
+          <div class="hero-cards mt-20 grid gap-6 md:grid-cols-3">
+            <div class="hero-card-hover rounded-3xl border-2 bg-white/90 backdrop-blur-sm p-8 relative overflow-hidden" style="border-color: #68cecf40;">
+              <div class="absolute top-0 right-0 w-20 h-20 rounded-full blur-2xl" style="background: #68cecf; opacity: 0.1;"></div>
+              <div class="relative">
+                <div class="text-4xl mb-3">🎨</div>
+                <p class="text-sm uppercase tracking-[0.3em] font-bold mb-3" style="color: #68cecf;">Studio</p>
+                <p class="text-base text-gray-700 font-semibold">
+                  Strategy + Creative + Automation
+                </p>
+              </div>
+            </div>
+            <div class="hero-card-hover rounded-3xl border-2 bg-white/90 backdrop-blur-sm p-8 relative overflow-hidden" style="border-color: #f876c040;">
+              <div class="absolute top-0 right-0 w-20 h-20 rounded-full blur-2xl" style="background: #f876c0; opacity: 0.1;"></div>
+              <div class="relative">
+                <div class="text-4xl mb-3">⚡</div>
+                <p class="text-sm uppercase tracking-[0.3em] font-bold mb-3" style="color: #f876c0;">Performance</p>
+                <p class="text-base text-gray-700 font-semibold">
+                  Launch faster, scale smarter
+                </p>
+              </div>
+            </div>
+            <div class="hero-card-hover rounded-3xl border-2 bg-white/90 backdrop-blur-sm p-8 relative overflow-hidden" style="border-color: #a0cd4540;">
+              <div class="absolute top-0 right-0 w-20 h-20 rounded-full blur-2xl" style="background: #a0cd45; opacity: 0.1;"></div>
+              <div class="relative">
+                <div class="text-4xl mb-3">🚀</div>
+                <p class="text-sm uppercase tracking-[0.3em] font-bold mb-3" style="color: #a0cd45;">Velocity</p>
+                <p class="text-base text-gray-700 font-semibold">
+                  More content without growing teams
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div> <!-- Close content wrapper -->
+      </section>
+
+      <!-- Who We Are Section -->
+      <section id="who-we-are" class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);">
+        <!-- Decorative background elements -->
+        <div class="absolute inset-0 opacity-30">
+          <div class="absolute top-10 left-10 w-72 h-72 rounded-full blur-3xl" style="background: linear-gradient(135deg, #68cecf 0%, #a0cd45 100%);"></div>
+          <div class="absolute bottom-20 right-10 w-96 h-96 rounded-full blur-3xl" style="background: linear-gradient(135deg, #f876c0 0%, #f8c63f 100%);"></div>
+        </div>
+
+        <div class="relative mx-auto max-w-6xl">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <p class="who-tagline text-sm uppercase tracking-[0.3em] font-semibold mb-4" style="color: #68cecf;">
+              About HashLite
+            </p>
+            <h2 id="whoHeading" class="text-4xl md:text-5xl lg:text-6xl font-bold" style="color: #000000;">
+              Who We Are
+            </h2>
+          </div>
+
+          <!-- Main Content -->
+          <div class="grid md:grid-cols-2 gap-12 items-center">
+            <!-- Left: Main Description -->
+            <div class="who-content space-y-6">
+              <p class="text-2xl font-semibold leading-relaxed" style="color: #333333;">
+                HashLite is not a traditional digital agency, we are an <span style="color: #f876c0;">AI-first growth</span> and <span style="color: #68cecf;">content studio</span> built for modern scale.
+              </p>
+              
+              <p class="text-lg leading-relaxed" style="color: #555555;">
+                We leverage intelligent automation to create, test, distribute, and continuously optimize marketing across videos, performance ads, events, social media, and full-funnel sales systems.
+              </p>
+              
+              <div class="who-highlight p-6 rounded-2xl border-2 border-[#68cecf] bg-white/80 backdrop-blur-sm">
+                <p class="text-xl font-semibold" style="color: #000000;">
+                  Instead of managing multiple vendors, you gain one unified, <span style="color: #f876c0;">AI-powered growth engine</span>, designed to move faster, perform smarter, and drive measurable results.
+                </p>
+              </div>
+            </div>
+
+            <!-- Right: Visual Elements -->
+            <div class="who-visual relative">
+              <div class="grid grid-cols-2 gap-4">
+                <div class="who-card rounded-2xl p-6 bg-gradient-to-br from-[#68cecf]/20 to-[#a0cd45]/20 border border-[#68cecf]/30">
+                  <div class="text-3xl mb-3">🎬</div>
+                  <p class="font-semibold text-sm" style="color: #000000;">Video Content</p>
+                  <p class="text-xs mt-2" style="color: #666666;">AI-driven creation</p>
+                </div>
+                
+                <div class="who-card rounded-2xl p-6 bg-gradient-to-br from-[#f876c0]/20 to-[#f8c63f]/20 border border-[#f876c0]/30 mt-8">
+                  <div class="text-3xl mb-3">📊</div>
+                  <p class="font-semibold text-sm" style="color: #000000;">Smart Ads</p>
+                  <p class="text-xs mt-2" style="color: #666666;">Test & optimise</p>
+                </div>
+                
+                <div class="who-card rounded-2xl p-6 bg-gradient-to-br from-[#a0cd45]/20 to-[#68cecf]/20 border border-[#a0cd45]/30">
+                  <div class="text-3xl mb-3">🎯</div>
+                  <p class="font-semibold text-sm" style="color: #000000;">Events</p>
+                  <p class="text-xs mt-2" style="color: #666666;">Automated promotion</p>
+                </div>
+                
+                <div class="who-card rounded-2xl p-6 bg-gradient-to-br from-[#f8c63f]/20 to-[#f876c0]/20 border border-[#f8c63f]/30 mt-8">
+                  <div class="text-3xl mb-3">🚀</div>
+                  <p class="font-semibold text-sm" style="color: #000000;">Sales Funnels</p>
+                  <p class="text-xs mt-2" style="color: #666666;">End-to-end growth</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- What We Do Section -->
+      <section id="what-we-do" class="relative py-24 px-6 overflow-hidden" style="background: #ffffff;">
+        <div class="relative mx-auto max-w-7xl">
+          <!-- Section Header -->
+          <div class="text-center mb-20">
+            <p class="what-tagline text-sm uppercase tracking-[0.3em] font-semibold mb-4" style="color: #f876c0;">
+              Our Services
+            </p>
+            <h2 id="whatHeading" class="text-4xl md:text-5xl lg:text-6xl font-bold" style="color: #000000;">
+              What We Do
+            </h2>
+          </div>
+
+          <!-- Tabs Navigation -->
+          <div class="services-tabs mb-8 overflow-x-auto overflow-y-visible">
+            <div class="flex gap-3 justify-start pb-6 px-1">
+              <button class="service-tab active flex-shrink-0" data-service="1" style="padding: 1rem 1.5rem; border-radius: 1rem; font-weight: 600; font-size: 0.875rem; transition: all 0.3s; white-space: nowrap; border: 2px solid #68cecf; background: linear-gradient(135deg, #68cecf15 0%, #a0cd4515 100%); color: #000000;">
+                <span style="color: #68cecf; margin-right: 0.5rem;">01</span> Product Videos
+              </button>
+              <button class="service-tab flex-shrink-0" data-service="2" style="padding: 1rem 1.5rem; border-radius: 1rem; font-weight: 600; font-size: 0.875rem; transition: all 0.3s; white-space: nowrap; border: 2px solid #e0e0e0; background: #ffffff; color: #666666;">
+                <span style="color: #f876c0; margin-right: 0.5rem;">02</span> Pitch Decks
+              </button>
+              <button class="service-tab flex-shrink-0" data-service="3" style="padding: 1rem 1.5rem; border-radius: 1rem; font-weight: 600; font-size: 0.875rem; transition: all 0.3s; white-space: nowrap; border: 2px solid #e0e0e0; background: #ffffff; color: #666666;">
+                <span style="color: #a0cd45; margin-right: 0.5rem;">03</span> Launch Campaigns
+              </button>
+              <button class="service-tab flex-shrink-0" data-service="4" style="padding: 1rem 1.5rem; border-radius: 1rem; font-weight: 600; font-size: 0.875rem; transition: all 0.3s; white-space: nowrap; border: 2px solid #e0e0e0; background: #ffffff; color: #666666;">
+                <span style="color: #f8c63f; margin-right: 0.5rem;">04</span> Short-Form Videos
+              </button>
+              <button class="service-tab flex-shrink-0" data-service="5" style="padding: 1rem 1.5rem; border-radius: 1rem; font-weight: 600; font-size: 0.875rem; transition: all 0.3s; white-space: nowrap; border: 2px solid #e0e0e0; background: #ffffff; color: #666666;">
+                <span style="color: #68cecf; margin-right: 0.5rem;">05</span> Performance Marketing
+              </button>
+              <button class="service-tab flex-shrink-0" data-service="6" style="padding: 1rem 1.5rem; border-radius: 1rem; font-weight: 600; font-size: 0.875rem; transition: all 0.3s; white-space: nowrap; border: 2px solid #e0e0e0; background: #ffffff; color: #666666;">
+                <span style="color: #f876c0; margin-right: 0.5rem;">06</span> Event Systems
+              </button>
+              <button class="service-tab flex-shrink-0" data-service="7" style="padding: 1rem 1.5rem; border-radius: 1rem; font-weight: 600; font-size: 0.875rem; transition: all 0.3s; white-space: nowrap; border: 2px solid #e0e0e0; background: #ffffff; color: #666666;">
+                <span style="color: #a0cd45; margin-right: 0.5rem;">07</span> Social & Email
+              </button>
+            </div>
+          </div>
+
+          <!-- Tab Content Container -->
+          <div class="service-content-wrapper" style="min-height: 500px;">
+            <!-- Service 1: AI Product & Demo Videos -->
+            <div class="service-content active" data-content="1">
+              <div class="rounded-3xl p-8 md:p-12 border-2" style="background: linear-gradient(135deg, #68cecf15 0%, #a0cd4515 100%); border-color: #68cecf40;">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="flex-shrink-0">
+                    <div class="text-8xl font-bold" style="color: #68cecf; opacity: 0.2;">01</div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4" style="color: #000000;">
+                      AI Product & Demo Videos
+                    </h3>
+                    <p class="text-xl font-semibold mb-6" style="color: #333333;">
+                      Turn your product into a powerful, revenue-driving asset.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+                      At HashLite, we craft high-impact AI-powered product videos that simplify complexity, accelerate understanding, and strengthen buyer confidence. From concept to distribution, every asset is built to convert.
+                    </p>
+                    <div class="space-y-4 mb-6">
+                      <p class="text-lg font-medium" style="color: #555555;">We create:</p>
+                      <ul class="grid md:grid-cols-2 gap-3 text-base" style="color: #666666;">
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> AI-driven product demos
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> Clear, compelling explainer videos
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> SaaS platform walkthroughs
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> Hardware and technology showcases
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> Multi-language versions for global reach
+                        </li>
+                      </ul>
+                    </div>
+                    <p class="text-lg font-semibold mb-4" style="color: #000000;">
+                      The result? A product story that is clear, persuasive, and scalable across markets.
+                    </p>
+                    <p class="text-base inline-flex items-center gap-2 px-6 py-3 rounded-full" style="background: #68cecf30; color: #000000; font-weight: 600;">
+                      Trusted by SaaS platforms, drone companies, real estate tech firms, hardware innovators, and B2B startups ready to grow.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 2: Pitch Deck & Investor Videos -->
+            <div class="service-content hidden" data-content="2">
+              <div class="rounded-3xl p-8 md:p-12 border-2" style="background: linear-gradient(135deg, #f876c015 0%, #f8c63f15 100%); border-color: #f876c040;">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="flex-shrink-0">
+                    <div class="text-8xl font-bold" style="color: #f876c0; opacity: 0.2;">02</div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4" style="color: #000000;">
+                      Pitch Deck & Investor Videos
+                    </h3>
+                    <p class="text-xl font-semibold mb-6" style="color: #333333;">
+                      Slides inform. Stories persuade.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+                      At HashLite, we transform static pitch decks into compelling visual narratives that capture attention, simplify complexity, and build investor confidence. Every video is crafted to communicate clarity, momentum, and opportunity.
+                    </p>
+                    <div class="space-y-4 mb-6">
+                      <p class="text-lg font-medium" style="color: #555555;">We create:</p>
+                      <ul class="grid md:grid-cols-2 gap-3 text-base" style="color: #666666;">
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> Investor pitch videos
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> Crowdfunding launch films
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> Customer-facing and sales narratives
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> Internal training and enablement videos
+                        </li>
+                      </ul>
+                    </div>
+                    <p class="text-lg font-semibold" style="color: #000000;">
+                      Designed for founders and teams who need to explain complex business models with precision, credibility, and impact.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 3: Social Media Graphics -->
+            <div class="service-content hidden" data-content="3">
+              <div class="rounded-3xl p-8 md:p-12 border-2" style="background: linear-gradient(135deg, #a0cd4515 0%, #68cecf15 100%); border-color: #a0cd4540;">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="flex-shrink-0">
+                    <div class="text-8xl font-bold" style="color: #a0cd45; opacity: 0.2;">03</div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4" style="color: #000000;">
+                      Social Media Graphics
+                    </h3>
+                    <p class="text-xl font-semibold mb-6" style="color: #333333;">
+                      Your brand's voice, translated into visuals that command attention.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+                      From idea to execution, we design scroll-stopping creative assets that communicate clearly, consistently, and compellingly across platforms.
+                    </p>
+                    <div class="space-y-4 mb-6">
+                      <p class="text-lg font-medium" style="color: #555555;">We create:</p>
+                      <ul class="grid md:grid-cols-2 gap-3 text-base" style="color: #666666;">
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> Insight-driven carousel posts
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> Data-rich infographics
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> Branded quote graphics
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> Testimonials and social proof visuals
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> Event promotions
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> Milestone and launch announcements
+                        </li>
+                      </ul>
+                    </div>
+                    <p class="text-lg font-semibold" style="color: #000000;">
+                      Every asset is optimized for platform performance, designed not just to be seen, but to be remembered.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 4: Websites & Landing Pages -->
+            <div class="service-content hidden" data-content="4">
+              <div class="rounded-3xl p-8 md:p-12 border-2" style="background: linear-gradient(135deg, #f8c63f15 0%, #f876c015 100%); border-color: #f8c63f40;">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="flex-shrink-0">
+                    <div class="text-8xl font-bold" style="color: #f8c63f; opacity: 0.2;">04</div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4" style="color: #000000;">
+                      Websites & Landing Pages
+                    </h3>
+                    <p class="text-xl font-semibold mb-6" style="color: #333333;">
+                      Digital storefronts built to convert attention into action.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+                      At HashLite, we design high-performance websites and landing pages that combine strategic storytelling, seamless user experience, and intelligent optimization, turning visitors into leads and customers.
+                    </p>
+                    <div class="space-y-4 mb-6">
+                      <p class="text-lg font-medium" style="color: #555555;">We create:</p>
+                      <ul class="grid md:grid-cols-2 gap-3 text-base" style="color: #666666;">
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f8c63f;">●</span> Brand websites
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f8c63f;">●</span> Product and launch pages
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f8c63f;">●</span> Campaign microsites
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f8c63f;">●</span> Lead capture systems
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f8c63f;">●</span> E-commerce storefronts
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f8c63f;">●</span> Portfolio and showcase sites
+                        </li>
+                      </ul>
+                    </div>
+                    <p class="text-lg font-semibold" style="color: #000000;">
+                      Fast-loading. Mobile-optimized. SEO-ready. Engineered for clarity, credibility, and measurable growth.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 5: Creative Consultation -->
+            <div class="service-content hidden" data-content="5">
+              <div class="rounded-3xl p-8 md:p-12 border-2" style="background: linear-gradient(135deg, #68cecf15 0%, #a0cd4515 100%); border-color: #68cecf40;">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="flex-shrink-0">
+                    <div class="text-8xl font-bold" style="color: #68cecf; opacity: 0.2;">05</div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4" style="color: #000000;">
+                      Creative Consultation
+                    </h3>
+                    <p class="text-xl font-semibold mb-6" style="color: #333333;">
+                      Strategic clarity for content that truly stands out.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+                      At HashLite, we provide focused creative guidance that aligns vision with execution, ensuring every piece of content supports your larger growth objectives.
+                    </p>
+                    <div class="space-y-4 mb-6">
+                      <p class="text-lg font-medium" style="color: #555555;">We help with:</p>
+                      <ul class="grid md:grid-cols-2 gap-3 text-base" style="color: #666666;">
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> Brand positioning and messaging clarity
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> Creative direction and visual identity
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> End-to-end content strategy
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> Campaign ideation and concept development
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> Style guides and scalable templates
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #68cecf;">●</span> Structured feedback and refinement sessions
+                        </li>
+                      </ul>
+                    </div>
+                    <p class="text-lg font-semibold" style="color: #000000;">
+                      Every recommendation is built around your goals, your market, your audience, your ambition.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 6: Email Marketing -->
+            <div class="service-content hidden" data-content="6">
+              <div class="rounded-3xl p-8 md:p-12 border-2" style="background: linear-gradient(135deg, #f876c015 0%, #f8c63f15 100%); border-color: #f876c040;">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="flex-shrink-0">
+                    <div class="text-8xl font-bold" style="color: #f876c0; opacity: 0.2;">06</div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4" style="color: #000000;">
+                      Email Marketing Campaigns
+                    </h3>
+                    <p class="text-xl font-semibold mb-6" style="color: #333333;">
+                      Inbox-ready. Strategy-led. Conversion-focused.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+                      At HashLite, we design and write performance-driven email campaigns that nurture relationships, drive action, and turn attention into revenue. Every sequence is built with intelligent structure, persuasive messaging, and measurable outcomes in mind.
+                    </p>
+                    <div class="space-y-4 mb-6">
+                      <p class="text-lg font-medium" style="color: #555555;">We create:</p>
+                      <ul class="grid md:grid-cols-2 gap-3 text-base" style="color: #666666;">
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> Engaging newsletters
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> Automated drip campaigns
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> Product and launch sequences
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> Re-engagement flows
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> Event invitations
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #f876c0;">●</span> High-converting promotional emails
+                        </li>
+                      </ul>
+                    </div>
+                    <p class="text-lg font-semibold" style="color: #000000;">
+                      Crafted for stronger open rates, sharper CTAs, and consistent growth across your funnel.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Service 7: Campaign Management -->
+            <div class="service-content hidden" data-content="7">
+              <div class="rounded-3xl p-8 md:p-12 border-2" style="background: linear-gradient(135deg, #a0cd4515 0%, #68cecf15 100%); border-color: #a0cd4540;">
+                <div class="flex flex-col md:flex-row gap-8">
+                  <div class="flex-shrink-0">
+                    <div class="text-8xl font-bold" style="color: #a0cd45; opacity: 0.2;">07</div>
+                  </div>
+                  <div class="flex-1">
+                    <h3 class="text-3xl md:text-4xl font-bold mb-4" style="color: #000000;">
+                      End-to-End Campaign Management
+                    </h3>
+                    <p class="text-xl font-semibold mb-6" style="color: #333333;">
+                      From strategy to scale, we manage the entire journey.
+                    </p>
+                    <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+                      At HashLite, we don't just launch campaigns; we architect them. Every initiative is designed with precision, executed with intelligence, and optimized for performance at every stage.
+                    </p>
+                    <div class="space-y-4 mb-6">
+                      <p class="text-lg font-medium" style="color: #555555;">Full-service campaign delivery means reaching:</p>
+                      <ul class="grid md:grid-cols-2 gap-3 text-base" style="color: #666666;">
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> The right audience
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> With the right message
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> Through the right channel
+                        </li>
+                        <li class="flex items-center gap-3">
+                          <span class="text-2xl" style="color: #a0cd45;">●</span> At the right time
+                        </li>
+                      </ul>
+                    </div>
+                    <p class="text-lg font-semibold" style="color: #000000;">
+                      Seamlessly executed across Instagram, email, and WhatsApp, ensuring consistent storytelling, measurable engagement, and real business impact.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why HashLite Section -->
+      <section id="why-hashlite" class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);">
+        <!-- Decorative elements -->
+        <div class="absolute inset-0 opacity-20">
+          <div class="absolute top-20 right-20 w-80 h-80 rounded-full blur-3xl" style="background: linear-gradient(135deg, #68cecf 0%, #f876c0 100%);"></div>
+          <div class="absolute bottom-20 left-20 w-96 h-96 rounded-full blur-3xl" style="background: linear-gradient(135deg, #a0cd45 0%, #f8c63f 100%);"></div>
+        </div>
+
+        <div class="relative mx-auto max-w-5xl">
+          <!-- Section Header -->
+          <div class="text-center mb-20">
+            <p class="why-tagline text-sm uppercase tracking-[0.3em] font-semibold mb-4" style="color: #a0cd45;">
+              The HashLite Advantage
+            </p>
+            <h2 id="whyHeading" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="color: #000000;">
+              Why HashLite
+            </h2>
+            <p class="why-subtitle text-xl md:text-2xl font-semibold max-w-3xl mx-auto" style="color: #333333;">
+              Because traditional marketing is slow, expensive and manual.
+            </p>
+          </div>
+
+          <!-- Animated Timeline -->
+          <div class="relative py-12">
+            <!-- Central Timeline Line -->
+            <div class="timeline-line absolute left-1/2 top-0 bottom-0 w-1 -ml-0.5" style="background: linear-gradient(180deg, transparent 0%, #68cecf 10%, #f876c0 50%, #a0cd45 90%, transparent 100%);"></div>
+            
+            <!-- Timeline Items -->
+            <div class="space-y-16">
+              
+              <!-- Item 1: Faster Execution (Right) -->
+              <div class="timeline-item relative">
+                <div class="flex items-center justify-end md:pr-12">
+                  <div class="w-full md:w-1/2 pr-4 md:pr-12">
+                    <!-- Empty space on left for desktop -->
+                  </div>
+                  <div class="timeline-dot absolute left-1/2 w-4 h-4 rounded-full -ml-2 z-10" style="background: #68cecf; box-shadow: 0 0 20px rgba(104, 206, 207, 0.6);"></div>
+                  <div class="w-full md:w-1/2 pl-4 md:pl-12">
+                    <div class="timeline-content relative group rounded-2xl p-8 border-2 transition-all duration-500" style="background: linear-gradient(135deg, rgba(104, 206, 207, 0.1) 0%, #ffffff 100%); border-color: rgba(104, 206, 207, 0.3);">
+                      <div class="absolute -top-3 -right-3 w-16 h-16 rounded-full flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #68cecf 0%, #5bb8b9 100%); box-shadow: 0 10px 30px rgba(104, 206, 207, 0.3);">⚡</div>
+                      <h3 class="text-2xl font-bold mb-3" style="color: #000000;">Faster Execution</h3>
+                      <p class="text-lg" style="color: #666666;">Ship campaigns in days, not months</p>
+                      <div class="timeline-connector absolute top-1/2 -left-8 md:-left-12 w-8 md:w-12 h-0.5" style="background: rgba(104, 206, 207, 0.3);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 2: Lower Cost (Left) -->
+              <div class="timeline-item relative">
+                <div class="flex items-center justify-start md:pl-12">
+                  <div class="w-full md:w-1/2 pr-4 md:pr-12">
+                    <div class="timeline-content relative group rounded-2xl p-8 border-2 transition-all duration-500" style="background: linear-gradient(135deg, rgba(248, 118, 192, 0.1) 0%, #ffffff 100%); border-color: rgba(248, 118, 192, 0.3);">
+                      <div class="absolute -top-8 -left-8 w-20 h-20 rounded-full flex items-center justify-center text-4xl" style="background: linear-gradient(135deg, #f876c0 0%, #e55fa5 100%); box-shadow: 0 10px 30px rgba(248, 118, 192, 0.4); z-index: 10;">💰</div>
+                      <h3 class="text-2xl font-bold mb-3" style="color: #000000;">Lower Production Cost</h3>
+                      <p class="text-lg" style="color: #666666;">AI automation cuts costs by 60-80%</p>
+                      <div class="timeline-connector absolute top-1/2 -right-8 md:-right-12 w-8 md:w-12 h-0.5" style="background: rgba(248, 118, 192, 0.3);"></div>
+                    </div>
+                  </div>
+                  <div class="timeline-dot absolute left-1/2 w-4 h-4 rounded-full -ml-2 z-10" style="background: #f876c0; box-shadow: 0 0 20px rgba(248, 118, 192, 0.6);"></div>
+                  <div class="w-full md:w-1/2 pl-4 md:pl-12">
+                    <!-- Empty space on right for desktop -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 3: Higher Volume (Right) -->
+              <div class="timeline-item relative">
+                <div class="flex items-center justify-end md:pr-12">
+                  <div class="w-full md:w-1/2 pr-4 md:pr-12">
+                    <!-- Empty space on left for desktop -->
+                  </div>
+                  <div class="timeline-dot absolute left-1/2 w-4 h-4 rounded-full -ml-2 z-10" style="background: #a0cd45; box-shadow: 0 0 20px rgba(160, 205, 69, 0.6);"></div>
+                  <div class="w-full md:w-1/2 pl-4 md:pl-12">
+                    <div class="timeline-content relative group rounded-2xl p-8 border-2 transition-all duration-500" style="background: linear-gradient(135deg, rgba(160, 205, 69, 0.1) 0%, #ffffff 100%); border-color: rgba(160, 205, 69, 0.3);">
+                      <div class="absolute -top-3 -right-3 w-16 h-16 rounded-full flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #a0cd45 0%, #8ab63a 100%); box-shadow: 0 10px 30px rgba(160, 205, 69, 0.3);">📈</div>
+                      <h3 class="text-2xl font-bold mb-3" style="color: #000000;">Higher Volume of Content</h3>
+                      <p class="text-lg" style="color: #666666;">10x more content than traditional agencies</p>
+                      <div class="timeline-connector absolute top-1/2 -left-8 md:-left-12 w-8 md:w-12 h-0.5" style="background: rgba(160, 205, 69, 0.3);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 4: Better Targeting (Left) -->
+              <div class="timeline-item relative">
+                <div class="flex items-center justify-start md:pl-12">
+                  <div class="w-full md:w-1/2 pr-4 md:pr-12">
+                    <div class="timeline-content relative group rounded-2xl p-8 border-2 transition-all duration-500" style="background: linear-gradient(135deg, rgba(248, 198, 63, 0.1) 0%, #ffffff 100%); border-color: rgba(248, 198, 63, 0.3);">
+                      <div class="absolute -top-8 -left-8 w-20 h-20 rounded-full flex items-center justify-center text-4xl" style="background: linear-gradient(135deg, #f8c63f 0%, #e0af38 100%); box-shadow: 0 10px 30px rgba(248, 198, 63, 0.4); z-index: 10;">🎯</div>
+                      <h3 class="text-2xl font-bold mb-3" style="color: #000000;">Better Targeting</h3>
+                      <p class="text-lg" style="color: #666666;">AI-powered audience precision</p>
+                      <div class="timeline-connector absolute top-1/2 -right-8 md:-right-12 w-8 md:w-12 h-0.5" style="background: rgba(248, 198, 63, 0.3);"></div>
+                    </div>
+                  </div>
+                  <div class="timeline-dot absolute left-1/2 w-4 h-4 rounded-full -ml-2 z-10" style="background: #f8c63f; box-shadow: 0 0 20px rgba(248, 198, 63, 0.6);"></div>
+                  <div class="w-full md:w-1/2 pl-4 md:pl-12">
+                    <!-- Empty space on right for desktop -->
+                  </div>
+                </div>
+              </div>
+
+              <!-- Item 5: Trackable ROI (Right) -->
+              <div class="timeline-item relative">
+                <div class="flex items-center justify-end md:pr-12">
+                  <div class="w-full md:w-1/2 pr-4 md:pr-12">
+                    <!-- Empty space on left for desktop -->
+                  </div>
+                  <div class="timeline-dot absolute left-1/2 w-4 h-4 rounded-full -ml-2 z-10" style="background: #68cecf; box-shadow: 0 0 20px rgba(104, 206, 207, 0.6);"></div>
+                  <div class="w-full md:w-1/2 pl-4 md:pl-12">
+                    <div class="timeline-content relative group rounded-2xl p-8 border-2 transition-all duration-500" style="background: linear-gradient(135deg, rgba(104, 206, 207, 0.1) 0%, #ffffff 100%); border-color: rgba(104, 206, 207, 0.3);">
+                      <div class="absolute -top-3 -right-3 w-16 h-16 rounded-full flex items-center justify-center text-3xl" style="background: linear-gradient(135deg, #68cecf 0%, #5bb8b9 100%); box-shadow: 0 10px 30px rgba(104, 206, 207, 0.3);">📊</div>
+                      <h3 class="text-2xl font-bold mb-3" style="color: #000000;">Real, Trackable ROI</h3>
+                      <p class="text-lg" style="color: #666666;">Every dollar tracked, every metric measured</p>
+                      <div class="timeline-connector absolute top-1/2 -left-8 md:-left-12 w-8 md:w-12 h-0.5" style="background: rgba(104, 206, 207, 0.3);"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Bottom Statement -->
+          <div class="why-statement text-center mt-24">
+            <div class="inline-block rounded-3xl p-8 md:p-12 border-2" style="background: linear-gradient(135deg, rgba(104, 206, 207, 0.1) 0%, rgba(248, 118, 192, 0.1) 50%, rgba(160, 205, 69, 0.1) 100%); border-color: rgba(104, 206, 207, 0.4);">
+              <p class="text-2xl md:text-3xl font-bold leading-relaxed" style="color: #000000;">
+                We combine <span style="color: #68cecf;">creative strategy</span> + <span style="color: #f876c0;">AI automation</span> + <span style="color: #a0cd45;">performance systems</span>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Who We Work With Section -->
+      <section id="who-we-work-with" class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);">
+        <div class="relative mx-auto max-w-6xl">
+          <!-- Section Header -->
+          <div class="text-center mb-16">
+            <p class="clients-tagline text-sm uppercase tracking-[0.3em] font-semibold mb-4" style="color: #f876c0;">
+              Our Clients
+            </p>
+            <h2 id="clientsHeading" class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style="color: #000000;">
+              Who We Work With
+            </h2>
+          </div>
+
+          <!-- Layered Cards Layout -->
+          <div class="relative md:min-h-[650px]">
+            
+            <!-- Left Card (Pink/Purple gradient) -->
+            <div class="gtm-card relative md:absolute top-0 left-0 md:left-8 w-full md:w-[48%] rounded-3xl p-6 md:p-10 shadow-2xl transition-all duration-500 mb-8 md:mb-0" 
+                 data-direction="left"
+                 style="background: linear-gradient(135deg, #E8C5E5 0%, #F5E0F3 100%); z-index: 2;">
+              
+              <!-- Card Content: First 3 client types -->
+              <div class="space-y-4 md:space-y-6">
+                <!-- Client Type 1 -->
+                <div class="client-item">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="text-2xl md:text-3xl">🚀</div>
+                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Startups & Founders</h3>
+                  </div>
+                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
+                    Scale from launch to sustainable growth with AI-powered marketing systems designed to move fast and prove traction.
+                  </p>
+                </div>
+
+                <!-- Client Type 2 -->
+                <div class="client-item">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="text-2xl md:text-3xl">💻</div>
+                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">SaaS & Tech Platforms</h3>
+                  </div>
+                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
+                    Turn complex products into clear value propositions through high-impact demos, walkthroughs, and explainer content that drives adoption.
+                  </p>
+                </div>
+
+                <!-- Client Type 3 -->
+                <div class="client-item">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="text-2xl md:text-3xl">🏢</div>
+                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Real Estate Brands</h3>
+                  </div>
+                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
+                    Present properties with immersive, story-led video experiences that elevate perception and accelerate buyer decisions.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quote for Left Card -->
+            <div class="gtm-quote hidden md:block absolute top-16 right-4 md:right-28 max-w-[280px]" data-direction="right" style="z-index: 3;">
+              <div class="text-4xl mb-2" style="color: #000000;">❝</div>
+              <p class="text-sm leading-relaxed" style="color: #333333; font-style: italic;">
+                "Scale from launch to growth with AI-powered marketing and strategic content creation."
+              </p>
+            </div>
+
+            <!-- Colorful Burst Shape -->
+            <div class="burst-shape hidden md:block absolute" style="top: 48%; left: 50%; transform: translate(-50%, -50%); z-index: 4;">
+              <svg width="80" height="80" viewBox="0 0 120 120" class="md:w-[110px] md:h-[110px]">
+                <defs>
+                  <linearGradient id="burstGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#68cecf;stop-opacity:1" />
+                    <stop offset="33%" style="stop-color:#a0cd45;stop-opacity:1" />
+                    <stop offset="66%" style="stop-color:#f876c0;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f8c63f;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path d="M60,10 L65,50 L100,40 L70,60 L110,80 L70,75 L75,110 L60,75 L45,110 L50,75 L10,80 L50,60 L20,40 L55,50 Z" fill="url(#burstGradient)"/>
+              </svg>
+            </div>
+
+            <!-- Right Card (Lime/Green gradient) -->
+            <div class="gtm-card relative md:absolute bottom-0 right-0 md:right-8 w-full md:w-[52%] rounded-3xl p-6 md:p-10 shadow-2xl transition-all duration-500" 
+                 data-direction="bottom"
+                 style="background: linear-gradient(135deg, #D4ED6A 0%, #E8F5B0 100%); z-index: 2;">
+              
+              <!-- Card Content: Last 3 client types -->
+              <div class="space-y-4 md:space-y-6">
+                <!-- Client Type 4 -->
+                <div class="client-item">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="text-2xl md:text-3xl">🚁</div>
+                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Drone & Hardware Companies</h3>
+                  </div>
+                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
+                    Showcase real-world capabilities with compelling visuals that demonstrate performance, precision, and innovation.
+                  </p>
+                </div>
+
+                <!-- Client Type 5 -->
+                <div class="client-item">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="text-2xl md:text-3xl">🎪</div>
+                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Events, Summits & Expos</h3>
+                  </div>
+                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
+                    Drive registrations and fill venues faster with AI-driven campaign strategy, targeted outreach, and persuasive event content.
+                  </p>
+                </div>
+
+                <!-- Client Type 6 -->
+                <div class="client-item">
+                  <div class="flex items-center gap-3 mb-2">
+                    <div class="text-2xl md:text-3xl">📦</div>
+                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Product-Led Businesses</h3>
+                  </div>
+                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
+                    Let your product become the primary growth driver through strategic storytelling, conversion-focused assets, and scalable distribution.
+                  </p>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Quote for Right Card -->
+            <div class="gtm-quote hidden md:block absolute bottom-24 left-4 md:left-24 max-w-[280px]" data-direction="top" style="z-index: 3;">
+              <div class="text-4xl mb-2" style="color: #000000;">❝</div>
+              <p class="text-sm leading-relaxed" style="color: #333333; font-style: italic;">
+                "Fill venues faster and demonstrate capabilities with strategic AI-driven marketing."
+              </p>
+            </div>
+
+          </div>
+
+          <!-- Bottom Statement -->
+          <div class="clients-statement text-center mt-20">
+            <div class="inline-block rounded-3xl p-8 md:p-10 border-2" style="background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); border-color: rgba(104, 206, 207, 0.3);">
+              <p class="text-xl md:text-2xl font-semibold leading-relaxed" style="color: #333333;">
+                If your business needs <span style="color: #68cecf;">visibility</span>, <span style="color: #f876c0;">trust</span> and <span style="color: #a0cd45;">conversions</span>, HashLite fits.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Philosophy Section -->
+      <section id="our-philosophy" class="relative py-32 px-6 overflow-hidden" style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);">
+        <!-- Animated gradient overlay -->
+        <div class="absolute inset-0 opacity-30">
+          <div class="absolute top-0 left-0 w-full h-full" style="background: radial-gradient(circle at 20% 50%, #68cecf40 0%, transparent 50%), radial-gradient(circle at 80% 50%, #f876c040 0%, transparent 50%);"></div>
+        </div>
+
+        <div class="relative mx-auto max-w-5xl">
+          <!-- Section Header -->
+          <div class="text-center mb-12">
+            <p class="philosophy-tagline text-sm uppercase tracking-[0.3em] font-semibold mb-6" style="color: #68cecf;">
+              Our Philosophy
+            </p>
+          </div>
+
+          <!-- Philosophy Statements -->
+          <div class="philosophy-content space-y-12">
+            <!-- Statement 1 -->
+            <div class="philosophy-statement text-center">
+              <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight" style="color: #ffffff;">
+                We don't sell hours. We deliver <span class="philosophy-highlight" style="background: linear-gradient(135deg, #68cecf 0%, #a0cd45 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">outcomes, powered by AI</span>.
+              </h2>
+              <p class="text-lg md:text-xl mt-6 leading-relaxed" style="color: #d1d5db;">
+                While traditional agencies measure effort, we measure impact. Every system we build is designed for performance, scalability, and continuous optimization.
+              </p>
+            </div>
+
+            <!-- Divider -->
+            <div class="flex items-center justify-center">
+              <div class="h-px w-24" style="background: linear-gradient(90deg, transparent 0%, #68cecf 50%, transparent 100%);"></div>
+            </div>
+
+            <!-- Statement 2 -->
+            <div class="philosophy-statement text-center">
+              <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight" style="color: #ffffff;">
+                Your growth engine should <span style="color: #f876c0;">never sleep</span>.<br class="hidden md:block"/> With HashLite, <span style="color: #a0cd45;">it doesn't</span>.
+              </h2>
+            </div>
+          </div>
+
+          <!-- Decorative elements -->
+          <div class="philosophy-decoration mt-16 flex justify-center gap-3">
+            <div class="w-2 h-2 rounded-full" style="background: #68cecf; animation: pulse 2s infinite;"></div>
+            <div class="w-2 h-2 rounded-full" style="background: #f876c0; animation: pulse 2s infinite 0.3s;"></div>
+            <div class="w-2 h-2 rounded-full" style="background: #a0cd45; animation: pulse 2s infinite 0.6s;"></div>
+          </div>
+        </div>
+
+        <!-- CSS for pulse animation -->
+        <style>
+          @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+          }
+        </style>
+      </section>
+
+      <!-- Final CTA Section -->
+      <section id="final-cta" class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+        <!-- Decorative background -->
+        <div class="absolute inset-0 opacity-20">
+          <div class="absolute top-10 left-1/4 w-96 h-96 rounded-full blur-3xl" style="background: linear-gradient(135deg, #68cecf 0%, #a0cd45 100%);"></div>
+          <div class="absolute bottom-10 right-1/4 w-96 h-96 rounded-full blur-3xl" style="background: linear-gradient(135deg, #f876c0 0%, #f8c63f 100%);"></div>
+        </div>
+
+        <div class="relative mx-auto max-w-5xl text-center">
+          <!-- Heading -->
+          <div class="cta-heading mb-12">
+            <h2 id="ctaHeading" class="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6" style="color: #000000;">
+              Ready to build your<br/>
+              <span style="color: #f876c0; font-weight: 900;">AI-powered growth engine</span>?
+            </h2>
+          </div>
+
+          <!-- CTA Buttons -->
+          <div class="cta-buttons flex flex-col md:flex-row gap-6 justify-center items-center">
+            <!-- Button 1: Book a Strategy Call -->
+            <a
+              href="#"
+              class="cta-button group relative inline-flex items-center justify-center gap-3 rounded-full px-8 py-5 font-bold text-lg text-white transition-all duration-300 overflow-hidden"
+              style="background: linear-gradient(135deg, #68cecf 0%, #a0cd45 100%); box-shadow: 0 10px 40px rgba(104, 206, 207, 0.3);"
+            >
+              <span class="relative z-10">👉 Book a Strategy Call</span>
+              <div class="absolute inset-0 bg-gradient-to-r from-[#a0cd45] to-[#68cecf] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </a>
+
+            <!-- Button 2: See Sample Work -->
+            <a
+              href="#"
+              class="cta-button group relative inline-flex items-center justify-center gap-3 rounded-full px-8 py-5 font-bold text-lg transition-all duration-300 border-2"
+              style="color: #000000; border-color: #f876c0; background: rgba(248, 118, 192, 0.1);"
+            >
+              <span class="relative z-10">👉 See Sample Work</span>
+              <div class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: linear-gradient(135deg, #f876c0 0%, #f8c63f 100%);"></div>
+              <span class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300" style="background: #f876c0;"></span>
+            </a>
+
+            <!-- Button 3: Talk to HashLite -->
+            <a
+              href="#"
+              class="cta-button group relative inline-flex items-center justify-center gap-3 rounded-full px-8 py-5 font-bold text-lg transition-all duration-300 border-2"
+              style="color: #000000; border-color: #a0cd45; background: rgba(160, 205, 69, 0.1);"
+            >
+              <span class="relative z-10">👉 Talk to HashLite</span>
+              <div class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300" style="background: linear-gradient(135deg, #a0cd45 0%, #68cecf 100%);"></div>
+              <span class="absolute inset-0 rounded-full opacity-0 group-hover:opacity-10 transition-opacity duration-300" style="background: #a0cd45;"></span>
+            </a>
+          </div>
+
+          <!-- Supporting Text -->
+          <div class="cta-subtext mt-12">
+            <p class="text-lg" style="color: #666666;">
+              Join the brands already scaling with AI-powered marketing.
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/split-type"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        // Tab Switching for What We Do Section
+        const tabButtons = document.querySelectorAll('.service-tab');
+        const tabContents = document.querySelectorAll('.service-content');
+        
+        // Color mapping for each service
+        const serviceColors = {
+          '1': '#68cecf',
+          '2': '#f876c0',
+          '3': '#a0cd45',
+          '4': '#f8c63f',
+          '5': '#68cecf',
+          '6': '#f876c0',
+          '7': '#a0cd45'
+        };
+
+        tabButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            const serviceNum = button.getAttribute('data-service');
+            
+            // Remove active class from all buttons
+            tabButtons.forEach(btn => {
+              btn.classList.remove('active');
+              btn.style.border = '2px solid #e0e0e0';
+              btn.style.background = '#ffffff';
+              btn.style.color = '#666666';
+            });
+            
+            // Add active class to clicked button
+            button.classList.add('active');
+            button.style.border = `2px solid ${serviceColors[serviceNum]}`;
+            button.style.background = `linear-gradient(135deg, ${serviceColors[serviceNum]}15 0%, white 100%)`;
+            button.style.color = '#000000';
+            
+            // Hide all content
+            tabContents.forEach(content => {
+              content.style.display = 'none';
+              content.classList.remove('active');
+            });
+            
+            // Show selected content with animation
+            const activeContent = document.querySelector(`[data-content="${serviceNum}"]`);
+            if (activeContent) {
+              activeContent.style.display = 'block';
+              activeContent.classList.add('active');
+              
+              // Animate content entrance
+              anime({
+                targets: activeContent,
+                opacity: [0, 1],
+                translateY: [20, 0],
+                duration: 600,
+                easing: 'easeOutCubic'
+              });
+            }
+          });
+        });
+
+        // Progress bar
+        function updateProgress() {
+          const scrollTop = window.scrollY;
+          const docHeight = document.body.scrollHeight - window.innerHeight;
+          const scrollPercent = (scrollTop / docHeight) * 100;
+          document.getElementById("progress").style.width = scrollPercent + "%";
+        }
+
+        window.addEventListener("scroll", updateProgress);
+
+        // Navbar backdrop on scroll
+        function updateNavbar() {
+          const navbar = document.getElementById("navbar");
+          if (window.scrollY > 100) {
+            navbar.style.backdropFilter = "blur(12px)";
+            navbar.style.background = "rgba(255, 255, 255, 0.9)";
+            navbar.style.borderBottom = "1px solid rgba(0, 0, 0, 0.1)";
+          } else {
+            navbar.style.backdropFilter = "none";
+            navbar.style.background = "transparent";
+            navbar.style.borderBottom = "none";
+          }
+        }
+
+        window.addEventListener("scroll", updateNavbar);
+
+        // Lenis Smooth Scroll
+        const lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smooth: true,
+        });
+
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+
+        requestAnimationFrame(raf);
+
+        lenis.on("scroll", ScrollTrigger.update);
+
+        gsap.ticker.add((time) => {
+          lenis.raf(time * 1000);
+        });
+
+        gsap.ticker.lagSmoothing(0);
+
+        // GSAP Animations (only if user doesn't prefer reduced motion)
+        if (!prefersReduced.matches) {
+          gsap.registerPlugin(ScrollTrigger);
+
+          // Hero Section Advanced GSAP Animations
+          
+          // Animated gradient background blobs with parallax
+          gsap.to('.floating-element', {
+            y: '20%',
+            x: '10%',
+            rotation: 15,
+            scrollTrigger: {
+              trigger: '#hero',
+              start: 'top top',
+              end: 'bottom top',
+              scrub: 1.5,
+            }
+          });
+
+          gsap.to('.floating-slow', {
+            y: '-15%',
+            x: '-5%',
+            rotation: -10,
+            scrollTrigger: {
+              trigger: '#hero',
+              start: 'top top',
+              end: 'bottom top',
+              scrub: 2,
+            }
+          });
+
+          // Badge entrance with elastic bounce
+          gsap.from('.glassy-badge', {
+            scale: 0,
+            opacity: 0,
+            rotation: -180,
+            duration: 1.2,
+            ease: 'elastic.out(1, 0.6)',
+            delay: 0.2,
+          });
+
+          // Brand name reveal with gradient shimmer
+          gsap.from('.hero-brand-name', {
+            opacity: 0,
+            y: -30,
+            scale: 0.8,
+            duration: 1,
+            ease: 'back.out(1.4)',
+            delay: 0.5,
+          });
+
+          // Advanced heading text animation with SplitType
+          const heroHeadline = document.querySelector('#heroHeadline');
+          const split = new SplitType(heroHeadline, { types: 'words, chars' });
+          
+          // Animate each character with 3D rotation and stagger
+          gsap.from(split.chars, {
+            opacity: 0,
+            y: 100,
+            rotationX: -90,
+            transformOrigin: '50% 50%',
+            stagger: {
+              each: 0.03,
+              from: 'start',
+            },
+            duration: 1,
+            ease: 'back.out(2)',
+            delay: 0.8,
+          });
+
+          // Color text pop effect
+          gsap.from('#heroHeadline span[style*="color"]', {
+            scale: 0,
+            opacity: 0,
+            rotation: 360,
+            stagger: 0.15,
+            duration: 1.2,
+            ease: 'elastic.out(1, 0.4)',
+            delay: 1.5,
+          });
+
+          // Subtitle fade up
+          gsap.from('#hero p.text-lg', {
+            opacity: 0,
+            y: 30,
+            duration: 1,
+            ease: 'power3.out',
+            delay: 1.8,
+          });
+
+          // Buttons entrance with stagger
+          const heroButtons = gsap.utils.toArray('#hero .magnetic-button');
+          gsap.from(heroButtons, {
+            scale: 0.8,
+            opacity: 0,
+            y: 40,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: 'back.out(1.5)',
+            delay: 2.2,
+          });
+
+          // Feature cards stagger animation
+          const heroCards = gsap.utils.toArray('.hero-card-hover');
+          gsap.from(heroCards, {
+            opacity: 0,
+            y: 60,
+            scale: 0.9,
+            rotationY: -30,
+            stagger: 0.15,
+            duration: 1,
+            ease: 'power3.out',
+            delay: 2.5,
+            scrollTrigger: {
+              trigger: '.hero-cards',
+              start: 'top 80%',
+              toggleActions: 'play none none reverse',
+            }
+          });
+
+          // Add 3D tilt effect on hero cards hover
+          heroCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+              gsap.to(card, {
+                scale: 1.05,
+                rotationY: 5,
+                rotationX: 5,
+                duration: 0.4,
+                ease: 'power2.out',
+              });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+              gsap.to(card, {
+                scale: 1,
+                rotationY: 0,
+                rotationX: 0,
+                duration: 0.4,
+                ease: 'power2.out',
+              });
+            });
+
+            // Mouse move tilt effect
+            card.addEventListener('mousemove', (e) => {
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              const rotateX = (y - centerY) / 10;
+              const rotateY = (centerX - x) / 10;
+
+              gsap.to(card, {
+                rotationX: rotateX,
+                rotationY: rotateY,
+                duration: 0.3,
+                ease: 'power1.out',
+              });
+            });
+          });
+
+          // Magnetic button effect
+          const magneticButtons = gsap.utils.toArray('.magnetic-button');
+          magneticButtons.forEach(button => {
+            button.addEventListener('mouseenter', () => {
+              gsap.to(button, {
+                scale: 1.1,
+                duration: 0.3,
+                ease: 'power2.out',
+              });
+            });
+
+            button.addEventListener('mouseleave', () => {
+              gsap.to(button, {
+                scale: 1,
+                x: 0,
+                y: 0,
+                duration: 0.5,
+                ease: 'elastic.out(1, 0.3)',
+              });
+            });
+
+            button.addEventListener('mousemove', (e) => {
+              const rect = button.getBoundingClientRect();
+              const x = e.clientX - rect.left - rect.width / 2;
+              const y = e.clientY - rect.top - rect.height / 2;
+
+              gsap.to(button, {
+                x: x * 0.3,
+                y: y * 0.3,
+                duration: 0.3,
+                ease: 'power2.out',
+              });
+            });
+          });
+
+          // Continuous pulse animation on badge
+          gsap.to('.glassy-badge', {
+            scale: 1.05,
+            duration: 2,
+            ease: 'sine.inOut',
+            repeat: -1,
+            yoyo: true,
+          });
+
+          // Background Particles Animation
+          const particles = gsap.utils.toArray('.particle');
+          particles.forEach((particle, i) => {
+            // Random floating animation for each particle
+            gsap.to(particle, {
+              y: `random(-100, 100)`,
+              x: `random(-50, 50)`,
+              rotation: `random(-180, 180)`,
+              scale: `random(0.5, 1.5)`,
+              duration: `random(3, 6)`,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.2,
+            });
+
+            // Fade in/out animation
+            gsap.to(particle, {
+              opacity: `random(0.2, 0.7)`,
+              duration: `random(2, 4)`,
+              repeat: -1,
+              yoyo: true,
+              ease: 'power1.inOut',
+              delay: i * 0.3,
+            });
+          });
+
+          // Geometric Shapes Animation
+          const shapes = [
+            { el: '.shape-circle', rotation: 360, duration: 20 },
+            { el: '.shape-triangle', rotation: -360, duration: 25 },
+            { el: '.shape-square', rotation: 360, duration: 18 },
+            { el: '.shape-hexagon', rotation: -360, duration: 22 }
+          ];
+
+          shapes.forEach(shape => {
+            // Rotation animation
+            gsap.to(shape.el, {
+              rotation: shape.rotation,
+              duration: shape.duration,
+              repeat: -1,
+              ease: 'none',
+            });
+
+            // Scale pulse
+            gsap.to(shape.el, {
+              scale: 1.2,
+              duration: 3,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+            });
+
+            // Float animation
+            gsap.to(shape.el, {
+              y: '30',
+              x: '20',
+              duration: 5,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+            });
+          });
+
+          // Enhanced blob morphing effect
+          gsap.to('.floating-element', {
+            scale: 1.3,
+            opacity: 0.5,
+            duration: 4,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+            stagger: {
+              each: 1,
+              repeat: -1,
+            }
+          });
+
+          gsap.to('.floating-slow', {
+            scale: 1.2,
+            opacity: 0.4,
+            duration: 5,
+            repeat: -1,
+            yoyo: true,
+            ease: 'sine.inOut',
+          });
+
+          // SaaS Marketing Icons Animation
+          const saasIcons = gsap.utils.toArray('.saas-icon');
+          saasIcons.forEach((icon, i) => {
+            // Floating animation
+            gsap.to(icon, {
+              y: `random(-80, 80)`,
+              x: `random(-40, 40)`,
+              rotation: `random(-20, 20)`,
+              duration: `random(4, 7)`,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.3,
+            });
+
+            // Scale pulse
+            gsap.to(icon, {
+              scale: `random(1.1, 1.3)`,
+              duration: `random(2, 3)`,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.2,
+            });
+
+            // Opacity fade
+            gsap.to(icon, {
+              opacity: `random(0.3, 0.6)`,
+              duration: `random(2.5, 4)`,
+              repeat: -1,
+              yoyo: true,
+              ease: 'power1.inOut',
+              delay: i * 0.4,
+            });
+          });
+
+          // Data Streams Animation
+          const dataStreams = gsap.utils.toArray('.data-stream');
+          dataStreams.forEach((stream, i) => {
+            // Vertical scrolling effect
+            gsap.to(stream, {
+              y: 100,
+              opacity: 0,
+              duration: `random(3, 5)`,
+              repeat: -1,
+              ease: 'none',
+              delay: i * 0.5,
+            });
+
+            // Horizontal drift
+            gsap.to(stream, {
+              x: `random(-30, 30)`,
+              duration: `random(4, 6)`,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.3,
+            });
+          });
+
+          // Metric Boxes Animation
+          const metricBoxes = gsap.utils.toArray('.metric-box');
+          metricBoxes.forEach((box, i) => {
+            // Entrance animation
+            gsap.from(box, {
+              scale: 0,
+              opacity: 0,
+              duration: 1,
+              ease: 'back.out(1.7)',
+              delay: 2.5 + (i * 0.3),
+            });
+
+            // Floating animation
+            gsap.to(box, {
+              y: -20,
+              duration: 3,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.5,
+            });
+
+            // Subtle rotation
+            gsap.to(box, {
+              rotation: 3,
+              duration: 4,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.4,
+            });
+
+            // Pulse effect
+            gsap.to(box, {
+              scale: 1.05,
+              duration: 2,
+              repeat: -1,
+              yoyo: true,
+              ease: 'sine.inOut',
+              delay: i * 0.6,
+            });
+
+            // Number counter animation
+            const numberEl = box.querySelector('div:last-child');
+            if (numberEl) {
+              gsap.to(numberEl, {
+                color: '#000',
+                duration: 1.5,
+                repeat: -1,
+                yoyo: true,
+                ease: 'power1.inOut',
+                delay: i * 0.8,
+              });
+            }
+          });
+
+
+          // Anime.js for feature cards with advanced effects
+          anime({
+            targets: '.hero-cards > div',
+            translateY: [60, 0],
+            opacity: [0, 1],
+            scale: [0.8, 1],
+            rotateZ: [-5, 0],
+            delay: anime.stagger(150, {start: 1800}),
+            duration: 1200,
+            easing: 'spring(1, 80, 10, 0)',
+          });
+
+          // Anime.js for buttons with hover effect
+          const buttons = document.querySelectorAll('.mt-10 a');
+          buttons.forEach((button, index) => {
+            anime({
+              targets: button,
+              translateY: [30, 0],
+              opacity: [0, 1],
+              scale: [0.9, 1],
+              delay: 1500 + (index * 100),
+              duration: 800,
+              easing: 'easeOutElastic(1, .8)',
+            });
+
+            // Hover animation with anime.js
+            button.addEventListener('mouseenter', () => {
+              anime({
+                targets: button,
+                scale: 1.05,
+                translateY: -5,
+                duration: 300,
+                easing: 'easeOutQuad',
+              });
+            });
+
+            button.addEventListener('mouseleave', () => {
+              anime({
+                targets: button,
+                scale: 1,
+                translateY: 0,
+                duration: 300,
+                easing: 'easeOutQuad',
+              });
+            });
+          });
+
+          // Anime.js continuous floating animation for cards
+          anime({
+            targets: '.hero-cards > div',
+            translateY: [-10, 10],
+            duration: 3000,
+            loop: true,
+            direction: 'alternate',
+            delay: anime.stagger(200),
+            easing: 'easeInOutSine',
+          });
+
+          // Card hover effect with anime.js
+          const cards = document.querySelectorAll('.hero-cards > div');
+          cards.forEach((card) => {
+            card.addEventListener('mouseenter', () => {
+              anime({
+                targets: card,
+                scale: 1.08,
+                translateY: -15,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+            });
+
+            card.addEventListener('mouseleave', () => {
+              anime({
+                targets: card,
+                scale: 1,
+                translateY: 0,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+            });
+          });
+
+          // Who We Are Section Animations
+          // GSAP for heading with split text
+          const whoHeading = document.querySelector('#whoHeading');
+          if (whoHeading) {
+            const whoSplit = new SplitType(whoHeading, { types: 'words, chars' });
+            
+            gsap.from(whoSplit.chars, {
+              scrollTrigger: {
+                trigger: '#who-we-are',
+                start: 'top 80%',
+              },
+              opacity: 0,
+              y: 30,
+              rotateX: -45,
+              stagger: 0.03,
+              duration: 0.8,
+              ease: 'back.out(1.5)',
+            });
+          }
+
+          // Animate tagline
+          gsap.from('.who-tagline', {
+            scrollTrigger: {
+              trigger: '#who-we-are',
+              start: 'top 80%',
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: 'power2.out',
+          });
+
+          // Trigger content animation on scroll
+          const whoObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                anime({
+                  targets: '.who-content > p',
+                  translateX: [-50, 0],
+                  opacity: [0, 1],
+                  delay: anime.stagger(150, {start: 200}),
+                  duration: 1000,
+                  easing: 'easeOutExpo',
+                });
+                whoObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.2 });
+          
+          const whoContent = document.querySelector('.who-content');
+          if (whoContent) {
+            whoObserver.observe(whoContent);
+          }
+
+          // Anime.js for visual cards with stagger and bounce
+          const whoCardsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                anime({
+                  targets: '.who-card',
+                  translateY: [60, 0],
+                  opacity: [0, 1],
+                  scale: [0.8, 1],
+                  rotate: [10, 0],
+                  delay: anime.stagger(120, {start: 300}),
+                  duration: 1200,
+                  easing: 'spring(1, 70, 10, 0)',
+                });
+                whoCardsObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.2 });
+          
+          const whoVisual = document.querySelector('.who-visual');
+          if (whoVisual) {
+            whoCardsObserver.observe(whoVisual);
+          }
+
+          // Continuous floating animation for who cards
+          anime({
+            targets: '.who-card',
+            translateY: [-8, 8],
+            duration: 2500,
+            loop: true,
+            direction: 'alternate',
+            delay: anime.stagger(150),
+            easing: 'easeInOutSine',
+          });
+
+          // Hover effect for who cards
+          const whoCards = document.querySelectorAll('.who-card');
+          whoCards.forEach((card) => {
+            card.addEventListener('mouseenter', () => {
+              anime({
+                targets: card,
+                scale: 1.1,
+                translateY: -10,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+            });
+
+            card.addEventListener('mouseleave', () => {
+              anime({
+                targets: card,
+                scale: 1,
+                translateY: 0,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+            });
+          });
+
+          // Highlight box animation
+          const highlightObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                anime({
+                  targets: '.who-highlight',
+                  translateX: [-50, 0],
+                  opacity: [0, 1],
+                  scale: [0.95, 1],
+                  delay: 600,
+                  duration: 1000,
+                  easing: 'easeOutExpo',
+                });
+                highlightObserver.unobserve(entry.target);
+              }
+            });
+          }, { threshold: 0.2 });
+          
+          const whoHighlight = document.querySelector('.who-highlight');
+          if (whoHighlight) {
+            highlightObserver.observe(whoHighlight);
+          }
+
+          // What We Do Section Animations
+          // GSAP for heading
+          const whatHeading = document.querySelector('#whatHeading');
+          if (whatHeading) {
+            const whatSplit = new SplitType(whatHeading, { types: 'words, chars' });
+            
+            gsap.from(whatSplit.chars, {
+              scrollTrigger: {
+                trigger: '#what-we-do',
+                start: 'top 80%',
+              },
+              opacity: 0,
+              y: 30,
+              rotateX: -45,
+              stagger: 0.02,
+              duration: 0.8,
+              ease: 'back.out(1.5)',
+            });
+          }
+
+          // Animate tagline
+          gsap.from('.what-tagline', {
+            scrollTrigger: {
+              trigger: '#what-we-do',
+              start: 'top 80%',
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: 'power2.out',
+          });
+
+          // Anime.js for service cards with scroll trigger
+          const serviceCardsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const cards = document.querySelectorAll('.service-card');
+                cards.forEach((card, index) => {
+                  anime({
+                    targets: card,
+                    translateY: [80, 0],
+                    opacity: [0, 1],
+                    scale: [0.95, 1],
+                    delay: index * 150,
+                    duration: 1000,
+                    easing: 'easeOutExpo',
+                  });
+                });
+                serviceCardsObserver.disconnect();
+              }
+            });
+          }, { threshold: 0.1 });
+          
+          const servicesGrid = document.querySelector('.services-grid');
+          if (servicesGrid) {
+            serviceCardsObserver.observe(servicesGrid);
+          }
+
+          // Sticky stack effect for service cards
+          const serviceCards = document.querySelectorAll('.service-card');
+          serviceCards.forEach((card, index) => {
+            gsap.to(card, {
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 120px',
+                end: 'bottom 120px',
+                onUpdate: (self) => {
+                  const progress = self.progress;
+                  const scale = 1 - (progress * 0.05);
+                  const opacity = 1 - (progress * 0.3);
+                  const yOffset = progress * -20;
+                  
+                  gsap.to(card, {
+                    scale: scale,
+                    opacity: opacity,
+                    y: yOffset,
+                    duration: 0,
+                  });
+                },
+                scrub: true,
+              }
+            });
+            
+            // Set initial z-index for stacking
+            card.style.zIndex = 7 - index;
+          });
+
+          // Hover effect for service cards
+          serviceCards.forEach((card) => {
+            card.addEventListener('mouseenter', () => {
+              anime({
+                targets: card,
+                translateY: -8,
+                scale: 1.02,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+              
+              // Animate the service number
+              const number = card.querySelector('.service-number');
+              if (number) {
+                anime({
+                  targets: number,
+                  scale: [1, 1.15, 1],
+                  rotate: [0, 5, 0],
+                  duration: 600,
+                  easing: 'easeOutElastic(1, .6)',
+                });
+              }
+            });
+
+            card.addEventListener('mouseleave', () => {
+              anime({
+                targets: card,
+                translateY: 0,
+                scale: 1,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+            });
+          });
+
+          // Why HashLite Section Animations
+          // GSAP for heading
+          const whyHeading = document.querySelector('#whyHeading');
+          if (whyHeading) {
+            const whySplit = new SplitType(whyHeading, { types: 'words, chars' });
+            
+            gsap.from(whySplit.chars, {
+              scrollTrigger: {
+                trigger: '#why-hashlite',
+                start: 'top 80%',
+              },
+              opacity: 0,
+              y: 30,
+              rotateX: -45,
+              stagger: 0.02,
+              duration: 0.8,
+              ease: 'back.out(1.5)',
+            });
+          }
+
+          // Animate tagline and subtitle
+          gsap.from('.why-tagline', {
+            scrollTrigger: {
+              trigger: '#why-hashlite',
+              start: 'top 80%',
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: 'power2.out',
+          });
+
+          gsap.from('.why-subtitle', {
+            scrollTrigger: {
+              trigger: '#why-hashlite',
+              start: 'top 80%',
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            delay: 0.3,
+            ease: 'power2.out',
+          });
+
+          // Animate timeline line draw-in
+          gsap.from('.timeline-line', {
+            scrollTrigger: {
+              trigger: '.timeline-line',
+              start: 'top 80%',
+              end: 'bottom 20%',
+              scrub: 1,
+            },
+            scaleY: 0,
+            transformOrigin: 'top center',
+            ease: 'none',
+          });
+
+          // Animate timeline items with stagger
+          const timelineItems = gsap.utils.toArray('.timeline-item');
+          timelineItems.forEach((item, index) => {
+            const content = item.querySelector('.timeline-content');
+            const dot = item.querySelector('.timeline-dot');
+            const connector = item.querySelector('.timeline-connector');
+            
+            // Determine animation direction based on position (left or right)
+            const isRight = index % 2 === 0;
+            
+            // Animate dot
+            gsap.from(dot, {
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 75%',
+                toggleActions: 'play none none none',
+              },
+              scale: 0,
+              opacity: 0,
+              duration: 0.5,
+              ease: 'back.out(2)',
+            });
+
+            // Animate connector line
+            gsap.from(connector, {
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 75%',
+                toggleActions: 'play none none none',
+              },
+              scaleX: 0,
+              transformOrigin: isRight ? 'left center' : 'right center',
+              duration: 0.6,
+              delay: 0.3,
+              ease: 'power2.out',
+            });
+
+            // Animate content box with slide and fade
+            gsap.from(content, {
+              scrollTrigger: {
+                trigger: item,
+                start: 'top 75%',
+                toggleActions: 'play none none none',
+              },
+              x: isRight ? 100 : -100,
+              opacity: 0,
+              duration: 0.8,
+              delay: 0.5,
+              ease: 'power3.out',
+            });
+
+            // Hover effect for content
+            content.addEventListener('mouseenter', () => {
+              gsap.to(content, {
+                y: -12,
+                scale: 1.03,
+                boxShadow: '0 20px 60px rgba(0, 0, 0, 0.15)',
+                duration: 0.4,
+                ease: 'power2.out',
+              });
+            });
+
+            content.addEventListener('mouseleave', () => {
+              gsap.to(content, {
+                y: 0,
+                scale: 1,
+                boxShadow: '0 0 0 rgba(0, 0, 0, 0)',
+                duration: 0.4,
+                ease: 'power2.out',
+              });
+            });
+          });
+
+          // Animate bottom statement
+          gsap.from('.why-statement > div', {
+            scrollTrigger: {
+              trigger: '.why-statement',
+              start: 'top 80%',
+              toggleActions: 'play none none none',
+            },
+            scale: 0.9,
+            opacity: 0,
+            y: 40,
+            duration: 1,
+            ease: 'power3.out',
+          });
+
+          // Who We Work With Section Animations
+          // GSAP for heading
+          const clientsHeading = document.querySelector('#clientsHeading');
+          if (clientsHeading) {
+            const clientsSplit = new SplitType(clientsHeading, { types: 'words, chars' });
+            
+            gsap.from(clientsSplit.chars, {
+              scrollTrigger: {
+                trigger: '#who-we-work-with',
+                start: 'top 80%',
+              },
+              opacity: 0,
+              y: 30,
+              rotateX: -45,
+              stagger: 0.02,
+              duration: 0.8,
+              ease: 'back.out(1.5)',
+            });
+          }
+
+          // Animate tagline
+          gsap.from('.clients-tagline', {
+            scrollTrigger: {
+              trigger: '#who-we-work-with',
+              start: 'top 80%',
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.6,
+            ease: 'power2.out',
+          });
+
+          // Anime.js for client cards
+          const clientCardsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                // Removed - using GSAP for GTM cards instead
+                clientCardsObserver.disconnect();
+              }
+            });
+          }, { threshold: 0.2 });
+
+          // Animate GTM cards from different directions with tilt
+          const gtmCards = gsap.utils.toArray('.gtm-card');
+          gtmCards.forEach((card) => {
+            const direction = card.getAttribute('data-direction');
+            let fromVars = { opacity: 0, duration: 1.2, ease: 'power3.out' };
+            
+            switch(direction) {
+              case 'left':
+                fromVars.x = -200;
+                fromVars.rotation = -8;
+                break;
+              case 'right':
+                fromVars.x = 200;
+                fromVars.rotation = 8;
+                break;
+              case 'top':
+                fromVars.y = -200;
+                fromVars.rotation = -5;
+                break;
+              case 'bottom':
+                fromVars.y = 200;
+                fromVars.rotation = 5;
+                break;
+            }
+            
+            gsap.from(card, {
+              scrollTrigger: {
+                trigger: '#who-we-work-with',
+                start: 'top 70%',
+              },
+              ...fromVars,
+              delay: direction === 'left' ? 0.3 : 0.6,
+            });
+            
+            // 3D Mouse tilt effect on hover
+            card.addEventListener('mousemove', (e) => {
+              const rect = card.getBoundingClientRect();
+              const x = e.clientX - rect.left;
+              const y = e.clientY - rect.top;
+              const centerX = rect.width / 2;
+              const centerY = rect.height / 2;
+              const rotateX = ((y - centerY) / centerY) * -12;
+              const rotateY = ((x - centerX) / centerX) * 12;
+              
+              gsap.to(card, {
+                rotateX: rotateX,
+                rotateY: rotateY,
+                scale: 1.03,
+                duration: 0.3,
+                transformPerspective: 1000,
+                ease: 'power2.out',
+              });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+              gsap.to(card, {
+                rotateX: 0,
+                rotateY: 0,
+                scale: 1,
+                duration: 0.5,
+                ease: 'power2.out',
+              });
+            });
+          });
+
+          // Animate quotes
+          const gtmQuotes = gsap.utils.toArray('.gtm-quote');
+          gtmQuotes.forEach((quote, index) => {
+            const direction = quote.getAttribute('data-direction');
+            let fromVars = { opacity: 0, duration: 1, ease: 'power2.out' };
+            
+            switch(direction) {
+              case 'left':
+                fromVars.x = -100;
+                break;
+              case 'right':
+                fromVars.x = 100;
+                break;
+              case 'top':
+                fromVars.y = -100;
+                break;
+              case 'bottom':
+                fromVars.y = 100;
+                break;
+            }
+            
+            gsap.from(quote, {
+              scrollTrigger: {
+                trigger: '#who-we-work-with',
+                start: 'top 70%',
+              },
+              ...fromVars,
+              delay: 0.9 + (index * 0.2),
+            });
+          });
+
+          // Animate burst shape
+          gsap.from('.burst-shape', {
+            scrollTrigger: {
+              trigger: '#who-we-work-with',
+              start: 'top 70%',
+            },
+            scale: 0,
+            rotation: 180,
+            opacity: 0,
+            duration: 1,
+            delay: 1.2,
+            ease: 'back.out(1.7)',
+          });
+          
+          // Continuous slow rotation for burst
+          gsap.to('.burst-shape', {
+            rotation: 360,
+            duration: 25,
+            repeat: -1,
+            ease: 'none',
+          });
+          
+          const clientsGrid = document.querySelector('.clients-grid');
+          if (clientsGrid) {
+            clientCardsObserver.observe(clientsGrid);
+          }
+
+          // Hover effect for client cards (legacy - keeping for compatibility)
+          const clientCards = document.querySelectorAll('.client-card');
+          clientCards.forEach((card) => {
+            card.addEventListener('mouseenter', () => {
+              anime({
+                targets: card,
+                translateY: -10,
+                scale: 1.05,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+            });
+
+            card.addEventListener('mouseleave', () => {
+              anime({
+                targets: card,
+                translateY: 0,
+                scale: 1,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+            });
+          });
+
+          // Animate clients statement
+          const clientsStatementObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                anime({
+                  targets: '.clients-statement > div',
+                  scale: [0.9, 1],
+                  opacity: [0, 1],
+                  duration: 1000,
+                  easing: 'easeOutExpo',
+                });
+                clientsStatementObserver.disconnect();
+              }
+            });
+          }, { threshold: 0.3 });
+          
+          const clientsStatement = document.querySelector('.clients-statement');
+          if (clientsStatement) {
+            clientsStatementObserver.observe(clientsStatement);
+          }
+
+          // Our Philosophy Section Animations
+          // Animate tagline
+          gsap.from('.philosophy-tagline', {
+            scrollTrigger: {
+              trigger: '#our-philosophy',
+              start: 'top 80%',
+            },
+            opacity: 0,
+            y: 30,
+            duration: 0.8,
+            ease: 'power2.out',
+          });
+
+          // Animate philosophy statements
+          const philosophyStatements = document.querySelectorAll('.philosophy-statement');
+          philosophyStatements.forEach((statement, index) => {
+            gsap.from(statement, {
+              scrollTrigger: {
+                trigger: statement,
+                start: 'top 85%',
+              },
+              opacity: 0,
+              y: 50,
+              scale: 0.95,
+              duration: 1.2,
+              delay: index * 0.3,
+              ease: 'power3.out',
+            });
+          });
+
+          // Animate gradient text highlight
+          gsap.from('.philosophy-highlight', {
+            scrollTrigger: {
+              trigger: '.philosophy-highlight',
+              start: 'top 85%',
+            },
+            backgroundPosition: '200% center',
+            duration: 1.5,
+            ease: 'power2.out',
+          });
+
+          // Animate decorative dots
+          const philosophyDecoration = document.querySelector('.philosophy-decoration');
+          if (philosophyDecoration) {
+            gsap.from('.philosophy-decoration > div', {
+              scrollTrigger: {
+                trigger: philosophyDecoration,
+                start: 'top 90%',
+              },
+              scale: 0,
+              opacity: 0,
+              stagger: 0.15,
+              duration: 0.6,
+              ease: 'back.out(2)',
+            });
+          }
+
+          // Final CTA Section Animations
+          // GSAP for heading with split text
+          const ctaHeading = document.querySelector('#ctaHeading');
+          if (ctaHeading) {
+            const ctaSplit = new SplitType(ctaHeading, { types: 'words, chars' });
+            
+            gsap.from(ctaSplit.chars, {
+              scrollTrigger: {
+                trigger: '#final-cta',
+                start: 'top 80%',
+              },
+              opacity: 0,
+              y: 30,
+              rotateX: -45,
+              stagger: 0.015,
+              duration: 0.8,
+              ease: 'back.out(1.5)',
+            });
+          }
+
+          // Anime.js for CTA buttons
+          const ctaButtonsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                anime({
+                  targets: '.cta-button',
+                  translateY: [60, 0],
+                  opacity: [0, 1],
+                  scale: [0.9, 1],
+                  delay: anime.stagger(150, {start: 400}),
+                  duration: 1000,
+                  easing: 'easeOutExpo',
+                });
+                ctaButtonsObserver.disconnect();
+              }
+            });
+          }, { threshold: 0.3 });
+          
+          const ctaButtons = document.querySelector('.cta-buttons');
+          if (ctaButtons) {
+            ctaButtonsObserver.observe(ctaButtons);
+          }
+
+          // Hover effects for CTA buttons with anime.js
+          const allCtaButtons = document.querySelectorAll('.cta-button');
+          allCtaButtons.forEach((button) => {
+            button.addEventListener('mouseenter', () => {
+              anime({
+                targets: button,
+                scale: 1.08,
+                translateY: -8,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+            });
+
+            button.addEventListener('mouseleave', () => {
+              anime({
+                targets: button,
+                scale: 1,
+                translateY: 0,
+                duration: 400,
+                easing: 'easeOutCubic',
+              });
+            });
+          });
+
+          // Animate subtext
+          gsap.from('.cta-subtext', {
+            scrollTrigger: {
+              trigger: '.cta-subtext',
+              start: 'top 90%',
+            },
+            opacity: 0,
+            y: 20,
+            duration: 0.8,
+            ease: 'power2.out',
+          });
+        }
+
+        prefersReduced.addEventListener("change", () => {
+          window.location.reload();
+        });
+      }); // End DOMContentLoaded
+    </script>
+  </body>
+</html>
