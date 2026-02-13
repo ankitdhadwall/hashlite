@@ -1398,47 +1398,80 @@
           '7': '#a0cd45'
         };
 
+        let currentTab = 1;
+        let autoSlideInterval;
+
+        // Function to switch to a specific tab
+        function switchTab(serviceNum) {
+          // Remove active class from all buttons
+          tabButtons.forEach(btn => {
+            btn.classList.remove('active');
+            btn.style.border = '2px solid #e0e0e0';
+            btn.style.background = '#ffffff';
+            btn.style.color = '#666666';
+          });
+          
+          // Add active class to selected button
+          const activeButton = document.querySelector(`[data-service="${serviceNum}"]`);
+          if (activeButton) {
+            activeButton.classList.add('active');
+            activeButton.style.border = `2px solid ${serviceColors[serviceNum]}`;
+            activeButton.style.background = `linear-gradient(135deg, ${serviceColors[serviceNum]}15 0%, white 100%)`;
+            activeButton.style.color = '#000000';
+            
+            // Scroll tab into view
+            activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+          }
+          
+          // Hide all content
+          tabContents.forEach(content => {
+            content.style.display = 'none';
+            content.classList.remove('active');
+          });
+          
+          // Show selected content with animation
+          const activeContent = document.querySelector(`[data-content="${serviceNum}"]`);
+          if (activeContent) {
+            activeContent.style.display = 'block';
+            activeContent.classList.add('active');
+            
+            // Animate content entrance
+            anime({
+              targets: activeContent,
+              opacity: [0, 1],
+              translateY: [20, 0],
+              duration: 600,
+              easing: 'easeOutCubic'
+            });
+          }
+          
+          currentTab = parseInt(serviceNum);
+        }
+
+        // Auto-slide functionality
+        function startAutoSlide() {
+          autoSlideInterval = setInterval(() => {
+            currentTab = currentTab >= 7 ? 1 : currentTab + 1;
+            switchTab(currentTab.toString());
+          }, 5000); // Change tab every 5 seconds
+        }
+
+        function resetAutoSlide() {
+          clearInterval(autoSlideInterval);
+          startAutoSlide();
+        }
+
+        // Manual click handlers
         tabButtons.forEach(button => {
           button.addEventListener('click', () => {
             const serviceNum = button.getAttribute('data-service');
-            
-            // Remove active class from all buttons
-            tabButtons.forEach(btn => {
-              btn.classList.remove('active');
-              btn.style.border = '2px solid #e0e0e0';
-              btn.style.background = '#ffffff';
-              btn.style.color = '#666666';
-            });
-            
-            // Add active class to clicked button
-            button.classList.add('active');
-            button.style.border = `2px solid ${serviceColors[serviceNum]}`;
-            button.style.background = `linear-gradient(135deg, ${serviceColors[serviceNum]}15 0%, white 100%)`;
-            button.style.color = '#000000';
-            
-            // Hide all content
-            tabContents.forEach(content => {
-              content.style.display = 'none';
-              content.classList.remove('active');
-            });
-            
-            // Show selected content with animation
-            const activeContent = document.querySelector(`[data-content="${serviceNum}"]`);
-            if (activeContent) {
-              activeContent.style.display = 'block';
-              activeContent.classList.add('active');
-              
-              // Animate content entrance
-              anime({
-                targets: activeContent,
-                opacity: [0, 1],
-                translateY: [20, 0],
-                duration: 600,
-                easing: 'easeOutCubic'
-              });
-            }
+            switchTab(serviceNum);
+            resetAutoSlide(); // Reset auto-slide on manual click
           });
         });
+
+        // Start auto-sliding
+        startAutoSlide();
 
         // Progress bar
         function updateProgress() {
