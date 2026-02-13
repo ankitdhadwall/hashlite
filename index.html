@@ -1402,7 +1402,7 @@
         let autoSlideInterval;
 
         // Function to switch to a specific tab
-        function switchTab(serviceNum) {
+        function switchTab(serviceNum, shouldScroll = false) {
           // Remove active class from all buttons
           tabButtons.forEach(btn => {
             btn.classList.remove('active');
@@ -1419,8 +1419,19 @@
             activeButton.style.background = `linear-gradient(135deg, ${serviceColors[serviceNum]}15 0%, white 100%)`;
             activeButton.style.color = '#000000';
             
-            // Scroll tab into view
-            activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            // Only scroll tab button into view on manual click
+            if (shouldScroll) {
+              const tabsContainer = activeButton.closest('.services-tabs');
+              if (tabsContainer) {
+                const buttonRect = activeButton.getBoundingClientRect();
+                const containerRect = tabsContainer.getBoundingClientRect();
+                
+                // Scroll within container if button is not fully visible
+                if (buttonRect.left < containerRect.left || buttonRect.right > containerRect.right) {
+                  activeButton.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+              }
+            }
           }
           
           // Hide all content
@@ -1452,7 +1463,7 @@
         function startAutoSlide() {
           autoSlideInterval = setInterval(() => {
             currentTab = currentTab >= 7 ? 1 : currentTab + 1;
-            switchTab(currentTab.toString());
+            switchTab(currentTab.toString(), false); // Don't scroll on auto-slide
           }, 5000); // Change tab every 5 seconds
         }
 
@@ -1465,7 +1476,7 @@
         tabButtons.forEach(button => {
           button.addEventListener('click', () => {
             const serviceNum = button.getAttribute('data-service');
-            switchTab(serviceNum);
+            switchTab(serviceNum, true); // Allow scroll on manual click
             resetAutoSlide(); // Reset auto-slide on manual click
           });
         });
@@ -2341,12 +2352,12 @@
             gsap.from(dot, {
               scrollTrigger: {
                 trigger: item,
-                start: 'top 75%',
+                start: 'top 85%',
                 toggleActions: 'play none none none',
               },
               scale: 0,
               opacity: 0,
-              duration: 0.5,
+              duration: 0.3,
               ease: 'back.out(2)',
             });
 
@@ -2354,13 +2365,13 @@
             gsap.from(connector, {
               scrollTrigger: {
                 trigger: item,
-                start: 'top 75%',
+                start: 'top 85%',
                 toggleActions: 'play none none none',
               },
               scaleX: 0,
               transformOrigin: isRight ? 'left center' : 'right center',
-              duration: 0.6,
-              delay: 0.3,
+              duration: 0.35,
+              delay: 0.1,
               ease: 'power2.out',
             });
 
@@ -2368,13 +2379,13 @@
             gsap.from(content, {
               scrollTrigger: {
                 trigger: item,
-                start: 'top 75%',
+                start: 'top 85%',
                 toggleActions: 'play none none none',
               },
               x: isRight ? 100 : -100,
               opacity: 0,
-              duration: 0.8,
-              delay: 0.5,
+              duration: 0.4,
+              delay: 0.15,
               ease: 'power3.out',
             });
 
