@@ -55,30 +55,30 @@
       }
       
       .process-step {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
       }
       
       .process-step:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
       }
       
       .stat-card {
-        transition: all 0.3s ease;
+        transition: transform 0.4s ease-out;
       }
       
       .stat-card:hover {
-        transform: translateY(-5px);
+        transform: translateY(-8px);
       }
       
       .service-category {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
         border: 2px solid transparent;
       }
       
       .service-category:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -125,14 +125,14 @@
         <div class="absolute top-1/2 left-1/2 w-72 h-72 rounded-full blur-3xl floating-element" style="background: radial-gradient(circle, #a0cd45 0%, transparent 70%); animation-delay: 2s;"></div>
       </div>
 
-      <div class="relative mx-auto max-w-6xl">
+      <div class="relative mx-auto max-w-5xl">
         <div class="text-center mb-16">
-          <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight" style="color: #000000;">
-            AS A DIGITAL DESIGNER, I FOCUS ON
+          <h1 class="text-5xl font-bold leading-tight md:text-6xl lg:text-7xl mb-8" style="color: #000000; letter-spacing: -0.02em;">
+            Building <span style="color: #68cecf; font-weight: 800;">trust</span>, delivering <span style="color: #f876c0; font-weight: 800;">impact</span>, powered by <span style="color: #a0cd45; font-weight: 900;">AI</span>
           </h1>
-          <h2 class="text-5xl md:text-6xl lg:text-7xl font-bold mb-12" style="background: linear-gradient(135deg, #68cecf 0%, #f876c0 50%, #a0cd45 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">
-            PRODUCING TOP NOTCH AND IMPACTFUL DIGITAL EXPERIENCES.
-          </h2>
+          <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" style="color: #333333;">
+            HashLite is your strategic growth partner helping individuals, leaders, political parties, and corporates navigate the digital world with precision, creativity, and measurable results.
+          </p>
         </div>
 
         <!-- Skills Tags -->
@@ -141,9 +141,9 @@
           <span class="px-6 py-3 rounded-full text-sm font-bold border-2" style="border-color: #f876c0; color: #f876c0; background: rgba(248, 118, 192, 0.1);">Web Design & Development</span>
           <span class="px-6 py-3 rounded-full text-sm font-bold border-2" style="border-color: #a0cd45; color: #a0cd45; background: rgba(160, 205, 69, 0.1);">Email Marketing</span>
           <span class="px-6 py-3 rounded-full text-sm font-bold border-2" style="border-color: #f8c63f; color: #f8c63f; background: rgba(248, 198, 63, 0.1);">PPC Advertising</span>
-          <span class="px-6 py-3 rounded-full text-sm font-bold border-2" style="border-color: #68cecf; color: #68cecf; background: rgba(104, 206, 207, 0.1);">Content Calendar Development</span>
+          <span class="px-6 py-3 rounded-full text-sm font-bold border-2" style="border-color: #68cecf; color: #68cecf; background: rgba(104, 206, 207, 0.1);">Content Strategy</span>
           <span class="px-6 py-3 rounded-full text-sm font-bold border-2" style="border-color: #f876c0; color: #f876c0; background: rgba(248, 118, 192, 0.1);">Campaign Management</span>
-          <span class="px-6 py-3 rounded-full text-sm font-bold border-2" style="border-color: #a0cd45; color: #a0cd45; background: rgba(160, 205, 69, 0.1);">Holistic Digital Strategy</span>
+          <span class="px-6 py-3 rounded-full text-sm font-bold border-2" style="border-color: #a0cd45; color: #a0cd45; background: rgba(160, 205, 69, 0.1);">AI-Powered Growth</span>
           <span class="px-6 py-3 rounded-full text-sm font-bold border-2" style="border-color: #f8c63f; color: #f8c63f; background: rgba(248, 198, 63, 0.1);">SEO & Analytics</span>
         </div>
       </div>
@@ -152,17 +152,17 @@
     <!-- About Description Section -->
     <section class="relative py-24 px-6" style="background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);">
       <div class="mx-auto max-w-5xl">
-        <div class="space-y-8 text-lg leading-relaxed" style="color: #555555;">
-          <p class="text-2xl font-bold" style="color: #000000;">
-            HashLite is more than a digital agency — we're your strategic growth partner. We help individuals, leaders, political parties, and corporates navigate the ever-changing digital world with precision, creativity, and impact.
+        <div class="space-y-8 text-lg md:text-xl leading-relaxed" style="color: #333333;">
+          <p class="text-2xl md:text-3xl font-bold" style="color: #000000;">
+            HashLite is more than a digital agency — we're your strategic growth partner.
           </p>
           
           <p>
-            We specialize in creating bespoke digital roadmaps that build influence, foster engagement, and amplify voices across every platform. Our data-driven approach ensures measurable results while maintaining authentic connections with your target audience.
+            We help individuals, leaders, political parties, and corporates navigate the ever-changing digital world with precision, creativity, and impact. Our expertise spans AI-powered content creation, strategic marketing campaigns, and intelligent automation that delivers measurable results.
           </p>
           
           <p>
-            With years of experience across diverse industries, we understand that every client's journey is unique. That's why we develop customized strategies that align with your specific goals, values, and market position.
+            With years of experience across diverse industries, we understand that every client's journey is unique. That's why we develop customized strategies powered by AI that align with your specific goals, values, and market position — delivering speed, efficiency, and growth without the delays or overhead of traditional agencies.
           </p>
         </div>
       </div>
@@ -172,10 +172,10 @@
     <section class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);">
       <div class="mx-auto max-w-6xl">
         <div class="text-center mb-20">
-          <h2 class="text-5xl md:text-6xl font-bold mb-6" style="color: #000000;">
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="color: #000000;">
             Our <span style="color: #68cecf;">Process</span>
           </h2>
-          <p class="text-xl max-w-3xl mx-auto" style="color: #555555;">
+          <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" style="color: #333333;">
             A systematic approach that ensures transparency and measurable results throughout every phase of your digital journey.
           </p>
         </div>
@@ -188,7 +188,7 @@
               <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">🔍</span>
             </div>
             <h3 class="text-2xl font-bold mb-4" style="color: #000000;">Discovery & Strategy</h3>
-            <p class="text-base leading-relaxed" style="color: #555555;">
+            <p class="text-base leading-relaxed" style="color: #333333;">
               Understanding your goals, audience, and market position to craft a tailored digital roadmap.
             </p>
           </div>
@@ -199,7 +199,7 @@
               <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">✨</span>
             </div>
             <h3 class="text-2xl font-bold mb-4" style="color: #000000;">Content Creation</h3>
-            <p class="text-base leading-relaxed" style="color: #555555;">
+            <p class="text-base leading-relaxed" style="color: #333333;">
               Developing compelling narratives and visual assets that resonate with your target audience.
             </p>
           </div>
@@ -210,7 +210,7 @@
               <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">🚀</span>
             </div>
             <h3 class="text-2xl font-bold mb-4" style="color: #000000;">Campaign Execution</h3>
-            <p class="text-base leading-relaxed" style="color: #555555;">
+            <p class="text-base leading-relaxed" style="color: #333333;">
               Launching multi-channel campaigns with precision timing and strategic optimization.
             </p>
           </div>
@@ -221,7 +221,7 @@
               <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">📊</span>
             </div>
             <h3 class="text-2xl font-bold mb-4" style="color: #000000;">Analysis & Reporting</h3>
-            <p class="text-base leading-relaxed" style="color: #555555;">
+            <p class="text-base leading-relaxed" style="color: #333333;">
               Tracking performance metrics and providing transparent insights for continuous improvement.
             </p>
           </div>
@@ -234,7 +234,7 @@
     <section class="relative py-24 px-6" style="background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);">
       <div class="mx-auto max-w-6xl">
         <div class="text-center mb-20">
-          <h2 class="text-5xl md:text-6xl font-bold mb-6" style="color: #000000;">
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" style="color: #000000;">
             Who We <span style="color: #f876c0;">Serve</span>
           </h2>
         </div>
@@ -247,7 +247,7 @@
               <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">👤</span>
             </div>
             <h3 class="text-3xl font-bold mb-4" style="color: #000000;">Individual Branding</h3>
-            <p class="text-lg leading-relaxed mb-6" style="color: #555555;">
+            <p class="text-lg leading-relaxed mb-6" style="color: #333333;">
               Building your personal brand with a powerful digital identity that reflects your vision, values, and voice. We help thought leaders, entrepreneurs, and professionals establish authentic connections with their audience through strategic content and consistent messaging across all digital touchpoints.
             </p>
           </div>
@@ -258,7 +258,7 @@
               <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">🎯</span>
             </div>
             <h3 class="text-3xl font-bold mb-4" style="color: #000000;">Political & Party PR</h3>
-            <p class="text-lg leading-relaxed mb-6" style="color: #555555;">
+            <p class="text-lg leading-relaxed mb-6" style="color: #333333;">
               Shaping public perception and creating impactful narratives for leaders, candidates, and political parties to drive meaningful engagement. Our political communication expertise helps build trust, mobilize supporters, and navigate complex media landscapes with strategic messaging.
             </p>
           </div>
@@ -269,7 +269,7 @@
               <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">🏢</span>
             </div>
             <h3 class="text-3xl font-bold mb-4" style="color: #000000;">Corporate Branding & Digital Media</h3>
-            <p class="text-lg leading-relaxed mb-6" style="color: #555555;">
+            <p class="text-lg leading-relaxed mb-6" style="color: #333333;">
               Helping businesses strengthen their reputation, showcase expertise, and achieve sustainable growth through digital-first strategies. We develop comprehensive brand ecosystems that resonate with target markets and drive measurable business outcomes.
             </p>
           </div>
@@ -282,7 +282,7 @@
     <section class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);">
       <div class="mx-auto max-w-6xl">
         <div class="text-center mb-16">
-          <h2 class="text-5xl md:text-6xl font-bold mb-6 text-white">
+          <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
             Agency <span style="color: #68cecf;">Facts</span>
           </h2>
         </div>
@@ -320,10 +320,10 @@
     <!-- CTA Section -->
     <section class="relative py-24 px-6 overflow-hidden hero-gradient-bg">
       <div class="mx-auto max-w-5xl text-center">
-        <h2 class="text-5xl md:text-6xl font-bold mb-8" style="color: #000000;">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-8" style="color: #000000;">
           Ready to Transform Your <span style="color: #68cecf;">Digital Presence?</span>
         </h2>
-        <p class="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed mb-12" style="color: #555555;">
+        <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed mb-12" style="color: #333333;">
           Let's create something extraordinary together.
         </p>
         

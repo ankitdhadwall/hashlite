@@ -55,20 +55,20 @@
       }
       
       .service-card {
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
       }
       
       .service-card:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transform: translateY(-12px);
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
       }
       
       .service-icon {
-        transition: all 0.3s ease;
+        transition: transform 0.4s ease-out;
       }
       
       .service-card:hover .service-icon {
-        transform: scale(1.1) rotate(5deg);
+        transform: scale(1.15) rotate(8deg);
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -116,12 +116,11 @@
       </div>
 
       <div class="relative mx-auto max-w-5xl text-center">
-        <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-tight" style="color: #000000;">
-          Extended Service <br/>
-          <span style="color: #68cecf;">Portfolio</span>
+        <h1 class="text-5xl font-bold leading-tight md:text-6xl lg:text-7xl mb-8" style="color: #000000; letter-spacing: -0.02em;">
+          Our <span style="color: #68cecf; font-weight: 800;">Extended</span> Service <span style="color: #f876c0; font-weight: 800;">Portfolio</span>
         </h1>
-        <p class="text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed" style="color: #555555;">
-          We're a diverse team that works as fancies attention to details, enjoys beers on Friday nights and aspires to design the dent in the universe.
+        <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" style="color: #333333;">
+          From web design to political PR, we deliver AI-powered solutions that drive growth, engagement, and measurable results across every channel.
         </p>
       </div>
     </section>
@@ -138,7 +137,7 @@
             </div>
             <div class="flex-1">
               <h3 class="text-3xl font-bold mb-4" style="color: #000000;">WEB DESIGN & DEVELOPMENT</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
                 Custom website creation with responsive design, user experience optimization, and conversion-focused architecture.
               </p>
               <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #68cecf;">
@@ -157,7 +156,7 @@
             </div>
             <div class="flex-1">
               <h3 class="text-3xl font-bold mb-4" style="color: #000000;">SOCIAL MEDIA MANAGEMENT</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
                 Complete social media oversight including content creation, community management, and engagement optimization across all major platforms.
               </p>
               <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #f876c0;">
@@ -176,7 +175,7 @@
             </div>
             <div class="flex-1">
               <h3 class="text-3xl font-bold mb-4" style="color: #000000;">EMAIL MARKETING</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
                 Targeted email campaigns with automation, segmentation, and personalization to nurture leads and retain customers.
               </p>
               <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #a0cd45;">
@@ -195,7 +194,7 @@
             </div>
             <div class="flex-1">
               <h3 class="text-3xl font-bold mb-4" style="color: #000000;">PPC ADVERTISING</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
                 Paid search and social advertising campaigns optimized for maximum ROI and strategic audience targeting.
               </p>
               <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #f8c63f;">
@@ -214,7 +213,7 @@
             </div>
             <div class="flex-1">
               <h3 class="text-3xl font-bold mb-4" style="color: #000000;">POLITICAL & PARTY PR</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
                 Shaping public perception and creating impactful narratives for leaders, candidates, and political parties to drive meaningful engagement. Our political communication expertise helps build trust, mobilize supporters, and navigate complex media landscapes with strategic messaging.
               </p>
               <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #68cecf;">
@@ -233,7 +232,7 @@
             </div>
             <div class="flex-1">
               <h3 class="text-3xl font-bold mb-4" style="color: #000000;">CORPORATE BRANDING & DIGITAL MEDIA</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #555555;">
+              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
                 Helping businesses strengthen their reputation, showcase expertise, and achieve sustainable growth through digital-first strategies. We develop comprehensive brand ecosystems that resonate with target markets and drive measurable business outcomes.
               </p>
               <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #f876c0;">
@@ -250,16 +249,16 @@
     <!-- Our Clients Section -->
     <section class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);">
       <div class="mx-auto max-w-5xl text-center">
-        <h2 class="text-5xl md:text-6xl font-bold mb-12" style="color: #000000;">
+        <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-12" style="color: #000000;">
           Our <span style="color: #a0cd45;">Clients</span>
         </h2>
-        <p class="text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed mb-16" style="color: #555555;">
+        <p class="text-lg md:text-xl max-w-4xl mx-auto leading-relaxed mb-16" style="color: #333333;">
           Whether you're an individual looking to grow your personal brand, a political leader aiming to connect with the masses, or a corporate striving for digital dominance — HashLite is your trusted partner for strategic digital communication solutions.
         </p>
         
         <!-- CTA Button -->
         <a
-          href="index.html#cta"
+          href="index.html#final-cta"
           class="inline-block rounded-full px-12 py-5 text-lg font-bold text-white transition-all duration-300 hover:scale-105 hover:shadow-2xl"
           style="background: linear-gradient(135deg, #68cecf 0%, #a0cd45 100%); box-shadow: 0 10px 30px rgba(104, 206, 207, 0.3);"
         >
