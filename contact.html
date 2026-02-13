@@ -71,6 +71,37 @@
         transform: translateY(-12px);
         box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
       }
+
+      /* Mobile Menu Styles */
+      #mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+
+      #mobile-menu.active {
+        max-height: 400px;
+      }
+
+      .hamburger-line {
+        width: 25px;
+        height: 3px;
+        background: #333333;
+        transition: all 0.3s ease;
+        border-radius: 3px;
+      }
+
+      #hamburger-btn.active .hamburger-line:nth-child(1) {
+        transform: translateY(8px) rotate(45deg);
+      }
+
+      #hamburger-btn.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+
+      #hamburger-btn.active .hamburger-line:nth-child(3) {
+        transform: translateY(-8px) rotate(-45deg);
+      }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -87,28 +118,46 @@
       class="sticky top-0 z-[90] transition-all duration-300"
       style="background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid rgba(0, 0, 0, 0.1); box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);"
     >
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a href="index.html" class="flex items-center">
-          <img src="assets/logo.png" alt="HashLite" class="h-12" />
-        </a>
-        <nav class="hidden items-center gap-8 text-base font-bold md:flex" style="color: #374151;">
-          <a href="index.html" class="transition hover:text-gray-900" >Home</a>
-          <a href="about-us.html" class="transition hover:text-gray-900">About Us</a>
-          <a href="portfolio.html" class="transition hover:text-gray-900">Portfolio</a>
-          <a href="contact.html" class="transition hover:text-gray-900" style="color: #68cecf;">Contact Us</a>
-        </nav>
-        <a
-          href="#contact-form"
-          class="rounded-full px-6 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:shadow-lg"
-          style="background: #68cecf;"
-        >
-          Send a Message
-        </a>
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="flex items-center justify-between py-5">
+          <a href="index.html" class="flex items-center">
+            <img src="assets/logo.png" alt="HashLite" class="h-10 sm:h-12" />
+          </a>
+          <nav class="hidden items-center gap-8 text-base font-bold md:flex" style="color: #374151;">
+            <a href="index.html" class="transition hover:text-gray-900" >Home</a>
+            <a href="about-us.html" class="transition hover:text-gray-900">About Us</a>
+            <a href="portfolio.html" class="transition hover:text-gray-900">Portfolio</a>
+            <a href="contact.html" class="transition hover:text-gray-900" style="color: #68cecf;">Contact Us</a>
+          </nav>
+          <div class="flex items-center gap-4">
+            <a
+              href="#contact-form"
+              class="hidden md:block rounded-full px-6 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:shadow-lg"
+              style="background: #68cecf;"
+            >
+              Send a Message
+            </a>
+            <button id="hamburger-btn" class="md:hidden flex flex-col gap-1.5 p-2" aria-label="Toggle Menu">
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+              <span class="hamburger-line"></span>
+            </button>
+          </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden">
+          <div class="py-4 space-y-3">
+            <a href="index.html" class="block px-4 py-2 font-bold text-gray-700 hover:bg-gray-100 rounded-lg">Home</a>
+            <a href="about-us.html" class="block px-4 py-2 font-bold text-gray-700 hover:bg-gray-100 rounded-lg">About Us</a>
+            <a href="portfolio.html" class="block px-4 py-2 font-bold text-gray-700 hover:bg-gray-100 rounded-lg">Portfolio</a>
+            <a href="contact.html" class="block px-4 py-2 font-bold rounded-lg" style="color: #68cecf; background: rgba(104, 206, 207, 0.1);">Contact Us</a>
+            <a href="#contact-form" class="block px-4 py-3 font-bold text-white text-center rounded-full mt-4" style="background: #68cecf;">Send a Message</a>
+          </div>
+        </div>
       </div>
     </header>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden hero-gradient-bg py-32 px-6">
+    <section class="relative overflow-hidden hero-gradient-bg py-20 sm:py-24 md:py-32 px-6">
       <!-- Decorative elements -->
       <div class="absolute inset-0 opacity-30 pointer-events-none">
         <div class="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl floating-element" style="background: radial-gradient(circle, #68cecf 0%, transparent 70%);"></div>
@@ -117,10 +166,10 @@
       </div>
 
       <div class="relative mx-auto max-w-5xl text-center">
-        <h1 class="text-5xl font-bold leading-tight md:text-6xl lg:text-7xl mb-8" style="color: #000000; letter-spacing: -0.02em;">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8" style="color: #000000; letter-spacing: -0.02em;">
           Let's build your <span style="color: #68cecf; font-weight: 800;">AI-powered</span> growth <span style="color: #f876c0; font-weight: 800;">engine</span>
         </h1>
-        <p class="text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" style="color: #333333;">
+        <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" style="color: #333333;">
           Drop us a message and we'll get back within 24 hours to discuss how HashLite can accelerate your growth with AI-powered marketing, content, and automation.
         </p>
       </div>
@@ -384,6 +433,26 @@
 
     <!-- Scripts -->
     <script>
+      // Mobile Menu Toggle
+      const hamburgerBtn = document.getElementById('hamburger-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener('click', function() {
+          mobileMenu.classList.toggle('active');
+          hamburgerBtn.classList.toggle('active');
+        });
+
+        // Close menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+          link.addEventListener('click', function() {
+            mobileMenu.classList.remove('active');
+            hamburgerBtn.classList.remove('active');
+          });
+        });
+      }
+
       // Progress bar
       window.addEventListener('scroll', () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;

@@ -307,6 +307,33 @@
           opacity: 0;
         }
       }
+      
+      /* Mobile Menu Styles */
+      #mobile-menu {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out;
+      }
+      
+      #mobile-menu.active {
+        max-height: 400px;
+      }
+      
+      .hamburger-line {
+        transition: all 0.3s ease;
+      }
+      
+      #hamburger-btn.active .hamburger-line:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
+      }
+      
+      #hamburger-btn.active .hamburger-line:nth-child(2) {
+        opacity: 0;
+      }
+      
+      #hamburger-btn.active .hamburger-line:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
+      }
     </style>
   </head>
   <body class="bg-white text-gray-900">
@@ -324,29 +351,57 @@
       class="sticky top-0 z-[90] transition-all duration-300"
       style="background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 249, 255, 0.95) 25%, rgba(254, 243, 248, 0.95) 50%, rgba(247, 255, 230, 0.95) 75%, rgba(255, 255, 255, 0.95) 100%); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-bottom: 1px solid transparent; box-shadow: none;"
     >
-      <div class="mx-auto flex max-w-6xl items-center justify-between px-6 py-5">
-        <a href="index.html" class="flex items-center">
-          <img src="assets/logo.png" alt="HashLite" class="h-12" />
-        </a>
-        <nav class="hidden items-center gap-8 text-base font-bold md:flex" style="color: #374151;">
-          <a href="index.html" class="transition hover:text-gray-900" style="color: #68cecf;">Home</a>
-          <a href="about-us.html" class="transition hover:text-gray-900">About Us</a>
-          <a href="portfolio.html" class="transition hover:text-gray-900">Portfolio</a>
-          <a href="contact.html" class="transition hover:text-gray-900">Contact Us</a>
-        </nav>
-        <a
-          href="#final-cta"
-          class="rounded-full px-6 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:shadow-lg"
-          style="background: #68cecf;"
-        >
-          Book a Strategy Call
-        </a>
+      <div class="mx-auto max-w-6xl px-4 sm:px-6">
+        <div class="flex items-center justify-between py-4 sm:py-5">
+          <a href="index.html" class="flex items-center">
+            <img src="assets/logo.png" alt="HashLite" class="h-10 sm:h-12" />
+          </a>
+          
+          <!-- Desktop Navigation -->
+          <nav class="hidden items-center gap-8 text-base font-bold md:flex" style="color: #374151;">
+            <a href="index.html" class="transition hover:text-gray-900" style="color: #68cecf;">Home</a>
+            <a href="about-us.html" class="transition hover:text-gray-900">About Us</a>
+            <a href="portfolio.html" class="transition hover:text-gray-900">Portfolio</a>
+            <a href="contact.html" class="transition hover:text-gray-900">Contact Us</a>
+          </nav>
+          
+          <!-- Desktop CTA Button -->
+          <a
+            href="#final-cta"
+            class="hidden md:inline-block rounded-full px-6 py-2.5 text-sm font-medium text-white transition hover:-translate-y-0.5 hover:shadow-lg"
+            style="background: #68cecf;"
+          >
+            Book a Strategy Call
+          </a>
+          
+          <!-- Mobile Menu Button -->
+          <button
+            id="hamburger-btn"
+            class="md:hidden flex flex-col gap-1.5 p-2"
+            aria-label="Toggle menu"
+          >
+            <span class="hamburger-line block w-6 h-0.5 bg-gray-900"></span>
+            <span class="hamburger-line block w-6 h-0.5 bg-gray-900"></span>
+            <span class="hamburger-line block w-6 h-0.5 bg-gray-900"></span>
+          </button>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden">
+          <div class="py-4 space-y-3">
+            <a href="index.html" class="block px-4 py-2 font-bold rounded-lg" style="color: #68cecf; background: rgba(104, 206, 207, 0.1);">Home</a>
+            <a href="about-us.html" class="block px-4 py-2 font-bold text-gray-700 hover:bg-gray-100 rounded-lg">About Us</a>
+            <a href="portfolio.html" class="block px-4 py-2 font-bold text-gray-700 hover:bg-gray-100 rounded-lg">Portfolio</a>
+            <a href="contact.html" class="block px-4 py-2 font-bold text-gray-700 hover:bg-gray-100 rounded-lg">Contact Us</a>
+            <a href="#final-cta" class="block px-4 py-3 font-bold text-white text-center rounded-full mt-4" style="background: #68cecf;">Book a Strategy Call</a>
+          </div>
+        </div>
       </div>
     </header>
 
     <main class="relative overflow-hidden hero-gradient-bg">
 
-      <section id="hero" class="relative w-full" style="min-height: 100vh; padding-top: 80px; padding-bottom: 80px;">
+      <section id="hero" class="relative w-full" style="min-height: 100vh; padding-top: 60px; padding-bottom: 60px;">
         
         <!-- AI Growth Engine Animation (5s loop) -->
         <div class="growth-engine-animation absolute inset-0 overflow-hidden pointer-events-none" style="opacity: 0.15;">
@@ -505,11 +560,11 @@
         </div>
         
         <!-- Content Container with max-width -->
-        <div class="relative mx-auto max-w-7xl px-6">
+        <div class="relative mx-auto max-w-7xl px-4 sm:px-6">
           <div class="relative text-center mx-auto max-w-5xl" style="padding-top: 0px;">
             <h1
               id="heroHeadline"
-              class="text-5xl font-bold leading-tight md:text-6xl lg:text-7xl"
+              class="text-4xl font-bold leading-tight sm:text-5xl md:text-6xl lg:text-7xl"
               style="color: #000000; letter-spacing: -0.02em; position: relative; z-index: 10;"
             >
               We build <span style="color: #68cecf; font-weight: 800;">brands</span>, <span style="color: #f876c0; font-weight: 800;">launches</span>, and <span style="color: #68cecf; font-weight: 800;">sales engines</span>, powered by <span style="color: #a0cd45; font-weight: 900;">AI</span> to <span style="color: #f876c0; font-weight: 800;">scale faster</span>.
@@ -1071,7 +1126,7 @@
                 <div class="flex items-center justify-start md:pl-12">
                   <div class="w-full md:w-1/2 pr-4 md:pr-12">
                     <div class="timeline-content relative group rounded-2xl p-8 border-2 transition-all duration-500" style="background: linear-gradient(135deg, rgba(248, 118, 192, 0.1) 0%, #ffffff 100%); border-color: rgba(248, 118, 192, 0.3);">
-                      <div class="absolute -top-8 -left-8 w-20 h-20 rounded-full flex items-center justify-center text-4xl" style="background: linear-gradient(135deg, #f876c0 0%, #e55fa5 100%); box-shadow: 0 10px 30px rgba(248, 118, 192, 0.4); z-index: 10;">💰</div>
+                      <div class="absolute -top-3 md:-top-8 -right-3 md:-left-8 w-16 md:w-20 h-16 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl" style="background: linear-gradient(135deg, #f876c0 0%, #e55fa5 100%); box-shadow: 0 10px 30px rgba(248, 118, 192, 0.4); z-index: 10;">💰</div>
                       <h3 class="text-2xl font-bold mb-3" style="color: #000000;">Lower Production Cost</h3>
                       <p class="text-lg" style="color: #666666;">AI automation cuts costs by 60-80%</p>
                       <div class="timeline-connector absolute top-1/2 -right-8 md:-right-12 w-8 md:w-12 h-0.5" style="background: rgba(248, 118, 192, 0.3);"></div>
@@ -1107,7 +1162,7 @@
                 <div class="flex items-center justify-start md:pl-12">
                   <div class="w-full md:w-1/2 pr-4 md:pr-12">
                     <div class="timeline-content relative group rounded-2xl p-8 border-2 transition-all duration-500" style="background: linear-gradient(135deg, rgba(248, 198, 63, 0.1) 0%, #ffffff 100%); border-color: rgba(248, 198, 63, 0.3);">
-                      <div class="absolute -top-8 -left-8 w-20 h-20 rounded-full flex items-center justify-center text-4xl" style="background: linear-gradient(135deg, #f8c63f 0%, #e0af38 100%); box-shadow: 0 10px 30px rgba(248, 198, 63, 0.4); z-index: 10;">🎯</div>
+                      <div class="absolute -top-3 md:-top-8 -right-3 md:-left-8 w-16 md:w-20 h-16 md:h-20 rounded-full flex items-center justify-center text-3xl md:text-4xl" style="background: linear-gradient(135deg, #f8c63f 0%, #e0af38 100%); box-shadow: 0 10px 30px rgba(248, 198, 63, 0.4); z-index: 10;">🎯</div>
                       <h3 class="text-2xl font-bold mb-3" style="color: #000000;">Better Targeting</h3>
                       <p class="text-lg" style="color: #666666;">AI-powered audience precision</p>
                       <div class="timeline-connector absolute top-1/2 -right-8 md:-right-12 w-8 md:w-12 h-0.5" style="background: rgba(248, 198, 63, 0.3);"></div>
@@ -1491,6 +1546,26 @@
       
       document.addEventListener("DOMContentLoaded", function () {
         const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+        // Mobile Menu Toggle
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        if (hamburgerBtn && mobileMenu) {
+          hamburgerBtn.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+            hamburgerBtn.classList.toggle('active');
+          });
+
+          // Close menu when clicking on a link
+          const mobileLinks = mobileMenu.querySelectorAll('a');
+          mobileLinks.forEach(link => {
+            link.addEventListener('click', function() {
+              mobileMenu.classList.remove('active');
+              hamburgerBtn.classList.remove('active');
+            });
+          });
+        }
 
         // Tab Switching for What We Do Section
         const tabButtons = document.querySelectorAll('.service-tab');
