@@ -110,21 +110,8 @@
         animation: float 6s ease-in-out infinite;
       }
       
-      .service-card {
-        transition: transform 0.5s ease-out, box-shadow 0.5s ease-out;
-      }
-      
-      .service-card:hover {
-        transform: translateY(-12px);
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-      }
-      
       .service-icon {
         transition: transform 0.4s ease-out;
-      }
-      
-      .service-card:hover .service-icon {
-        transform: scale(1.15) rotate(8deg);
       }
 
       /* Mobile Menu Styles */
@@ -156,6 +143,229 @@
 
       #hamburger-btn.active .hamburger-line:nth-child(3) {
         transform: translateY(-8px) rotate(-45deg);
+      }
+
+      /* Portfolio Hero Slider */
+      .pf-carousel {
+        width: 100%;
+        height: min(92vh, 860px);
+        min-height: 620px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .pf-carousel .pf-list .pf-item {
+        width: 170px;
+        height: 240px;
+        position: absolute;
+        top: 82%;
+        transform: translateY(-70%);
+        left: 68%;
+        border-radius: 18px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        background-position: center;
+        background-size: cover;
+        z-index: 10;
+        transition: 1s;
+        overflow: hidden;
+      }
+
+      .pf-carousel .pf-list .pf-item::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(120deg, rgba(0, 0, 0, 0.48) 0%, rgba(0, 0, 0, 0.28) 45%, rgba(0, 0, 0, 0.22) 100%);
+      }
+
+      .pf-carousel .pf-list .pf-item:nth-child(1),
+      .pf-carousel .pf-list .pf-item:nth-child(2) {
+        top: 0;
+        left: 0;
+        transform: translate(0, 0);
+        border-radius: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .pf-carousel .pf-list .pf-item:nth-child(3) { left: 66%; }
+      .pf-carousel .pf-list .pf-item:nth-child(4) { left: calc(66% + 190px); }
+      .pf-carousel .pf-list .pf-item:nth-child(5) { left: calc(66% + 380px); }
+      .pf-carousel .pf-list .pf-item:nth-child(6) { left: calc(66% + 570px); }
+      .pf-carousel .pf-list .pf-item:nth-child(n + 7) {
+        left: calc(66% + 760px);
+        opacity: 0;
+      }
+
+      .pf-item .pf-content {
+        position: absolute;
+        top: 50%;
+        left: min(8vw, 110px);
+        transform: translateY(-50%);
+        width: min(700px, 78vw);
+        text-align: left;
+        color: #ffffff;
+        display: none;
+        z-index: 2;
+      }
+
+      .pf-list .pf-item:nth-child(2) .pf-content {
+        display: block;
+      }
+
+      .pf-content .pf-title {
+        font-size: clamp(22px, 3.2vw, 44px);
+        text-transform: uppercase;
+        color: #68cecf;
+        font-weight: 800;
+        line-height: 1.1;
+        opacity: 0;
+        letter-spacing: 0.04em;
+        animation: pfAnimate 0.8s ease-in-out 0.2s 1 forwards;
+      }
+
+      .pf-content .pf-name {
+        font-size: clamp(34px, 6.2vw, 92px);
+        text-transform: uppercase;
+        font-weight: 900;
+        line-height: 1;
+        text-shadow: 2px 3px 18px rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        animation: pfAnimate 0.8s ease-in-out 0.45s 1 forwards;
+      }
+
+      .pf-content .pf-des {
+        margin-top: 12px;
+        margin-bottom: 24px;
+        font-size: clamp(15px, 1.4vw, 21px);
+        max-width: 900px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.95);
+        opacity: 0;
+        animation: pfAnimate 0.8s ease-in-out 0.7s 1 forwards;
+      }
+
+      .pf-content .pf-btn {
+        display: flex;
+        gap: 12px;
+        opacity: 0;
+        animation: pfAnimate 0.8s ease-in-out 0.9s 1 forwards;
+      }
+
+      .pf-content .pf-btn a {
+        padding: 11px 20px;
+        border-radius: 9999px;
+        text-decoration: none;
+        font-size: 15px;
+        font-weight: 700;
+        border: 2px solid rgba(255, 255, 255, 0.92);
+        transition: 0.25s;
+      }
+
+      .pf-content .pf-btn a:first-child {
+        background: #68cecf;
+        border-color: #68cecf;
+        color: #ffffff;
+      }
+
+      .pf-content .pf-btn a:first-child:hover {
+        background: #5bb8b9;
+        border-color: #5bb8b9;
+      }
+
+      .pf-content .pf-btn a:last-child {
+        background: transparent;
+        color: #ffffff;
+      }
+
+      .pf-content .pf-btn a:last-child:hover {
+        background: rgba(255, 255, 255, 0.16);
+      }
+
+      @keyframes pfAnimate {
+        from {
+          opacity: 0;
+          transform: translateY(44px);
+          filter: blur(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+          filter: blur(0);
+        }
+      }
+
+      .pf-arrows {
+        position: absolute;
+        right: clamp(18px, 4vw, 56px);
+        bottom: clamp(18px, 4vw, 38px);
+        z-index: 30;
+        display: flex;
+        gap: 10px;
+      }
+
+      .pf-arrows button {
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: rgba(104, 206, 207, 0.92);
+        color: #ffffff;
+        border: none;
+        font-size: 18px;
+        font-weight: 800;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .pf-arrows button:hover {
+        background: #ffffff;
+        color: #111827;
+      }
+
+      .pf-timeRunning {
+        position: absolute;
+        z-index: 40;
+        width: 0%;
+        height: 4px;
+        background: linear-gradient(90deg, #68cecf, #a0cd45, #f876c0);
+        left: 0;
+        top: 0;
+        animation: pfRunningTime 7s linear 1 forwards;
+      }
+
+      @keyframes pfRunningTime {
+        from { width: 0%; }
+        to { width: 100%; }
+      }
+
+      @media screen and (max-width: 980px) {
+        .pf-carousel { min-height: 580px; }
+        .pf-item .pf-content { left: 48px; width: calc(100% - 80px); }
+        .pf-arrows {
+          right: 32px;
+          bottom: 24px;
+        }
+        .pf-carousel .pf-list .pf-item:nth-child(3) { left: 62%; }
+        .pf-carousel .pf-list .pf-item:nth-child(4) { left: calc(62% + 170px); }
+      }
+
+      @media screen and (max-width: 720px) {
+        .pf-carousel { min-height: 560px; }
+        .pf-item .pf-content { left: 20px; width: calc(100% - 34px); top: 45%; }
+        .pf-content .pf-name { line-height: 1.05; }
+        .pf-content .pf-btn { flex-wrap: wrap; }
+        .pf-arrows {
+          right: 16px;
+          bottom: 20px;
+        }
+        .pf-carousel .pf-list .pf-item {
+          width: 120px;
+          height: 170px;
+          top: 84%;
+          left: 62%;
+        }
+        .pf-carousel .pf-list .pf-item:nth-child(3) { left: 61%; }
+        .pf-carousel .pf-list .pf-item:nth-child(4) { left: calc(61% + 130px); }
+        .pf-carousel .pf-list .pf-item:nth-child(5) { left: calc(61% + 260px); }
       }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
@@ -220,147 +430,93 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="relative overflow-hidden hero-gradient-bg py-20 sm:py-24 md:py-32 px-6">
-      <!-- Decorative elements -->
-      <div class="absolute inset-0 opacity-30 pointer-events-none">
-        <div class="absolute top-20 right-20 w-96 h-96 rounded-full blur-3xl floating-element" style="background: radial-gradient(circle, #68cecf 0%, transparent 70%);"></div>
-        <div class="absolute bottom-20 left-20 w-80 h-80 rounded-full blur-3xl floating-element" style="background: radial-gradient(circle, #f876c0 0%, transparent 70%); animation-delay: 1s;"></div>
-        <div class="absolute top-1/2 left-1/2 w-72 h-72 rounded-full blur-3xl floating-element" style="background: radial-gradient(circle, #a0cd45 0%, transparent 70%); animation-delay: 2s;"></div>
-      </div>
-
-      <div class="relative mx-auto max-w-5xl text-center">
-        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-8" style="color: #000000; letter-spacing: -0.02em;">
-          Our <span style="color: #68cecf; font-weight: 800;">Extended</span> Service <span style="color: #f876c0; font-weight: 800;">Portfolio</span>
-        </h1>
-        <p class="text-base sm:text-lg md:text-xl max-w-3xl mx-auto leading-relaxed" style="color: #333333;">
-          From web design to political PR, we deliver AI-powered solutions that drive growth, engagement, and measurable results across every channel.
-        </p>
-      </div>
-    </section>
-
-    <!-- Services Grid Section -->
-    <section class="relative py-12 sm:py-16 md:py-24 px-6" style="background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);">
-      <div class="mx-auto max-w-7xl">
-        
-        <!-- Service 1: Web Design & Development -->
-        <div class="service-card mb-12 p-6 sm:p-8 md:p-10 rounded-3xl" style="background: linear-gradient(135deg, rgba(104, 206, 207, 0.08) 0%, #ffffff 100%); border: 1px solid rgba(104, 206, 207, 0.2);">
-          <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-            <div class="service-icon flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl" style="background: linear-gradient(135deg, #68cecf 0%, #5bb8b9 100%); box-shadow: 0 8px 24px rgba(104, 206, 207, 0.3);">
-              <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">🌐</span>
+    <section class="relative overflow-hidden" aria-label="Portfolio Hero Slider">
+      <div class="pf-carousel" id="pfCarousel">
+        <div class="pf-list" id="pfList">
+          <div class="pf-item" style="background-image: url('https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?w=2200&q=80&auto=format&fit=crop');">
+            <div class="pf-content">
+              <div class="pf-title">HashLite Portfolio</div>
+              <div class="pf-name">Web Design & Development</div>
+              <div class="pf-des">Custom website creation with responsive design, user experience optimization, and conversion-focused architecture.</div>
+              <div class="pf-btn">
+                <a href="contact.html">Learn More</a>
+                <a href="#our-clients">Our Clients</a>
+              </div>
             </div>
-            <div class="flex-1">
-              <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style="color: #000000;">WEB DESIGN & DEVELOPMENT</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
-                Custom website creation with responsive design, user experience optimization, and conversion-focused architecture.
-              </p>
-              <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #68cecf;">
-                <span>Learn More</span>
-                <span>→</span>
-              </a>
+          </div>
+
+          <div class="pf-item" style="background-image: url('https://images.unsplash.com/photo-1611162616475-46b635cb6868?w=2200&q=80&auto=format&fit=crop');">
+            <div class="pf-content">
+              <div class="pf-title">Extended Service Portfolio</div>
+              <div class="pf-name">Social Media Management</div>
+              <div class="pf-des">Complete social media oversight including content creation, community management, and engagement optimization across all major platforms.</div>
+              <div class="pf-btn">
+                <a href="contact.html">Learn More</a>
+                <a href="#our-clients">Our Clients</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="pf-item" style="background-image: url('https://images.unsplash.com/photo-1557838923-2985c318be48?w=2200&q=80&auto=format&fit=crop');">
+            <div class="pf-content">
+              <div class="pf-title">Extended Service Portfolio</div>
+              <div class="pf-name">Email Marketing</div>
+              <div class="pf-des">Targeted email campaigns with automation, segmentation, and personalization to nurture leads and retain customers.</div>
+              <div class="pf-btn">
+                <a href="contact.html">Learn More</a>
+                <a href="#our-clients">Our Clients</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="pf-item" style="background-image: url('https://images.unsplash.com/photo-1562577309-4932fdd64cd1?w=2200&q=80&auto=format&fit=crop');">
+            <div class="pf-content">
+              <div class="pf-title">Extended Service Portfolio</div>
+              <div class="pf-name">PPC Advertising</div>
+              <div class="pf-des">Paid search and social advertising campaigns optimized for maximum ROI and strategic audience targeting.</div>
+              <div class="pf-btn">
+                <a href="contact.html">Learn More</a>
+                <a href="#our-clients">Our Clients</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="pf-item" style="background-image: url('https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?w=2200&q=80&auto=format&fit=crop');">
+            <div class="pf-content">
+              <div class="pf-title">Extended Service Portfolio</div>
+              <div class="pf-name">Political & Party PR</div>
+              <div class="pf-des">Shaping public perception and creating impactful narratives for leaders, candidates, and political parties to drive meaningful engagement.</div>
+              <div class="pf-btn">
+                <a href="contact.html">Learn More</a>
+                <a href="#our-clients">Our Clients</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="pf-item" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=2200&q=80&auto=format&fit=crop');">
+            <div class="pf-content">
+              <div class="pf-title">Our Extended Service Portfolio</div>
+              <div class="pf-name">Corporate Branding & Digital Media</div>
+              <div class="pf-des">Helping businesses strengthen their reputation, showcase expertise, and achieve sustainable growth through digital-first strategies.</div>
+              <div class="pf-btn">
+                <a href="contact.html">Learn More</a>
+                <a href="#our-clients">Our Clients</a>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Service 2: Social Media Management -->
-        <div class="service-card mb-12 p-6 sm:p-8 md:p-10 rounded-3xl" style="background: linear-gradient(135deg, rgba(248, 118, 192, 0.08) 0%, #ffffff 100%); border: 1px solid rgba(248, 118, 192, 0.2);">
-          <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-            <div class="service-icon flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl" style="background: linear-gradient(135deg, #f876c0 0%, #e55fa5 100%); box-shadow: 0 8px 24px rgba(248, 118, 192, 0.3);">
-              <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">📱</span>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style="color: #000000;">SOCIAL MEDIA MANAGEMENT</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
-                Complete social media oversight including content creation, community management, and engagement optimization across all major platforms.
-              </p>
-              <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #f876c0;">
-                <span>Learn More</span>
-                <span>→</span>
-              </a>
-            </div>
-          </div>
+        <div class="pf-arrows">
+          <button class="pf-prev" aria-label="Previous Slide">&lt;</button>
+          <button class="pf-next" aria-label="Next Slide">&gt;</button>
         </div>
 
-        <!-- Service 3: Email Marketing -->
-        <div class="service-card mb-12 p-6 sm:p-8 md:p-10 rounded-3xl" style="background: linear-gradient(135deg, rgba(160, 205, 69, 0.08) 0%, #ffffff 100%); border: 1px solid rgba(160, 205, 69, 0.2);">
-          <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-            <div class="service-icon flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl" style="background: linear-gradient(135deg, #a0cd45 0%, #8bb635 100%); box-shadow: 0 8px 24px rgba(160, 205, 69, 0.3);">
-              <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">📧</span>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style="color: #000000;">EMAIL MARKETING</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
-                Targeted email campaigns with automation, segmentation, and personalization to nurture leads and retain customers.
-              </p>
-              <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #a0cd45;">
-                <span>Learn More</span>
-                <span>→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 4: PPC Advertising -->
-        <div class="service-card mb-12 p-6 sm:p-8 md:p-10 rounded-3xl" style="background: linear-gradient(135deg, rgba(248, 198, 63, 0.08) 0%, #ffffff 100%); border: 1px solid rgba(248, 198, 63, 0.2);">
-          <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-            <div class="service-icon flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl" style="background: linear-gradient(135deg, #f8c63f 0%, #e0ae35 100%); box-shadow: 0 8px 24px rgba(248, 198, 63, 0.3);">
-              <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">💰</span>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style="color: #000000;">PPC ADVERTISING</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
-                Paid search and social advertising campaigns optimized for maximum ROI and strategic audience targeting.
-              </p>
-              <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #f8c63f;">
-                <span>Learn More</span>
-                <span>→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 5: Political & Party PR -->
-        <div class="service-card mb-12 p-6 sm:p-8 md:p-10 rounded-3xl" style="background: linear-gradient(135deg, rgba(104, 206, 207, 0.08) 0%, #ffffff 100%); border: 1px solid rgba(104, 206, 207, 0.2);">
-          <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-            <div class="service-icon flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl" style="background: linear-gradient(135deg, #68cecf 0%, #5bb8b9 100%); box-shadow: 0 8px 24px rgba(104, 206, 207, 0.3);">
-              <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">🎯</span>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style="color: #000000;">POLITICAL & PARTY PR</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
-                Shaping public perception and creating impactful narratives for leaders, candidates, and political parties to drive meaningful engagement. Our political communication expertise helps build trust, mobilize supporters, and navigate complex media landscapes with strategic messaging.
-              </p>
-              <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #68cecf;">
-                <span>Learn More</span>
-                <span>→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <!-- Service 6: Corporate Branding & Digital Media -->
-        <div class="service-card mb-12 p-6 sm:p-8 md:p-10 rounded-3xl" style="background: linear-gradient(135deg, rgba(248, 118, 192, 0.08) 0%, #ffffff 100%); border: 1px solid rgba(248, 118, 192, 0.2);">
-          <div class="flex flex-col sm:flex-row items-start gap-4 sm:gap-6">
-            <div class="service-icon flex-shrink-0 w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center text-3xl sm:text-4xl" style="background: linear-gradient(135deg, #f876c0 0%, #e55fa5 100%); box-shadow: 0 8px 24px rgba(248, 118, 192, 0.3);">
-              <span style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">🏢</span>
-            </div>
-            <div class="flex-1">
-              <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4" style="color: #000000;">CORPORATE BRANDING & DIGITAL MEDIA</h3>
-              <p class="text-lg mb-6 leading-relaxed" style="color: #333333;">
-                Helping businesses strengthen their reputation, showcase expertise, and achieve sustainable growth through digital-first strategies. We develop comprehensive brand ecosystems that resonate with target markets and drive measurable business outcomes.
-              </p>
-              <a href="contact.html" class="inline-flex items-center gap-2 text-lg font-semibold transition hover:gap-4" style="color: #f876c0;">
-                <span>Learn More</span>
-                <span>→</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
+        <div class="pf-timeRunning" id="pfTimeRunning"></div>
       </div>
     </section>
 
     <!-- Our Clients Section -->
-    <section class="relative py-12 sm:py-16 md:py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);">
+    <section id="our-clients" class="relative py-12 sm:py-16 md:py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);">
       <div class="mx-auto max-w-5xl text-center">
         <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-8 sm:mb-12" style="color: #000000;">
           Our <span style="color: #a0cd45;">Clients</span>
@@ -497,6 +653,64 @@
         });
       }
 
+      // Portfolio Hero Slider
+      (function () {
+        const carousel = document.getElementById('pfCarousel');
+        const list = document.getElementById('pfList');
+        const nextBtn = document.querySelector('.pf-next');
+        const prevBtn = document.querySelector('.pf-prev');
+        const runningTime = document.getElementById('pfTimeRunning');
+
+        if (!carousel || !list || !nextBtn || !prevBtn || !runningTime) return;
+
+        const timeRunning = 1000;
+        const timeAutoNext = 7000;
+        let runTimeOut;
+        let runNextAuto;
+
+        function resetTimeAnimation() {
+          runningTime.style.animation = 'none';
+          runningTime.offsetHeight;
+          runningTime.style.animation = null;
+          runningTime.style.animation = 'pfRunningTime 7s linear 1 forwards';
+        }
+
+        function showSlider(type) {
+          const sliderItemsDom = list.querySelectorAll('.pf-item');
+          if (!sliderItemsDom.length) return;
+
+          if (type === 'next') {
+            list.appendChild(sliderItemsDom[0]);
+            carousel.classList.add('next');
+          } else {
+            list.prepend(sliderItemsDom[sliderItemsDom.length - 1]);
+            carousel.classList.add('prev');
+          }
+
+          clearTimeout(runTimeOut);
+          runTimeOut = setTimeout(() => {
+            carousel.classList.remove('next');
+            carousel.classList.remove('prev');
+          }, timeRunning);
+
+          clearTimeout(runNextAuto);
+          runNextAuto = setTimeout(() => {
+            nextBtn.click();
+          }, timeAutoNext);
+
+          resetTimeAnimation();
+        }
+
+        nextBtn.addEventListener('click', () => showSlider('next'));
+        prevBtn.addEventListener('click', () => showSlider('prev'));
+
+        runNextAuto = setTimeout(() => {
+          nextBtn.click();
+        }, timeAutoNext);
+
+        resetTimeAnimation();
+      })();
+
       // Progress bar
       window.addEventListener('scroll', () => {
         const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -507,22 +721,6 @@
 
       // GSAP Scroll Animations
       gsap.registerPlugin(ScrollTrigger);
-
-      // Animate service cards
-      gsap.utils.toArray('.service-card').forEach((card, index) => {
-        gsap.from(card, {
-          scrollTrigger: {
-            trigger: card,
-            start: 'top 85%',
-            toggleActions: 'play none none none',
-          },
-          opacity: 0,
-          y: 50,
-          duration: 0.8,
-          delay: index * 0.1,
-          ease: 'power2.out',
-        });
-      });
 
       // Smooth scroll for anchor links
       document.querySelectorAll('a[href^="#"]').forEach(anchor => {
