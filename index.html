@@ -190,6 +190,38 @@
         border: 1px solid rgba(104, 206, 207, 0.6);
       }
       
+      /* Float Bubbles Animation */
+      @keyframes floatBubbles {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+        }
+        25% {
+          transform: translate(20px, -15px) scale(1.02);
+        }
+        50% {
+          transform: translate(-15px, -25px) scale(0.98);
+        }
+        75% {
+          transform: translate(15px, -10px) scale(1.01);
+        }
+      }
+      
+      /* Float Chat Bubble Animation */
+      @keyframes floatChat {
+        0%, 100% {
+          transform: translateY(0) rotate(0deg);
+        }
+        25% {
+          transform: translateY(-10px) rotate(2deg);
+        }
+        50% {
+          transform: translateY(-20px) rotate(-2deg);
+        }
+        75% {
+          transform: translateY(-10px) rotate(1deg);
+        }
+      }
+      
       /* Gradient Layer Animations */
       @keyframes float-layer-1 {
         0%, 100% {
@@ -1106,6 +1138,11 @@
 
       <!-- Why HashLite Section -->
       <section id="why-hashlite" class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);">
+        <!-- Animated Background Bubbles -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center" style="z-index: 0;">
+          <img src="assets/Bubbles.webp" alt="" class="max-w-4xl w-full h-auto opacity-20" style="animation: floatBubbles 20s ease-in-out infinite;">
+        </div>
+        
         <!-- Decorative elements -->
         <div class="absolute inset-0 opacity-20">
           <div class="absolute top-20 right-20 w-80 h-80 rounded-full blur-3xl" style="background: linear-gradient(135deg, #68cecf 0%, #f876c0 100%);"></div>
@@ -1250,6 +1287,10 @@
 
       <!-- Who We Work With Section -->
       <section id="who-we-work-with" class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);">
+        <!-- Background Image on Right -->
+        <div class="absolute right-0 top-0 h-full w-auto" style="z-index: 0;">
+          <img src="assets/hashlite_right.png" alt="" class="h-full w-auto object-cover opacity-60">
+        </div>
         <div class="relative mx-auto max-w-6xl">
           <!-- Section Header -->
           <div class="text-center mb-16">
@@ -1451,6 +1492,11 @@
 
       <!-- Final CTA Section -->
       <section id="final-cta" class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);">
+        <!-- Chat Bubble Decoration -->
+        <div class="absolute top-20 right-10 md:right-20 w-32 md:w-40 pointer-events-none" style="z-index: 1; animation: floatChat 6s ease-in-out infinite;">
+          <img src="assets/hashlite_chat.png" alt="" class="w-full h-auto opacity-70">
+        </div>
+        
         <!-- Decorative background -->
         <div class="absolute inset-0 opacity-20">
           <div class="absolute top-10 left-1/4 w-96 h-96 rounded-full blur-3xl" style="background: linear-gradient(135deg, #68cecf 0%, #a0cd45 100%);"></div>
