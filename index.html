@@ -1026,7 +1026,7 @@
                   <li><span style="color:#f876c0;">●</span>Internal videos</li>
                 </ul>
                 <p class="wwd-noir-note">Built to simplify and convert.</p>
-                <div class="wwd-noir-media" style="animation-delay:.35s;"><img src="https://images.unsplash.com/photo-1553729459-efe14ef6055d?w=900&q=80&auto=format&fit=crop" alt="Investor presentation visuals" loading="lazy"></div>
+                <div class="wwd-noir-media" style="animation-delay:.35s;"><img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=900&q=80&auto=format&fit=crop" alt="Team presenting investor pitch deck" loading="lazy"></div>
               </article>
             </li>
 
@@ -1689,6 +1689,7 @@
           let currentWwdSlide = 0;
           let wwdAutoTimer = null;
           let wwdResumeTimer = null;
+          let wwdWheelLocked = false;
           const WWD_AUTO_DELAY = 6500;
 
           const goToWwdSlide = (index, smooth = true) => {
@@ -1721,6 +1722,82 @@
             }, 2600);
           };
 
+          const syncWwdCurrentFromScroll = () => {
+            const scrollTop = wwdSlider.scrollTop;
+            let nearestIndex = 0;
+            let nearestDistance = Infinity;
+
+            wwdSlides.forEach((slide, idx) => {
+              const distance = Math.abs(slide.offsetTop - scrollTop);
+              if (distance < nearestDistance) {
+                nearestDistance = distance;
+                nearestIndex = idx;
+              }
+            });
+
+            currentWwdSlide = nearestIndex;
+          };
+
+          const onWwdWheel = (event) => {
+            const deltaY = event.deltaY;
+            if (Math.abs(deltaY) < 8) return;
+
+            syncWwdCurrentFromScroll();
+
+            const scrollingDown = deltaY > 0;
+            const atFirstSlide = currentWwdSlide === 0;
+            const atLastSlide = currentWwdSlide === wwdSlides.length - 1;
+            const canMoveInSlider =
+              (scrollingDown && !atLastSlide) || (!scrollingDown && !atFirstSlide);
+
+            if (!canMoveInSlider) {
+              return;
+            }
+
+            event.preventDefault();
+            deferWwdAuto();
+
+            if (wwdWheelLocked) return;
+            wwdWheelLocked = true;
+
+            currentWwdSlide += scrollingDown ? 1 : -1;
+            goToWwdSlide(currentWwdSlide, true);
+
+            setTimeout(() => {
+              wwdWheelLocked = false;
+            }, 620);
+          };
+
+          const isWwdSectionActive = () => {
+            const rect = wwdSlider.getBoundingClientRect();
+            return rect.top <= 140 && rect.bottom >= window.innerHeight - 140;
+          };
+
+          const onPageWheelForWwd = (event) => {
+            if (!isWwdSectionActive()) {
+              if (lenis) lenis.start();
+              return;
+            }
+
+            const deltaY = event.deltaY;
+            if (Math.abs(deltaY) < 8) return;
+
+            syncWwdCurrentFromScroll();
+
+            const scrollingDown = deltaY > 0;
+            const atFirstSlide = currentWwdSlide === 0;
+            const atLastSlide = currentWwdSlide === wwdSlides.length - 1;
+
+            if ((scrollingDown && atLastSlide) || (!scrollingDown && atFirstSlide)) {
+              if (lenis) lenis.start();
+              return;
+            }
+
+            event.preventDefault();
+            if (lenis) lenis.stop();
+            onWwdWheel(event);
+          };
+
           const updateWhatWeDoIndicator = (entries) => {
             entries.forEach((entry) => {
               const idx = Number(entry.target.dataset.index);
@@ -1750,9 +1827,9 @@
 
           wwdSlider.addEventListener('mouseenter', stopWwdAuto);
           wwdSlider.addEventListener('mouseleave', startWwdAuto);
-          wwdSlider.addEventListener('wheel', deferWwdAuto, { passive: true });
           wwdSlider.addEventListener('touchstart', deferWwdAuto, { passive: true });
           wwdSlider.addEventListener('scroll', deferWwdAuto, { passive: true });
+          window.addEventListener('wheel', onPageWheelForWwd, { passive: false });
 
           startWwdAuto();
         }
@@ -1790,7 +1867,7 @@
         window.addEventListener("scroll", updateNavbar);
 
         // Lenis Smooth Scroll
-        const lenis = new Lenis({
+        var lenis = new Lenis({
           duration: 1.2,
           easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
           smooth: true,
