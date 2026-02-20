@@ -1862,35 +1862,46 @@
             delay: 0.5,
           });
 
-          // Advanced heading text animation with SplitType
+          // Hero headline: clean cinematic reveal
           const heroHeadline = document.querySelector('#heroHeadline');
-          const split = new SplitType(heroHeadline, { types: 'words, chars' });
-          
-          // Animate each character with 3D rotation and stagger
-          gsap.from(split.chars, {
+          const split = new SplitType(heroHeadline, { types: 'words' });
+
+          gsap.set(split.words, {
             opacity: 0,
-            y: 100,
-            rotationX: -90,
-            transformOrigin: '50% 50%',
-            stagger: {
-              each: 0.03,
-              from: 'start',
-            },
-            duration: 1,
-            ease: 'back.out(2)',
-            delay: 0.8,
+            yPercent: 55,
+            filter: 'blur(8px)',
+            willChange: 'transform, opacity, filter',
           });
 
-          // Color text pop effect
-          gsap.from('#heroHeadline span[style*="color"]', {
-            scale: 0,
-            opacity: 0,
-            rotation: 360,
-            stagger: 0.15,
-            duration: 1.2,
-            ease: 'elastic.out(1, 0.4)',
-            delay: 1.5,
+          gsap.to(split.words, {
+            opacity: 1,
+            yPercent: 0,
+            filter: 'blur(0px)',
+            stagger: 0.045,
+            duration: 0.9,
+            ease: 'power3.out',
+            delay: 0.65,
+            clearProps: 'willChange',
           });
+
+          // Subtle emphasis reveal for highlighted words
+          gsap.fromTo(
+            '#heroHeadline span[style*="color"]',
+            {
+              opacity: 0,
+              y: 14,
+              filter: 'blur(4px)',
+            },
+            {
+              opacity: 1,
+              y: 0,
+              filter: 'blur(0px)',
+              stagger: 0.08,
+              duration: 0.65,
+              ease: 'power2.out',
+              delay: 1.05,
+            }
+          );
 
           // Subtitle fade up
           gsap.from('#hero p.text-lg', {
