@@ -759,382 +759,442 @@
       </section>
 
       <!-- What We Do Section -->
-      <section id="what-we-do" class="relative py-24 px-0 overflow-hidden" style="background: #ffffff;">
+      <section id="what-we-do" class="relative overflow-hidden" style="background: #ffffff;">
         <style>
-          .wwd-noir-main {
-            position: relative;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) auto;
-            align-items: start;
+          /* ── WWD Duda-style layout ── */
+          .wwd-slide {
+            display: flex;
+            align-items: stretch;
+            height: 100vh;
+            overflow: hidden;
           }
-          .wwd-noir-slider {
+          .wwd-col-left {
+            flex-basis: 50%;
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding: 6vw 6vw 10vw;
+          }
+          .wwd-col-right {
+            flex-basis: 50%;
+            position: relative;
+            overflow: hidden;
+          }
+          .wwd-col-right-inner {
+            position: absolute;
+            left: 0;
+            top: 0;
             width: 100%;
-            height: 92vh;
-            min-height: 740px;
-            overflow-y: auto;
-            scroll-snap-type: y mandatory;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            scrollbar-width: none;
+            height: 160vh;
           }
-          .wwd-noir-slider::-webkit-scrollbar { display: none; }
-          .wwd-noir-slide {
-            height: 92vh;
-            min-height: 740px;
-            position: relative;
-            scroll-snap-align: start;
-            display: flex;
-            align-items: center;
-            justify-content: flex-start;
-            padding: 8rem 5vw 5rem;
-            background-position: center;
-            background-size: cover;
-          }
-          .wwd-noir-slide::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(120deg, rgba(255,255,255,0.90), rgba(255,255,255,0.82));
-          }
-          .wwd-noir-content {
-            position: relative;
-            z-index: 2;
-            width: min(1100px, 88vw);
-            background: rgba(255,255,255,0.82);
-            border: 1px solid rgba(0,0,0,0.08);
-            border-radius: 1.4rem;
-            backdrop-filter: blur(6px);
-            padding: 1.7rem 16.2rem 1.35rem 1.35rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            overflow: hidden;
-          }
-          .wwd-noir-header {
-            display: flex;
-            gap: 0.9rem;
-            align-items: center;
-            margin-bottom: 0.7rem;
-          }
-          .wwd-noir-index {
-            width: 2.3rem;
-            height: 2.3rem;
-            border-radius: 9999px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.85rem;
-            font-weight: 800;
-            color: #fff;
-          }
-          .wwd-noir-title {
-            font-size: clamp(1.35rem, 2.4vw, 2.2rem);
-            font-weight: 800;
-            color: #111827;
-          }
-          .wwd-noir-sub {
-            margin-top: 0.2rem;
-            margin-bottom: 0.75rem;
-            font-size: clamp(1.02rem, 1.4vw, 1.24rem);
-            font-weight: 600;
-            color: #374151;
-          }
-          .wwd-noir-desc {
-            font-size: 0.98rem;
-            line-height: 1.7;
-            color: #4b5563;
-            margin-bottom: 0.8rem;
-          }
-          .wwd-noir-list-title {
-            font-size: 0.98rem;
-            font-weight: 700;
-            color: #374151;
-            margin-bottom: 0.45rem;
-          }
-          .wwd-noir-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-            gap: 0.4rem 1.1rem;
-            margin-bottom: 0.8rem;
-          }
-          .wwd-noir-list li {
-            font-size: 0.92rem;
-            color: #4b5563;
-            display: flex;
-            gap: 0.45rem;
-            align-items: center;
-          }
-          .wwd-noir-note {
-            font-size: 0.93rem;
-            color: #111827;
-            font-weight: 600;
-            display: inline-flex;
-            padding: 0.6rem 0.9rem;
-            border-radius: 9999px;
-            background: rgba(255,255,255,0.85);
-            border: 1px solid rgba(0,0,0,0.08);
-          }
-          .wwd-noir-media {
-            position: absolute;
-            right: 1rem;
-            top: 1rem;
-            width: 230px;
-            height: 165px;
-            border-radius: 1rem;
-            overflow: hidden;
-            border: 1px solid rgba(255,255,255,0.7);
-            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.16);
-            animation: wwdFloatCard 5.8s ease-in-out infinite;
-          }
-          .wwd-noir-media::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(135deg, rgba(104,206,207,0.14), rgba(248,118,192,0.10));
-            pointer-events: none;
-          }
-          .wwd-noir-media img {
+          .wwd-col-right-inner img {
+            object-fit: cover;
             width: 100%;
             height: 100%;
-            object-fit: cover;
-            animation: wwdKenBurns 8s ease-in-out infinite alternate;
           }
-          @keyframes wwdFloatCard {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-10px) rotate(-0.6deg); }
+          .wwd-title {
+            margin: 1.5rem 0 2vw;
+            font-size: clamp(2rem, 4.5vw, 5.5rem);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: #111827;
+            font-family: 'Space Grotesk', sans-serif;
           }
-          @keyframes wwdKenBurns {
-            0% { transform: scale(1) translateX(0); }
-            100% { transform: scale(1.08) translateX(-2%); }
+          .wwd-title-line {
+            overflow: hidden;
           }
-          .wwd-noir-indicator {
+          .wwd-title-line:nth-of-type(even) { margin-top: -0.8vw; }
+          .wwd-title-line-inner { display: block; }
+          .wwd-content-wrap {
+            display: flex;
+            justify-content: flex-end;
+          }
+          .wwd-text-block {
+            max-width: 22vw;
+            order: 2;
+            margin-left: 32px;
+          }
+          .wwd-sub {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 0.6rem;
+          }
+          .wwd-desc {
+            font-size: 0.93rem;
+            color: #4b5563;
+            line-height: 1.7;
+            margin-bottom: 0.75rem;
+          }
+          .wwd-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 0.75rem;
+          }
+          .wwd-list li {
+            font-size: 0.86rem;
+            color: #4b5563;
+            display: flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.15rem 0;
+          }
+          .wwd-note {
+            font-size: 0.9rem;
+            color: #111827;
+            font-weight: 600;
+            display: inline-flex;
+            padding: 0.55rem 0.9rem;
+            border-radius: 9999px;
+            background: rgba(255,255,255,0.8);
+            border: 1px solid rgba(0,0,0,0.1);
+          }
+          .wwd-scroll-link {
             position: absolute;
+            right: -113px;
+            bottom: 3.5vw;
+            display: block;
+            width: 140px;
+            height: 140px;
+            background: #111827;
+            overflow: hidden;
+            text-decoration: none;
+            cursor: pointer;
+          }
+          .wwd-scroll-line {
+            position: absolute;
+            left: 26px;
+            bottom: 0;
+            width: 1px;
+            height: 100%;
+          }
+          /* Indicator */
+          .wwd-indicator {
+            position: fixed;
             right: 2rem;
             top: 50%;
             transform: translateY(-50%);
             list-style: none;
+            padding: 0;
+            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.6rem;
-            z-index: 12;
+            gap: 0.55rem;
+            z-index: 500;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.4s ease;
           }
-          .wwd-noir-indicator-index {
-            position: relative;
-            font: 0.68rem 'Space Grotesk', sans-serif;
-            color: #9ca3af;
-            font-weight: 700;
-            transition: transform 0.45s ease, margin 0.45s ease, color 0.45s ease;
+          .wwd-indicator.wwd-indicator--visible {
+            opacity: 1;
+            pointer-events: all;
           }
-          .wwd-noir-indicator-index::before,
-          .wwd-noir-indicator-index::after {
-            content: '';
-            position: absolute;
-            left: 50%;
-            transform: translateX(-50%) scaleY(0);
-            width: 0.08rem;
-            height: 1.1rem;
-            background-color: var(--accent, #9ca3af);
-            transition: transform 0.45s ease;
+          .wwd-indicator-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: rgba(0,0,0,0.18);
+            cursor: pointer;
+            transition: transform 0.4s ease, background 0.4s ease;
           }
-          .wwd-noir-indicator-index::before { top: -1.2rem; transform-origin: bottom; }
-          .wwd-noir-indicator-index::after { bottom: -1.2rem; transform-origin: top; }
-          .wwd-noir-indicator-index:first-of-type::before,
-          .wwd-noir-indicator-index:last-of-type::after { content: none; }
-          .wwd-noir-indicator-index.expand {
-            transform: scale(2.2);
-            margin: 2rem 0;
-            color: var(--accent, #111827);
+          .wwd-indicator-dot.active {
+            transform: scale(2);
           }
-          .wwd-noir-indicator-index.expand::before,
-          .wwd-noir-indicator-index.expand::after {
-            transform: translateX(-50%) scaleY(1);
-            background-color: var(--accent, #374151);
+          /* Section header */
+          .wwd-header-wrap {
+            text-align: center;
+            padding: 5rem 1.5rem 3rem;
+            background: #ffffff;
           }
-          @media (max-width: 991px) {
-            .wwd-noir-main { grid-template-columns: 1fr; }
-            .wwd-noir-slide,
-            .wwd-noir-slider {
-              height: 100vh;
-              min-height: 760px;
-            }
-            .wwd-noir-content {
-              padding: 1.25rem;
-            }
-            .wwd-noir-media {
+          @media (max-width: 768px) {
+            .wwd-slide {
+              display: block;
+              height: auto;
+              min-height: 100vh;
               position: relative;
-              top: auto;
-              right: auto;
-              width: 100%;
-              height: 165px;
-              margin-top: 0.95rem;
             }
-            .wwd-noir-list { grid-template-columns: 1fr; }
-            .wwd-noir-indicator { right: 1rem; }
+            .wwd-col-left {
+              flex-basis: unset;
+              width: 85%;
+              padding: 7rem 1.2rem 3.5rem;
+              min-height: 65vh;
+              position: relative;
+              z-index: 1;
+            }
+            .wwd-col-right {
+              flex-basis: unset;
+              position: absolute;
+              z-index: 0;
+              left: 0;
+              top: 0;
+              width: 100%;
+              height: 100%;
+            }
+            .wwd-title { font-size: clamp(1.7rem, 8vw, 3rem); }
+            .wwd-text-block { max-width: 80vw; margin-left: 0; }
+            .wwd-content-wrap { flex-direction: column; }
+            .wwd-scroll-link { display: none; }
+            .wwd-indicator { right: 0.5rem; }
           }
-          @media (max-width: 640px) {
-            .wwd-noir-slide { padding: 7rem 0.9rem 4.2rem; }
-            .wwd-noir-content { width: calc(100vw - 2.3rem); padding: 1.15rem; }
-            .wwd-noir-desc { font-size: 0.92rem; line-height: 1.6; }
-            .wwd-noir-list li { font-size: 0.86rem; }
-            .wwd-noir-indicator { right: 0.45rem; gap: 0.36rem; }
-            .wwd-noir-indicator-index.expand { transform: scale(1.75); margin: 1.4rem 0; }
-          }
+          /* ── Keep old classes from potential references ── */
+          .wwd-noir-main { display: none; }
         </style>
 
-        <div class="relative mx-auto max-w-7xl px-6">
-          <div class="text-center mb-8 md:mb-12">
-            <p class="what-tagline text-sm uppercase tracking-[0.3em] font-semibold mb-4" style="color: #f876c0;">
-              Our Services
-            </p>
-            <h2 id="whatHeading" class="text-4xl md:text-5xl lg:text-6xl font-bold" style="color: #000000;">
-              What We Do
-            </h2>
-          </div>
+        <!-- Section Header -->
+        <div class="wwd-header-wrap">
+          <p class="what-tagline text-sm uppercase tracking-[0.3em] font-semibold mb-4" style="color: #f876c0;">Our Services</p>
+          <h2 id="whatHeading" class="text-4xl md:text-5xl lg:text-6xl font-bold" style="color: #000000;">What We Do</h2>
         </div>
 
-        <main class="wwd-noir-main" id="wwdNoirMain" aria-label="What we do vertical slider">
-          <ul class="wwd-noir-slider" id="wwdNoirSlider">
-            <li class="wwd-noir-slide" data-index="0" style="background-image:url('https://images.unsplash.com/photo-1492619375914-88005aa9e8fb?w=1920&q=80&auto=format&fit=crop');">
-              <article class="wwd-noir-content">
-                <div class="wwd-noir-header"><span class="wwd-noir-index" style="background:#68cecf;">01</span><h3 class="wwd-noir-title">AI Product & Demo Videos</h3></div>
-                <p class="wwd-noir-sub">Turn your product into a sales asset.</p>
-                <p class="wwd-noir-desc">We create clear, high-impact product storytelling that helps buyers understand value instantly.</p>
-                <p class="wwd-noir-list-title">We create:</p>
-                <ul class="wwd-noir-list">
-                  <li><span style="color:#68cecf;">●</span>AI-driven product demos</li>
-                  <li><span style="color:#68cecf;">●</span>Clear, compelling explainer videos</li>
-                  <li><span style="color:#68cecf;">●</span>SaaS platform walkthroughs</li>
-                  <li><span style="color:#68cecf;">●</span>Hardware showcases</li>
-                  <li><span style="color:#68cecf;">●</span>Multi-language versions for global reach</li>
-                </ul>
-                <p class="wwd-noir-note">Clear, persuasive, and built to scale globally.</p>
-                <div class="wwd-noir-media" style="animation-delay:0s;"><img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=900&q=80&auto=format&fit=crop" alt="Product video production" loading="lazy"></div>
-              </article>
-            </li>
+        <!-- Slides Stage -->
+        <div id="wwdStage">
 
-            <li class="wwd-noir-slide" data-index="1" style="background-image:url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80&auto=format&fit=crop');">
-              <article class="wwd-noir-content">
-                <div class="wwd-noir-header"><span class="wwd-noir-index" style="background:#f876c0;">02</span><h3 class="wwd-noir-title">Pitch Deck & Investor Videos</h3></div>
-                <p class="wwd-noir-sub">Slides inform. Stories persuade.</p>
-                <p class="wwd-noir-desc">We turn complex ideas into persuasive visual narratives designed for clarity and action.</p>
-                <p class="wwd-noir-list-title">We create:</p>
-                <ul class="wwd-noir-list">
-                  <li><span style="color:#f876c0;">●</span>Investor pitch videos</li>
-                  <li><span style="color:#f876c0;">●</span>Crowdfunding films</li>
-                  <li><span style="color:#f876c0;">●</span>Sales narratives</li>
-                  <li><span style="color:#f876c0;">●</span>Internal videos</li>
-                </ul>
-                <p class="wwd-noir-note">Built to simplify and convert.</p>
-                <div class="wwd-noir-media" style="animation-delay:.35s;"><img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=900&q=80&auto=format&fit=crop" alt="Team presenting investor pitch deck" loading="lazy"></div>
-              </article>
-            </li>
+          <!-- Slide 1: AI Product & Demo Videos -->
+          <div class="wwd-slide" id="wwd-slide-0" data-slide-index="0" data-accent="#68cecf" style="background:#EAF7F7;">
+            <div class="wwd-col-left" style="background:#A0CECE;">
+              <h3 class="wwd-title">
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Product</span></span>
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Videos</span></span>
+              </h3>
+              <div class="wwd-content-wrap">
+                <div class="wwd-text-block">
+                  <p class="wwd-sub">Turn your product into a sales asset.</p>
+                  <p class="wwd-desc">We create clear, high-impact product storytelling that helps buyers understand value instantly.</p>
+                  <ul class="wwd-list">
+                    <li><span style="color:#68cecf;">●</span>AI-driven product demos</li>
+                    <li><span style="color:#68cecf;">●</span>Clear, compelling explainer videos</li>
+                    <li><span style="color:#68cecf;">●</span>SaaS platform walkthroughs</li>
+                    <li><span style="color:#68cecf;">●</span>Hardware showcases</li>
+                    <li><span style="color:#68cecf;">●</span>Multi-language versions for global reach</li>
+                  </ul>
+                  <span class="wwd-note">Clear, persuasive, and built to scale globally.</span>
+                </div>
+                <a href="#wwd-slide-1" class="wwd-scroll-link">
+                  <div class="wwd-scroll-line" style="background:#EAF7F7;"></div>
+                </a>
+              </div>
+            </div>
+            <div class="wwd-col-right">
+              <div class="wwd-col-right-inner">
+                <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=1400&q=80&auto=format&fit=crop" alt="AI Product video production" loading="lazy" />
+              </div>
+            </div>
+          </div>
 
-            <li class="wwd-noir-slide" data-index="2" style="background-image:url('https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=1920&q=80&auto=format&fit=crop');">
-              <article class="wwd-noir-content">
-                <div class="wwd-noir-header"><span class="wwd-noir-index" style="background:#a0cd45;">03</span><h3 class="wwd-noir-title">Social Media Graphics</h3></div>
-                <p class="wwd-noir-sub">Your brand’s voice, visualized.</p>
-                <p class="wwd-noir-desc">We create social-first visuals designed for clarity, recall, and engagement.</p>
-                <p class="wwd-noir-list-title">We create:</p>
-                <ul class="wwd-noir-list">
-                  <li><span style="color:#a0cd45;">●</span>Carousels</li>
-                  <li><span style="color:#a0cd45;">●</span>Data-rich infographics</li>
-                  <li><span style="color:#a0cd45;">●</span>Branded quote graphics</li>
-                  <li><span style="color:#a0cd45;">●</span>Testimonials</li>
-                  <li><span style="color:#a0cd45;">●</span>Event creatives</li>
-                  <li><span style="color:#a0cd45;">●</span>Milestone posts</li>
-                </ul>
-                <p class="wwd-noir-note">Built to stop the scroll.</p>
-                <div class="wwd-noir-media" style="animation-delay:.6s;"><img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=900&q=80&auto=format&fit=crop" alt="Social media creative assets" loading="lazy"></div>
-              </article>
-            </li>
+          <!-- Slide 2: Pitch Deck & Investor Videos -->
+          <div class="wwd-slide" id="wwd-slide-1" data-slide-index="1" data-accent="#f876c0" style="background:#FDF0F7;">
+            <div class="wwd-col-left" style="background:#E0A8C0;">
+              <h3 class="wwd-title">
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Pitch</span></span>
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Decks</span></span>
+              </h3>
+              <div class="wwd-content-wrap">
+                <div class="wwd-text-block">
+                  <p class="wwd-sub">Slides inform. Stories persuade.</p>
+                  <p class="wwd-desc">We turn complex ideas into persuasive visual narratives designed for clarity and action.</p>
+                  <ul class="wwd-list">
+                    <li><span style="color:#f876c0;">●</span>Investor pitch videos</li>
+                    <li><span style="color:#f876c0;">●</span>Crowdfunding films</li>
+                    <li><span style="color:#f876c0;">●</span>Sales narratives</li>
+                    <li><span style="color:#f876c0;">●</span>Internal videos</li>
+                  </ul>
+                  <span class="wwd-note">Built to simplify and convert.</span>
+                </div>
+                <a href="#wwd-slide-2" class="wwd-scroll-link">
+                  <div class="wwd-scroll-line" style="background:#FDF0F7;"></div>
+                </a>
+              </div>
+            </div>
+            <div class="wwd-col-right">
+              <div class="wwd-col-right-inner">
+                <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=1400&q=80&auto=format&fit=crop" alt="Team presenting investor pitch deck" loading="lazy" />
+              </div>
+            </div>
+          </div>
 
-            <li class="wwd-noir-slide" data-index="3" style="background-image:url('https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=1920&q=80&auto=format&fit=crop');">
-              <article class="wwd-noir-content">
-                <div class="wwd-noir-header"><span class="wwd-noir-index" style="background:#f8c63f;">04</span><h3 class="wwd-noir-title">Websites & Landing Pages</h3></div>
-                <p class="wwd-noir-sub">Built to convert.</p>
-                <p class="wwd-noir-desc">We design digital experiences that move visitors from interest to action with speed and clarity.</p>
-                <p class="wwd-noir-list-title">We create:</p>
-                <ul class="wwd-noir-list">
-                  <li><span style="color:#f8c63f;">●</span>Brand websites</li>
-                  <li><span style="color:#f8c63f;">●</span>Launch pages</li>
-                  <li><span style="color:#f8c63f;">●</span>Campaign pages</li>
-                  <li><span style="color:#f8c63f;">●</span>Lead capture systems</li>
-                  <li><span style="color:#f8c63f;">●</span>E-commerce stores</li>
-                  <li><span style="color:#f8c63f;">●</span>Portfolio and showcase sites</li>
-                </ul>
-                <p class="wwd-noir-note">Fast. Mobile-first. SEO-ready.</p>
-                <div class="wwd-noir-media" style="animation-delay:.2s;"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&q=80&auto=format&fit=crop" alt="Website and landing page analytics" loading="lazy"></div>
-              </article>
-            </li>
+          <!-- Slide 3: Social Media Graphics -->
+          <div class="wwd-slide" id="wwd-slide-2" data-slide-index="2" data-accent="#a0cd45" style="background:#F2F8E5;">
+            <div class="wwd-col-left" style="background:#B8D07A;">
+              <h3 class="wwd-title">
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Social</span></span>
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Media</span></span>
+              </h3>
+              <div class="wwd-content-wrap">
+                <div class="wwd-text-block">
+                  <p class="wwd-sub">Your brand's voice, visualized.</p>
+                  <p class="wwd-desc">We create social-first visuals designed for clarity, recall, and engagement.</p>
+                  <ul class="wwd-list">
+                    <li><span style="color:#a0cd45;">●</span>Carousels</li>
+                    <li><span style="color:#a0cd45;">●</span>Data-rich infographics</li>
+                    <li><span style="color:#a0cd45;">●</span>Branded quote graphics</li>
+                    <li><span style="color:#a0cd45;">●</span>Testimonials</li>
+                    <li><span style="color:#a0cd45;">●</span>Event creatives & milestone posts</li>
+                  </ul>
+                  <span class="wwd-note">Built to stop the scroll.</span>
+                </div>
+                <a href="#wwd-slide-3" class="wwd-scroll-link">
+                  <div class="wwd-scroll-line" style="background:#F2F8E5;"></div>
+                </a>
+              </div>
+            </div>
+            <div class="wwd-col-right">
+              <div class="wwd-col-right-inner">
+                <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf?w=1400&q=80&auto=format&fit=crop" alt="Social media creative assets" loading="lazy" />
+              </div>
+            </div>
+          </div>
 
-            <li class="wwd-noir-slide" data-index="4" style="background-image:url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1920&q=80&auto=format&fit=crop');">
-              <article class="wwd-noir-content">
-                <div class="wwd-noir-header"><span class="wwd-noir-index" style="background:#68cecf;">05</span><h3 class="wwd-noir-title">Creative Consultation</h3></div>
-                <p class="wwd-noir-sub">Strategy that sharpens your content.</p>
-                <p class="wwd-noir-desc">We align direction, messaging, and execution so every output supports growth.</p>
-                <p class="wwd-noir-list-title">We help with:</p>
-                <ul class="wwd-noir-list">
-                  <li><span style="color:#68cecf;">●</span>Positioning</li>
-                  <li><span style="color:#68cecf;">●</span>Creative direction</li>
-                  <li><span style="color:#68cecf;">●</span>Content strategy</li>
-                  <li><span style="color:#68cecf;">●</span>Campaign ideas</li>
-                  <li><span style="color:#68cecf;">●</span>Style guides</li>
-                  <li><span style="color:#68cecf;">●</span>Feedback</li>
-                </ul>
-                <p class="wwd-noir-note">Built around your goals.</p>
-                <div class="wwd-noir-media" style="animation-delay:.5s;"><img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=900&q=80&auto=format&fit=crop" alt="Creative strategy consultation" loading="lazy"></div>
-              </article>
-            </li>
+          <!-- Slide 4: Websites & Landing Pages -->
+          <div class="wwd-slide" id="wwd-slide-3" data-slide-index="3" data-accent="#f8c63f" style="background:#FEFAEC;">
+            <div class="wwd-col-left" style="background:#E8D070;">
+              <h3 class="wwd-title">
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Web</span></span>
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Design</span></span>
+              </h3>
+              <div class="wwd-content-wrap">
+                <div class="wwd-text-block">
+                  <p class="wwd-sub">Built to convert.</p>
+                  <p class="wwd-desc">We design digital experiences that move visitors from interest to action with speed and clarity.</p>
+                  <ul class="wwd-list">
+                    <li><span style="color:#f8c63f;">●</span>Brand websites</li>
+                    <li><span style="color:#f8c63f;">●</span>Launch pages</li>
+                    <li><span style="color:#f8c63f;">●</span>Campaign pages</li>
+                    <li><span style="color:#f8c63f;">●</span>Lead capture systems</li>
+                    <li><span style="color:#f8c63f;">●</span>E-commerce & portfolio sites</li>
+                  </ul>
+                  <span class="wwd-note">Fast. Mobile-first. SEO-ready.</span>
+                </div>
+                <a href="#wwd-slide-4" class="wwd-scroll-link">
+                  <div class="wwd-scroll-line" style="background:#FEFAEC;"></div>
+                </a>
+              </div>
+            </div>
+            <div class="wwd-col-right">
+              <div class="wwd-col-right-inner">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1400&q=80&auto=format&fit=crop" alt="Website and landing page analytics" loading="lazy" />
+              </div>
+            </div>
+          </div>
 
-            <li class="wwd-noir-slide" data-index="5" style="background-image:url('https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?w=1920&q=80&auto=format&fit=crop');">
-              <article class="wwd-noir-content">
-                <div class="wwd-noir-header"><span class="wwd-noir-index" style="background:#f876c0;">06</span><h3 class="wwd-noir-title">Email Marketing Campaigns</h3></div>
-                <p class="wwd-noir-sub">Inbox-ready. Conversion-focused.</p>
-                <p class="wwd-noir-desc">We create email systems that are built for response, retention, and revenue.</p>
-                <p class="wwd-noir-list-title">We create:</p>
-                <ul class="wwd-noir-list">
-                  <li><span style="color:#f876c0;">●</span>Engaging newsletters</li>
-                  <li><span style="color:#f876c0;">●</span>Automated drip campaigns</li>
-                  <li><span style="color:#f876c0;">●</span>Launch flows</li>
-                  <li><span style="color:#f876c0;">●</span>Re-engagement emails</li>
-                  <li><span style="color:#f876c0;">●</span>Event invites</li>
-                  <li><span style="color:#f876c0;">●</span>Promotions</li>
-                </ul>
-                <p class="wwd-noir-note">Built for opens, clicks, and conversions.</p>
-                <div class="wwd-noir-media" style="animation-delay:.8s;"><img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=900&q=80&auto=format&fit=crop" alt="Email campaign strategy" loading="lazy"></div>
-              </article>
-            </li>
+          <!-- Slide 5: Creative Consultation -->
+          <div class="wwd-slide" id="wwd-slide-4" data-slide-index="4" data-accent="#68cecf" style="background:#EAF7F7;">
+            <div class="wwd-col-left" style="background:#A0CECE;">
+              <h3 class="wwd-title">
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Creative</span></span>
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Strategy</span></span>
+              </h3>
+              <div class="wwd-content-wrap">
+                <div class="wwd-text-block">
+                  <p class="wwd-sub">Strategy that sharpens your content.</p>
+                  <p class="wwd-desc">We align direction, messaging, and execution so every output supports growth.</p>
+                  <ul class="wwd-list">
+                    <li><span style="color:#68cecf;">●</span>Positioning</li>
+                    <li><span style="color:#68cecf;">●</span>Creative direction</li>
+                    <li><span style="color:#68cecf;">●</span>Content strategy</li>
+                    <li><span style="color:#68cecf;">●</span>Campaign ideas</li>
+                    <li><span style="color:#68cecf;">●</span>Style guides & feedback</li>
+                  </ul>
+                  <span class="wwd-note">Built around your goals.</span>
+                </div>
+                <a href="#wwd-slide-5" class="wwd-scroll-link">
+                  <div class="wwd-scroll-line" style="background:#EAF7F7;"></div>
+                </a>
+              </div>
+            </div>
+            <div class="wwd-col-right">
+              <div class="wwd-col-right-inner">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1400&q=80&auto=format&fit=crop" alt="Creative strategy consultation" loading="lazy" />
+              </div>
+            </div>
+          </div>
 
-            <li class="wwd-noir-slide" data-index="6" style="background-image:url('https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=80&auto=format&fit=crop');">
-              <article class="wwd-noir-content">
-                <div class="wwd-noir-header"><span class="wwd-noir-index" style="background:#a0cd45;">07</span><h3 class="wwd-noir-title">End-to-End Campaign Management</h3></div>
-                <p class="wwd-noir-sub">From idea to execution.</p>
-                <p class="wwd-noir-desc">We run complete campaigns from planning through optimization with execution discipline.</p>
-                <p class="wwd-noir-list-title">Delivered to:</p>
-                <ul class="wwd-noir-list">
-                  <li><span style="color:#a0cd45;">●</span>The right audience</li>
-                  <li><span style="color:#a0cd45;">●</span>With the right message</li>
-                  <li><span style="color:#a0cd45;">●</span>On the right channel</li>
-                  <li><span style="color:#a0cd45;">●</span>At the right time</li>
-                </ul>
-                <p class="wwd-noir-note">Across Instagram, email, and WhatsApp.</p>
-                <div class="wwd-noir-media" style="animation-delay:.4s;"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=900&q=80&auto=format&fit=crop" alt="Campaign management team" loading="lazy"></div>
-              </article>
-            </li>
-          </ul>
+          <!-- Slide 6: Email Marketing Campaigns -->
+          <div class="wwd-slide" id="wwd-slide-5" data-slide-index="5" data-accent="#f876c0" style="background:#FDF0F7;">
+            <div class="wwd-col-left" style="background:#E0A8C0;">
+              <h3 class="wwd-title">
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Email</span></span>
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Marketing</span></span>
+              </h3>
+              <div class="wwd-content-wrap">
+                <div class="wwd-text-block">
+                  <p class="wwd-sub">Inbox-ready. Conversion-focused.</p>
+                  <p class="wwd-desc">We create email systems that are built for response, retention, and revenue.</p>
+                  <ul class="wwd-list">
+                    <li><span style="color:#f876c0;">●</span>Engaging newsletters</li>
+                    <li><span style="color:#f876c0;">●</span>Automated drip campaigns</li>
+                    <li><span style="color:#f876c0;">●</span>Launch flows</li>
+                    <li><span style="color:#f876c0;">●</span>Re-engagement emails</li>
+                    <li><span style="color:#f876c0;">●</span>Event invites & promotions</li>
+                  </ul>
+                  <span class="wwd-note">Built for opens, clicks, and conversions.</span>
+                </div>
+                <a href="#wwd-slide-6" class="wwd-scroll-link">
+                  <div class="wwd-scroll-line" style="background:#FDF0F7;"></div>
+                </a>
+              </div>
+            </div>
+            <div class="wwd-col-right">
+              <div class="wwd-col-right-inner">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1400&q=80&auto=format&fit=crop" alt="Email campaign strategy" loading="lazy" />
+              </div>
+            </div>
+          </div>
 
-          <ul class="wwd-noir-indicator" id="wwdNoirIndicator">
-            <li class="wwd-noir-indicator-index" style="--accent:#68cecf;">01</li>
-            <li class="wwd-noir-indicator-index" style="--accent:#f876c0;">02</li>
-            <li class="wwd-noir-indicator-index" style="--accent:#a0cd45;">03</li>
-            <li class="wwd-noir-indicator-index" style="--accent:#f8c63f;">04</li>
-            <li class="wwd-noir-indicator-index" style="--accent:#68cecf;">05</li>
-            <li class="wwd-noir-indicator-index" style="--accent:#f876c0;">06</li>
-            <li class="wwd-noir-indicator-index" style="--accent:#a0cd45;">07</li>
-          </ul>
-        </main>
+          <!-- Slide 7: End-to-End Campaign Management -->
+          <div class="wwd-slide" id="wwd-slide-6" data-slide-index="6" data-accent="#a0cd45" style="background:#F2F8E5;">
+            <div class="wwd-col-left" style="background:#B8D07A;">
+              <h3 class="wwd-title">
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Campaign</span></span>
+                <span class="wwd-title-line"><span class="wwd-title-line-inner">Management</span></span>
+              </h3>
+              <div class="wwd-content-wrap">
+                <div class="wwd-text-block">
+                  <p class="wwd-sub">From idea to execution.</p>
+                  <p class="wwd-desc">We run complete campaigns from planning through optimization with execution discipline.</p>
+                  <ul class="wwd-list">
+                    <li><span style="color:#a0cd45;">●</span>The right audience</li>
+                    <li><span style="color:#a0cd45;">●</span>With the right message</li>
+                    <li><span style="color:#a0cd45;">●</span>On the right channel</li>
+                    <li><span style="color:#a0cd45;">●</span>At the right time</li>
+                  </ul>
+                  <span class="wwd-note">Across Instagram, email, and WhatsApp.</span>
+                </div>
+              </div>
+            </div>
+            <div class="wwd-col-right">
+              <div class="wwd-col-right-inner">
+                <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1400&q=80&auto=format&fit=crop" alt="Campaign management team" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /wwdStage -->
+
+        <!-- Fixed scroll-progress indicator dots -->
+        <ul class="wwd-indicator" id="wwdIndicator">
+          <li class="wwd-indicator-dot" data-target="wwd-slide-0" style="--dot-accent:#68cecf;"></li>
+          <li class="wwd-indicator-dot" data-target="wwd-slide-1" style="--dot-accent:#f876c0;"></li>
+          <li class="wwd-indicator-dot" data-target="wwd-slide-2" style="--dot-accent:#a0cd45;"></li>
+          <li class="wwd-indicator-dot" data-target="wwd-slide-3" style="--dot-accent:#f8c63f;"></li>
+          <li class="wwd-indicator-dot" data-target="wwd-slide-4" style="--dot-accent:#68cecf;"></li>
+          <li class="wwd-indicator-dot" data-target="wwd-slide-5" style="--dot-accent:#f876c0;"></li>
+          <li class="wwd-indicator-dot" data-target="wwd-slide-6" style="--dot-accent:#a0cd45;"></li>
+        </ul>
+
+        <!-- Hidden element to keep old references working -->
+        <div style="display:none;">
+          <div class="wwd-noir-main" id="wwdNoirMain">
+            <ul class="wwd-noir-slider" id="wwdNoirSlider"></ul>
+            <ul class="wwd-noir-indicator" id="wwdNoirIndicator"></ul>
+          </div>
+        </div>
       </section>
+
 
       <!-- Why HashLite Section -->
       <section id="why-hashlite" class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #ffffff 0%, #f0f4f8 100%);">
@@ -1680,158 +1740,57 @@
           });
         }
 
-        // Noir-style What We Do indicator (original behavior)
-        const wwdSlides = document.querySelectorAll('.wwd-noir-slide');
-        const wwdIndicators = document.querySelectorAll('.wwd-noir-indicator-index');
-        const wwdSlider = document.getElementById('wwdNoirSlider');
+        // WWD Duda-style indicator & scroll links
+        const wwdSlideDivs = document.querySelectorAll('.wwd-slide');
+        const wwdIndicatorDots = document.querySelectorAll('.wwd-indicator-dot');
+        const wwdIndicatorList = document.getElementById('wwdIndicator');
+        const wwdStageEl = document.getElementById('wwdStage');
 
-        if (wwdSlides.length && wwdIndicators.length && wwdSlider) {
-          let currentWwdSlide = 0;
-          let wwdAutoTimer = null;
-          let wwdResumeTimer = null;
-          let wwdWheelLocked = false;
-          const WWD_AUTO_DELAY = 6500;
+        if (wwdSlideDivs.length && wwdIndicatorList && wwdStageEl) {
 
-          const goToWwdSlide = (index, smooth = true) => {
-            const target = wwdSlides[index];
-            if (!target) return;
-            wwdSlider.scrollTo({
-              top: target.offsetTop,
-              behavior: smooth ? 'smooth' : 'auto',
-            });
-          };
-
-          const stopWwdAuto = () => {
-            if (wwdAutoTimer) clearInterval(wwdAutoTimer);
-            wwdAutoTimer = null;
-          };
-
-          const startWwdAuto = () => {
-            stopWwdAuto();
-            wwdAutoTimer = setInterval(() => {
-              currentWwdSlide = (currentWwdSlide + 1) % wwdSlides.length;
-              goToWwdSlide(currentWwdSlide, true);
-            }, WWD_AUTO_DELAY);
-          };
-
-          const deferWwdAuto = () => {
-            stopWwdAuto();
-            if (wwdResumeTimer) clearTimeout(wwdResumeTimer);
-            wwdResumeTimer = setTimeout(() => {
-              startWwdAuto();
-            }, 2600);
-          };
-
-          const syncWwdCurrentFromScroll = () => {
-            const scrollTop = wwdSlider.scrollTop;
-            let nearestIndex = 0;
-            let nearestDistance = Infinity;
-
-            wwdSlides.forEach((slide, idx) => {
-              const distance = Math.abs(slide.offsetTop - scrollTop);
-              if (distance < nearestDistance) {
-                nearestDistance = distance;
-                nearestIndex = idx;
-              }
-            });
-
-            currentWwdSlide = nearestIndex;
-          };
-
-          const onWwdWheel = (event) => {
-            const deltaY = event.deltaY;
-            if (Math.abs(deltaY) < 8) return;
-
-            syncWwdCurrentFromScroll();
-
-            const scrollingDown = deltaY > 0;
-            const atFirstSlide = currentWwdSlide === 0;
-            const atLastSlide = currentWwdSlide === wwdSlides.length - 1;
-            const canMoveInSlider =
-              (scrollingDown && !atLastSlide) || (!scrollingDown && !atFirstSlide);
-
-            if (!canMoveInSlider) {
-              return;
-            }
-
-            event.preventDefault();
-            deferWwdAuto();
-
-            if (wwdWheelLocked) return;
-            wwdWheelLocked = true;
-
-            currentWwdSlide += scrollingDown ? 1 : -1;
-            goToWwdSlide(currentWwdSlide, true);
-
-            setTimeout(() => {
-              wwdWheelLocked = false;
-            }, 620);
-          };
-
-          const isWwdSectionActive = () => {
-            const rect = wwdSlider.getBoundingClientRect();
-            return rect.top <= 140 && rect.bottom >= window.innerHeight - 140;
-          };
-
-          const onPageWheelForWwd = (event) => {
-            if (!isWwdSectionActive()) {
-              if (lenis) lenis.start();
-              return;
-            }
-
-            const deltaY = event.deltaY;
-            if (Math.abs(deltaY) < 8) return;
-
-            syncWwdCurrentFromScroll();
-
-            const scrollingDown = deltaY > 0;
-            const atFirstSlide = currentWwdSlide === 0;
-            const atLastSlide = currentWwdSlide === wwdSlides.length - 1;
-
-            if ((scrollingDown && atLastSlide) || (!scrollingDown && atFirstSlide)) {
-              if (lenis) lenis.start();
-              return;
-            }
-
-            event.preventDefault();
-            if (lenis) lenis.stop();
-            onWwdWheel(event);
-          };
-
-          const updateWhatWeDoIndicator = (entries) => {
+          // Show / hide the fixed indicator based on stage visibility
+          const wwdStageObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-              const idx = Number(entry.target.dataset.index);
-              if (!Number.isNaN(idx) && wwdIndicators[idx]) {
-                wwdIndicators[idx].classList.toggle('expand', entry.isIntersecting);
+              wwdIndicatorList.classList.toggle('wwd-indicator--visible', entry.isIntersecting);
+            });
+          }, { threshold: 0.02 });
+          wwdStageObserver.observe(wwdStageEl);
+
+          // Highlight active dot as each slide scrolls into view
+          const wwdDotObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              const idx = Number(entry.target.dataset.slideIndex);
+              if (!isNaN(idx) && wwdIndicatorDots[idx]) {
+                const dot = wwdIndicatorDots[idx];
+                dot.classList.toggle('active', entry.isIntersecting);
                 if (entry.isIntersecting) {
-                  currentWwdSlide = idx;
+                  dot.style.background = entry.target.dataset.accent || '#111827';
+                } else {
+                  dot.style.background = 'rgba(0,0,0,0.18)';
                 }
               }
             });
-          };
+          }, { threshold: 0.55 });
+          wwdSlideDivs.forEach((s) => wwdDotObserver.observe(s));
 
-          const whatWeDoObserver = new IntersectionObserver(updateWhatWeDoIndicator, {
-            root: wwdSlider,
-            threshold: 0.55,
-          });
-
-          wwdSlides.forEach((slide) => whatWeDoObserver.observe(slide));
-
-          wwdIndicators.forEach((indicator, idx) => {
-            indicator.addEventListener('click', () => {
-              currentWwdSlide = idx;
-              wwdSlides[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
-              deferWwdAuto();
+          // Indicator dot click → lenis scroll to slide
+          wwdIndicatorDots.forEach((dot) => {
+            dot.addEventListener('click', () => {
+              const targetId = dot.dataset.target;
+              const target = document.getElementById(targetId);
+              if (target && lenis) lenis.scrollTo(target, { offset: 0, duration: 1.4 });
             });
           });
 
-          wwdSlider.addEventListener('mouseenter', stopWwdAuto);
-          wwdSlider.addEventListener('mouseleave', startWwdAuto);
-          wwdSlider.addEventListener('touchstart', deferWwdAuto, { passive: true });
-          wwdSlider.addEventListener('scroll', deferWwdAuto, { passive: true });
-          window.addEventListener('wheel', onPageWheelForWwd, { passive: false });
-
-          startWwdAuto();
+          // Scroll-link click → scroll to next slide
+          document.querySelectorAll('.wwd-scroll-link').forEach((link) => {
+            link.addEventListener('click', (e) => {
+              e.preventDefault();
+              const targetId = link.getAttribute('href').replace('#', '');
+              const target = document.getElementById(targetId);
+              if (target && lenis) lenis.scrollTo(target, { offset: 0, duration: 1.4 });
+            });
+          });
         }
 
         // Progress bar
@@ -2526,125 +2485,99 @@
             highlightObserver.observe(whoHighlight);
           }
 
-          // What We Do Section Animations
-          // GSAP for heading
+          // What We Do Section Animations — Duda-style
+
+          // Heading + tagline entrance
           const whatHeading = document.querySelector('#whatHeading');
           if (whatHeading) {
             const whatSplit = new SplitType(whatHeading, { types: 'words, chars' });
-            
             gsap.from(whatSplit.chars, {
-              scrollTrigger: {
-                trigger: '#what-we-do',
-                start: 'top 80%',
-              },
+              scrollTrigger: { trigger: '.wwd-header-wrap', start: 'top 85%' },
               opacity: 0,
-              y: 30,
+              y: 40,
               rotateX: -45,
               stagger: 0.02,
-              duration: 0.8,
+              duration: 0.9,
               ease: 'back.out(1.5)',
             });
           }
-
-          // Animate tagline
           gsap.from('.what-tagline', {
-            scrollTrigger: {
-              trigger: '#what-we-do',
-              start: 'top 80%',
-            },
+            scrollTrigger: { trigger: '.wwd-header-wrap', start: 'top 85%' },
             opacity: 0,
             y: 20,
-            duration: 0.6,
+            duration: 0.7,
             ease: 'power2.out',
           });
 
-          // Anime.js for What We Do slider cards
-          const serviceCardsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-              if (entry.isIntersecting) {
-                const cards = document.querySelectorAll('.wwd-noir-content');
-                cards.forEach((card, index) => {
-                  anime({
-                    targets: card,
-                    translateY: [80, 0],
-                    opacity: [0, 1],
-                    scale: [0.95, 1],
-                    delay: index * 150,
-                    duration: 1000,
-                    easing: 'easeOutExpo',
-                  });
-                });
-                serviceCardsObserver.disconnect();
-              }
-            });
-          }, { threshold: 0.1 });
-          
-          const servicesGrid = document.querySelector('.wwd-noir-main');
-          if (servicesGrid) {
-            serviceCardsObserver.observe(servicesGrid);
-          }
+          // Per-slide entrance animations
+          document.querySelectorAll('.wwd-slide').forEach((slide) => {
+            const lineInners = slide.querySelectorAll('.wwd-title-line-inner');
+            const textBlock  = slide.querySelector('.wwd-text-block');
+            const scrollLink = slide.querySelector('.wwd-scroll-link');
+            const scrollLine = slide.querySelector('.wwd-scroll-line');
 
-          // Sticky stack effect for service cards
-          const serviceCards = document.querySelectorAll('.service-card');
-          serviceCards.forEach((card, index) => {
-            gsap.to(card, {
+            const tl = gsap.timeline({
               scrollTrigger: {
-                trigger: card,
-                start: 'top 120px',
-                end: 'bottom 120px',
-                onUpdate: (self) => {
-                  const progress = self.progress;
-                  const scale = 1 - (progress * 0.05);
-                  const opacity = 1 - (progress * 0.3);
-                  const yOffset = progress * -20;
-                  
-                  gsap.to(card, {
-                    scale: scale,
-                    opacity: opacity,
-                    y: yOffset,
-                    duration: 0,
-                  });
-                },
-                scrub: true,
+                trigger: slide,
+                start: '40% 55%',
               }
             });
-            
-            // Set initial z-index for stacking
-            card.style.zIndex = 7 - index;
+
+            tl.from(lineInners, {
+              y: 220,
+              duration: 2,
+              ease: 'power4',
+              stagger: 0.12,
+            })
+            .from(textBlock, {
+              x: 100,
+              opacity: 0,
+              duration: 2,
+              ease: 'power4',
+            }, 0.35)
+            .from(scrollLink, {
+              y: 200,
+              duration: 3,
+              ease: 'power4',
+            }, 0.35);
+
+            if (scrollLine) {
+              tl.to(scrollLine, {
+                scaleY: 0.6,
+                transformOrigin: 'bottom left',
+                duration: 2.5,
+                ease: 'elastic(1, 0.5)',
+              }, 1.4);
+            }
           });
 
-          // Hover effect for service cards
-          serviceCards.forEach((card) => {
-            card.addEventListener('mouseenter', () => {
-              anime({
-                targets: card,
-                translateY: -8,
-                scale: 1.02,
-                duration: 400,
-                easing: 'easeOutCubic',
-              });
-              
-              // Animate the service number
-              const number = card.querySelector('.service-number');
-              if (number) {
-                anime({
-                  targets: number,
-                  scale: [1, 1.15, 1],
-                  rotate: [0, 5, 0],
-                  duration: 600,
-                  easing: 'easeOutElastic(1, .6)',
-                });
+          // Parallax on right-column images
+          document.querySelectorAll('.wwd-slide').forEach((slide) => {
+            const imageWrap = slide.querySelector('.wwd-col-right-inner');
+            if (!imageWrap) return;
+            gsap.fromTo(imageWrap,
+              { y: '-30vh' },
+              {
+                y: '30vh',
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: slide,
+                  scrub: true,
+                  start: 'top bottom',
+                }
               }
-            });
+            );
+          });
 
-            card.addEventListener('mouseleave', () => {
-              anime({
-                targets: card,
-                translateY: 0,
-                scale: 1,
-                duration: 400,
-                easing: 'easeOutCubic',
-              });
+          // Scroll-link hover effects
+          document.querySelectorAll('.wwd-scroll-link').forEach((link) => {
+            const line = link.querySelector('.wwd-scroll-line');
+            if (!line) return;
+            link.addEventListener('mouseover', () => {
+              gsap.to(line, { y: 40, transformOrigin: 'bottom center', duration: 0.6, ease: 'power4' });
+            });
+            link.addEventListener('mouseout', () => {
+              gsap.to(line, { y: 0, transformOrigin: 'bottom center', duration: 0.6, ease: 'power4' });
             });
           });
 
