@@ -1477,12 +1477,25 @@
       </section>
 
       <!-- Who We Work With Section -->
-      <section id="who-we-work-with" class="relative py-24 px-6 overflow-hidden" style="background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);">
+      <section id="who-we-work-with" class="relative py-24 px-6 overflow-visible" style="background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);">
         <!-- Background Image on Right -->
         <div class="absolute right-0 top-0 h-full w-auto" style="z-index: 0;">
           <img src="assets/hashlite_right.png" alt="" class="h-full w-auto object-cover opacity-60">
         </div>
-        <div class="relative mx-auto max-w-6xl">
+        <div class="clients-floating-logos" aria-hidden="true">
+          <img class="clients-float-logo cfl-1" src="assets/clients/AVPL-LogoN.png" alt="" />
+          <img class="clients-float-logo cfl-2" src="assets/clients/Drone Planet Logo.png" alt="" />
+          <img class="clients-float-logo cfl-3" src="assets/clients/Farmer's-City-Logo.png" alt="" />
+          <img class="clients-float-logo cfl-4" src="assets/clients/Future Planet.png" alt="" />
+          <img class="clients-float-logo cfl-5" src="assets/clients/SS.png" alt="" />
+          <img class="clients-float-logo cfl-6" src="assets/clients/Shiva Tribe.png" alt="" />
+          <img class="clients-float-logo cfl-7" src="assets/clients/TS.png" alt="" />
+          <img class="clients-float-logo cfl-8" src="assets/clients/WC Logo With Rera No..png" alt="" />
+          <img class="clients-float-logo cfl-9" src="assets/clients/i-Quantara-Logo.png" alt="" />
+          <img class="clients-float-logo cfl-10" src="assets/clients/impc logo.png" alt="" />
+        </div>
+
+        <div class="relative z-[3] mx-auto max-w-6xl">
           <!-- Section Header -->
           <div class="text-center mb-16">
             <p class="clients-tagline text-sm uppercase tracking-[0.3em] font-semibold mb-4" style="color: #f876c0;">
@@ -1493,168 +1506,181 @@
             </h2>
           </div>
 
-          <!-- Layered Cards Layout -->
-          <div class="relative md:min-h-[760px]">
-            
-            <!-- Left Card (Pink/Purple gradient) -->
-              <div class="gtm-card relative md:absolute md:top-2 left-0 md:left-8 w-full md:w-[46%] rounded-3xl p-6 md:p-10 shadow-2xl transition-all duration-500 mb-8 md:mb-0" 
-                 data-direction="left"
-                 style="background: linear-gradient(135deg, #E8C5E5 0%, #F5E0F3 100%); z-index: 2;">
-              
-              <!-- Business Types -->
-              <div class="space-y-4 md:space-y-6">
-                <p class="text-xs uppercase tracking-[0.3em] font-semibold" style="color:#f876c0;">Business Types</p>
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🚀</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Startups & Founders</h3>
-                  </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Launch fast, validate, and scale.
-                  </p>
-                </div>
+          <div class="clients-cards-layout space-y-3 md:space-y-0">
 
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🏢</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Corporates & Enterprises</h3>
+            <div class="clients-flow-row flex flex-col md:flex-row items-stretch gap-6 md:gap-0">
+              <div class="gtm-card clients-equal-card md:w-1/2 rounded-3xl p-6 md:p-8 shadow-2xl transition-all duration-500" data-direction="left" style="background: linear-gradient(135deg, #E8C5E5 0%, #F5E0F3 100%);">
+                <div class="space-y-4 md:space-y-5">
+                  <p class="text-xs uppercase tracking-[0.3em] font-semibold" style="color:#f876c0;">Business Types</p>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🚀</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Startups & Founders</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Launch fast, validate, and scale.</p>
                   </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Drive efficiency and scale marketing output.
-                  </p>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🏢</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Corporates & Enterprises</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Drive efficiency and scale marketing output.</p>
+                  </div>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🛍️</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">D2C & Consumer Brands</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Build recall and drive conversions.</p>
+                  </div>
                 </div>
-
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🛍️</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">D2C & Consumer Brands</h3>
-                  </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Build recall and drive conversions.
-                  </p>
-                </div>
-
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">💻</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">SaaS & Tech Companies</h3>
-                  </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Simplify complex products and improve adoption.
-                  </p>
-                </div>
-
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🤝</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">B2B Businesses</h3>
-                  </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Generate leads and communicate value clearly.
-                  </p>
+              </div>
+              <div class="gtm-quote md:w-1/2 md:pl-8 lg:pl-14 flex items-center" data-direction="right">
+                <div>
+                  <div class="text-4xl mb-2" style="color: #000000;">❝</div>
+                  <p class="text-sm leading-relaxed" style="color: #333333; font-style: italic;">"From startup to enterprise, we adapt systems to your stage and growth goals."</p>
                 </div>
               </div>
             </div>
-            
-            <!-- Quote for Left Card -->
-            <div class="gtm-quote hidden md:block absolute top-16 right-4 md:right-24 max-w-[280px]" data-direction="right" style="z-index: 3;">
-              <div class="text-4xl mb-2" style="color: #000000;">❝</div>
-              <p class="text-sm leading-relaxed" style="color: #333333; font-style: italic;">
-                "From startup to enterprise, we adapt systems to your stage and growth goals."
-              </p>
-            </div>
 
-            <!-- Colorful Burst Shape -->
-            <div class="burst-shape hidden md:block absolute" style="top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 4;">
-              <svg width="80" height="80" viewBox="0 0 120 120" class="md:w-[110px] md:h-[110px]">
+            <div class="clients-corner-star hidden md:flex items-center justify-center" aria-hidden="true">
+              <svg width="118" height="118" viewBox="0 0 120 120">
                 <defs>
-                  <linearGradient id="burstGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <linearGradient id="cornerStar1" x1="0%" y1="0%" x2="100%" y2="100%">
                     <stop offset="0%" style="stop-color:#68cecf;stop-opacity:1" />
                     <stop offset="33%" style="stop-color:#a0cd45;stop-opacity:1" />
                     <stop offset="66%" style="stop-color:#f876c0;stop-opacity:1" />
                     <stop offset="100%" style="stop-color:#f8c63f;stop-opacity:1" />
                   </linearGradient>
                 </defs>
-                <path d="M60,10 L65,50 L100,40 L70,60 L110,80 L70,75 L75,110 L60,75 L45,110 L50,75 L10,80 L50,60 L20,40 L55,50 Z" fill="url(#burstGradient)"/>
+                <path d="M60,10 L65,50 L100,40 L70,60 L110,80 L70,75 L75,110 L60,75 L45,110 L50,75 L10,80 L50,60 L20,40 L55,50 Z" fill="url(#cornerStar1)"/>
               </svg>
             </div>
 
-            <!-- Right Card (Lime/Green gradient) -->
-              <div class="gtm-card relative md:absolute md:top-[360px] right-0 md:right-8 w-full md:w-[48%] rounded-3xl p-6 md:p-10 shadow-2xl transition-all duration-500" 
-                 data-direction="bottom"
-                 style="background: linear-gradient(135deg, #D4ED6A 0%, #E8F5B0 100%); z-index: 2;">
-              
-              <!-- Industry Segments -->
-              <div class="space-y-4 md:space-y-6">
-                <p class="text-xs uppercase tracking-[0.3em] font-semibold" style="color:#68cecf;">Industry Segments</p>
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🏘️</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Real Estate & PropTech</h3>
+            <div class="clients-flow-row flex flex-col md:flex-row-reverse items-stretch gap-6 md:gap-0">
+              <div class="gtm-card clients-equal-card md:w-1/2 rounded-3xl p-6 md:p-8 shadow-2xl transition-all duration-500" data-direction="right" style="background: linear-gradient(135deg, #D8E9FF 0%, #EAF4FF 100%);">
+                <div class="space-y-4 md:space-y-5">
+                  <p class="text-xs uppercase tracking-[0.3em] font-semibold" style="color:#f876c0;">Growth Formats</p>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">💻</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">SaaS & Tech Companies</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Simplify complex products and improve adoption.</p>
                   </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Sell visually and build trust faster.
-                  </p>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🤝</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">B2B Businesses</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Generate leads and communicate value clearly.</p>
+                  </div>
                 </div>
-
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🚁</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Drone, Hardware & DeepTech</h3>
-                  </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Showcase innovation in a simple, compelling way.
-                  </p>
-                </div>
-
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🛒</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">E-commerce & Retail</h3>
-                  </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Improve conversions and customer experience.
-                  </p>
-                </div>
-
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🎓</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Education & EdTech</h3>
-                  </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Drive enrollments and engagement.
-                  </p>
-                </div>
-
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🎪</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Events, Media & Communities</h3>
-                  </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Increase reach, registrations, and participation.
-                  </p>
-                </div>
-
-                <div class="client-item">
-                  <div class="flex items-center gap-3 mb-2">
-                    <div class="text-2xl md:text-3xl">🩺</div>
-                    <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Healthcare & Wellness</h3>
-                  </div>
-                  <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">
-                    Build credibility and educate audiences.
-                  </p>
+              </div>
+              <div class="gtm-quote md:w-1/2 md:pr-8 lg:pr-14 flex items-center" data-direction="left">
+                <div>
+                  <div class="text-4xl mb-2" style="color: #000000;">❝</div>
+                  <p class="text-sm leading-relaxed" style="color: #333333; font-style: italic;">"We build systems that adapt to your business model, scale, and timeline."</p>
                 </div>
               </div>
             </div>
-            
-            <!-- Quote for Right Card -->
-            <div class="gtm-quote hidden md:block absolute bottom-20 left-4 md:left-20 max-w-[280px]" data-direction="top" style="z-index: 3;">
-              <div class="text-4xl mb-2" style="color: #000000;">❝</div>
-              <p class="text-sm leading-relaxed" style="color: #333333; font-style: italic;">
-                "Our growth systems flex to your business model, industry, and market complexity."
-              </p>
+
+            <div class="clients-corner-star hidden md:flex items-center justify-center" aria-hidden="true">
+              <svg width="118" height="118" viewBox="0 0 120 120">
+                <defs>
+                  <linearGradient id="cornerStar2" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#68cecf;stop-opacity:1" />
+                    <stop offset="33%" style="stop-color:#a0cd45;stop-opacity:1" />
+                    <stop offset="66%" style="stop-color:#f876c0;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f8c63f;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path d="M60,10 L65,50 L100,40 L70,60 L110,80 L70,75 L75,110 L60,75 L45,110 L50,75 L10,80 L50,60 L20,40 L55,50 Z" fill="url(#cornerStar2)"/>
+              </svg>
+            </div>
+
+            <div class="clients-flow-row flex flex-col md:flex-row items-stretch gap-6 md:gap-0">
+              <div class="gtm-card clients-equal-card md:w-1/2 rounded-3xl p-6 md:p-8 shadow-2xl transition-all duration-500" data-direction="top" style="background: linear-gradient(135deg, #D4ED6A 0%, #E8F5B0 100%);">
+                <div class="space-y-4 md:space-y-5">
+                  <p class="text-xs uppercase tracking-[0.3em] font-semibold" style="color:#68cecf;">Industry Segments</p>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🏘️</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Real Estate & PropTech</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Sell visually and build trust faster.</p>
+                  </div>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🚁</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Drone, Hardware & DeepTech</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Showcase innovation in a simple, compelling way.</p>
+                  </div>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🛒</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">E-commerce & Retail</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Improve conversions and customer experience.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="gtm-quote md:w-1/2 md:pl-8 lg:pl-14 flex items-center" data-direction="right">
+                <div>
+                  <div class="text-4xl mb-2" style="color: #000000;">❝</div>
+                  <p class="text-sm leading-relaxed" style="color: #333333; font-style: italic;">"We tailor communication to your market category and buyer intent."</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="clients-corner-star hidden md:flex items-center justify-center" aria-hidden="true">
+              <svg width="118" height="118" viewBox="0 0 120 120">
+                <defs>
+                  <linearGradient id="cornerStar3" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#68cecf;stop-opacity:1" />
+                    <stop offset="33%" style="stop-color:#a0cd45;stop-opacity:1" />
+                    <stop offset="66%" style="stop-color:#f876c0;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#f8c63f;stop-opacity:1" />
+                  </linearGradient>
+                </defs>
+                <path d="M60,10 L65,50 L100,40 L70,60 L110,80 L70,75 L75,110 L60,75 L45,110 L50,75 L10,80 L50,60 L20,40 L55,50 Z" fill="url(#cornerStar3)"/>
+              </svg>
+            </div>
+
+            <div class="clients-flow-row flex flex-col md:flex-row-reverse items-stretch gap-6 md:gap-0">
+              <div class="gtm-card clients-equal-card md:w-1/2 rounded-3xl p-6 md:p-8 shadow-2xl transition-all duration-500" data-direction="bottom" style="background: linear-gradient(135deg, #FFE3B8 0%, #FFF1D9 100%);">
+                <div class="space-y-4 md:space-y-5">
+                  <p class="text-xs uppercase tracking-[0.3em] font-semibold" style="color:#68cecf;">Specialized Verticals</p>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🎓</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Education & EdTech</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Drive enrollments and engagement.</p>
+                  </div>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🎪</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Events, Media & Communities</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Increase reach, registrations, and participation.</p>
+                  </div>
+                  <div class="client-item">
+                    <div class="flex items-center gap-3 mb-2">
+                      <div class="text-2xl md:text-3xl">🩺</div>
+                      <h3 class="text-lg md:text-xl font-bold" style="color: #000000;">Healthcare & Wellness</h3>
+                    </div>
+                    <p class="text-xs md:text-sm pl-9 md:pl-12" style="color: #333333;">Build credibility and educate audiences.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="gtm-quote md:w-1/2 md:pr-8 lg:pr-14 flex items-center" data-direction="left">
+                <div>
+                  <div class="text-4xl mb-2" style="color: #000000;">❝</div>
+                  <p class="text-sm leading-relaxed" style="color: #333333; font-style: italic;">"Our growth systems flex to your business model, industry, and market complexity."</p>
+                </div>
+              </div>
             </div>
 
           </div>
@@ -1667,7 +1693,9 @@
               </p>
             </div>
           </div>
+
         </div>
+
       </section>
 
       <!-- Our Philosophy Section -->
@@ -2024,10 +2052,125 @@
 
         gsap.ticker.lagSmoothing(0);
 
+        gsap.registerPlugin(ScrollTrigger);
+
+        const clientsDebounce = (func, timeout = 200) => {
+          let timer;
+          return (...args) => {
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+              func(...args);
+            }, timeout);
+          };
+        };
+
+        const equalizeClientsCards = () => {
+          const cards = document.querySelectorAll('.clients-equal-card');
+          if (!cards.length) {
+            return;
+          }
+
+          cards.forEach((card) => {
+            card.style.minHeight = '';
+          });
+
+          if (window.innerWidth < 768) {
+            return;
+          }
+
+          let maxHeight = 0;
+          cards.forEach((card) => {
+            maxHeight = Math.max(maxHeight, card.offsetHeight);
+          });
+
+          cards.forEach((card) => {
+            card.style.minHeight = `${maxHeight}px`;
+          });
+        };
+
+        const initClientsBackgroundLogos = () => {
+          const logosContainer = document.querySelector('.clients-floating-logos');
+          if (!logosContainer) {
+            return;
+          }
+
+          const sourceLogos = Array.from(logosContainer.querySelectorAll('.clients-float-logo'));
+          if (!sourceLogos.length) {
+            return;
+          }
+
+          const logoSources = sourceLogos
+            .map((logo) => logo.getAttribute('src'))
+            .filter(Boolean);
+          if (!logoSources.length) {
+            return;
+          }
+
+          const randomBetween = (min, max) => (Math.random() * (max - min)) + min;
+
+          const targetCount = Math.max(24, logoSources.length * 3);
+          const denseSources = [];
+          let previousSource = '';
+
+          while (denseSources.length < targetCount) {
+            const candidate = logoSources[Math.floor(Math.random() * logoSources.length)];
+            if (logoSources.length > 1 && candidate === previousSource) {
+              continue;
+            }
+            denseSources.push(candidate);
+            previousSource = candidate;
+          }
+
+          logosContainer.innerHTML = '';
+
+          const generatedLogos = denseSources.map((source, index) => {
+            const logo = document.createElement('img');
+            logo.className = 'clients-float-logo';
+            logo.src = source;
+            logo.alt = '';
+            logo.loading = 'lazy';
+
+            logo.style.top = `${randomBetween(4, 92)}%`;
+            logo.style.left = `${randomBetween(4, 92)}%`;
+            logo.style.width = `${randomBetween(62, 132)}px`;
+
+            logosContainer.appendChild(logo);
+            return { logo, index };
+          });
+
+          generatedLogos.forEach(({ logo, index }) => {
+            const drift = () => {
+              gsap.to(logo, {
+                x: randomBetween(-180, 180),
+                y: randomBetween(-130, 130),
+                rotation: randomBetween(-18, 18),
+                scale: randomBetween(0.86, 1.12),
+                duration: randomBetween(10, 18),
+                ease: 'sine.inOut',
+                onComplete: drift,
+              });
+            };
+
+            gsap.set(logo, {
+              x: randomBetween(-70, 70),
+              y: randomBetween(-50, 50),
+              rotation: randomBetween(-8, 8),
+              transformOrigin: 'center center',
+            });
+
+            setTimeout(drift, index * 150);
+          });
+        };
+
+        if (!prefersReduced.matches) {
+          initClientsBackgroundLogos();
+        }
+
+        equalizeClientsCards();
+        window.addEventListener('resize', clientsDebounce(equalizeClientsCards, 150));
+
         // GSAP Animations (only if user doesn't prefer reduced motion)
         if (!prefersReduced.matches) {
-          gsap.registerPlugin(ScrollTrigger);
-
           // Hero Section Advanced GSAP Animations
           
           // Animated gradient background blobs with parallax
@@ -3058,28 +3201,6 @@
             });
           });
 
-          // Animate burst shape
-          gsap.from('.burst-shape', {
-            scrollTrigger: {
-              trigger: '#who-we-work-with',
-              start: 'top 70%',
-            },
-            scale: 0,
-            rotation: 180,
-            opacity: 0,
-            duration: 1,
-            delay: 1.2,
-            ease: 'back.out(1.7)',
-          });
-          
-          // Continuous slow rotation for burst
-          gsap.to('.burst-shape', {
-            rotation: 360,
-            duration: 25,
-            repeat: -1,
-            ease: 'none',
-          });
-          
           const clientsGrid = document.querySelector('.clients-grid');
           if (clientsGrid) {
             clientCardsObserver.observe(clientsGrid);

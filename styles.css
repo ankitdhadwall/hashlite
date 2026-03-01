@@ -510,3 +510,73 @@ input[type="checkbox"]:checked {
   background: #68cecf;
   border-color: #68cecf;
 }
+
+.clients-cards-layout {
+  align-items: stretch;
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+}
+
+.clients-equal-card {
+  height: 100%;
+}
+
+.clients-flow-row {
+  position: relative;
+}
+
+.clients-flow-row .gtm-card {
+  position: relative;
+  z-index: 7;
+}
+
+.clients-flow-row .gtm-quote {
+  min-height: 100%;
+  z-index: 4;
+}
+
+.clients-corner-star {
+  margin: -5.2rem 0;
+  position: relative;
+  z-index: 9;
+  pointer-events: none;
+}
+
+.clients-corner-star svg {
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.2));
+}
+
+@media (max-width: 767px) {
+  .clients-corner-star {
+    margin: -0.5rem 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .clients-cards-layout {
+    padding: 0;
+  }
+}
+
+.clients-floating-logos {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.clients-float-logo {
+  position: absolute;
+  width: clamp(66px, 7.4vw, 126px);
+  height: auto;
+  opacity: 0.085;
+  filter: grayscale(1) saturate(0) contrast(0.62) brightness(0.78);
+  mix-blend-mode: luminosity;
+}
+
+.clients-statement {
+  position: relative;
+  z-index: 6;
+}
