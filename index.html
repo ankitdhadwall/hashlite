@@ -1477,7 +1477,7 @@
       </section>
 
       <!-- Who We Work With Section -->
-      <section id="who-we-work-with" class="relative py-24 px-6 overflow-visible" style="background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);">
+      <section id="who-we-work-with" class="relative pt-24 pb-0 px-6 overflow-visible" style="background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);">
         <!-- Background Image on Right -->
         <div class="absolute right-0 top-0 h-full w-auto" style="z-index: 0;">
           <img src="assets/hashlite_right.png" alt="" class="h-full w-auto object-cover opacity-60">
@@ -1694,6 +1694,33 @@
             </div>
           </div>
 
+        </div>
+
+        <div class="brand-ribbon-wrap brand-ribbon-fullbleed mt-10 md:mt-12">
+          <div class="brand-ribbon">
+            <div class="brand-ribbon-track">
+              <div class="brand-ribbon-item"><img src="assets/clients/AVPL-LogoN.png" alt="AVPL" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/Drone Planet Logo.png" alt="Drone Planet" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/Farmer's-City-Logo.png" alt="Farmer's City" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/Future Planet.png" alt="Future Planet" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/SS.png" alt="SS" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/Shiva Tribe.png" alt="Shiva Tribe" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/TS.png" alt="TS" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/WC Logo With Rera No..png" alt="WC" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/i-Quantara-Logo.png" alt="i-Quantara" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/impc logo.png" alt="IMPC" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/AVPL-LogoN.png" alt="AVPL" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/Drone Planet Logo.png" alt="Drone Planet" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/Farmer's-City-Logo.png" alt="Farmer's City" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/Future Planet.png" alt="Future Planet" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/SS.png" alt="SS" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/Shiva Tribe.png" alt="Shiva Tribe" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/TS.png" alt="TS" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/WC Logo With Rera No..png" alt="WC" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/i-Quantara-Logo.png" alt="i-Quantara" /></div>
+              <div class="brand-ribbon-item"><img src="assets/clients/impc logo.png" alt="IMPC" /></div>
+            </div>
+          </div>
         </div>
 
       </section>
@@ -2108,7 +2135,7 @@
 
           const randomBetween = (min, max) => (Math.random() * (max - min)) + min;
 
-          const targetCount = Math.max(24, logoSources.length * 3);
+          const targetCount = Math.max(36, logoSources.length * 4);
           const denseSources = [];
           let previousSource = '';
 
@@ -2123,6 +2150,45 @@
 
           logosContainer.innerHTML = '';
 
+          const placedBySource = new Map();
+          const placedAll = [];
+
+          const distance = (a, b) => {
+            const dx = a.x - b.x;
+            const dy = a.y - b.y;
+            return Math.sqrt((dx * dx) + (dy * dy));
+          };
+
+          const pickPosition = (source) => {
+            const sameList = placedBySource.get(source) || [];
+            const minSameDistance = 24;
+            const minAnyDistance = 9;
+
+            for (let attempt = 0; attempt < 50; attempt++) {
+              const candidate = {
+                x: randomBetween(4, 94),
+                y: randomBetween(4, 94),
+              };
+
+              const tooCloseSame = sameList.some((pos) => distance(pos, candidate) < minSameDistance);
+              if (tooCloseSame) {
+                continue;
+              }
+
+              const tooCloseAny = placedAll.some((pos) => distance(pos, candidate) < minAnyDistance);
+              if (tooCloseAny) {
+                continue;
+              }
+
+              return candidate;
+            }
+
+            return {
+              x: randomBetween(6, 92),
+              y: randomBetween(6, 92),
+            };
+          };
+
           const generatedLogos = denseSources.map((source, index) => {
             const logo = document.createElement('img');
             logo.className = 'clients-float-logo';
@@ -2130,9 +2196,17 @@
             logo.alt = '';
             logo.loading = 'lazy';
 
-            logo.style.top = `${randomBetween(4, 92)}%`;
-            logo.style.left = `${randomBetween(4, 92)}%`;
+            const position = pickPosition(source);
+
+            logo.style.top = `${position.y}%`;
+            logo.style.left = `${position.x}%`;
             logo.style.width = `${randomBetween(62, 132)}px`;
+
+            if (!placedBySource.has(source)) {
+              placedBySource.set(source, []);
+            }
+            placedBySource.get(source).push(position);
+            placedAll.push(position);
 
             logosContainer.appendChild(logo);
             return { logo, index };
@@ -2141,8 +2215,8 @@
           generatedLogos.forEach(({ logo, index }) => {
             const drift = () => {
               gsap.to(logo, {
-                x: randomBetween(-180, 180),
-                y: randomBetween(-130, 130),
+                x: randomBetween(-120, 120),
+                y: randomBetween(-90, 90),
                 rotation: randomBetween(-18, 18),
                 scale: randomBetween(0.86, 1.12),
                 duration: randomBetween(10, 18),
