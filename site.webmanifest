@@ -1,0 +1,21 @@
+{
+  "name": "HashLite",
+  "short_name": "HashLite",
+  "description": "AI-powered growth and content studio.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#68cecf",
+  "icons": [
+    {
+      "src": "assets/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
