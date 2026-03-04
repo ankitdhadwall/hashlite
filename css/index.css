@@ -202,6 +202,23 @@
           transform: translateY(-10px) rotate(1deg);
         }
       }
+
+      .why-bubbles-wrap {
+        z-index: 0;
+      }
+
+      .why-bubbles-image {
+        width: min(100%, 56rem);
+        object-fit: contain;
+      }
+
+      .chat-bubble-wrap {
+        max-width: 10rem;
+      }
+
+      .chat-bubble-image {
+        object-fit: contain;
+      }
       
       /* Gradient Layer Animations */
       @keyframes float-layer-1 {
@@ -546,6 +563,29 @@
             .wwd-content-wrap { flex-direction: column; }
             .wwd-scroll-link { display: none; }
             .wwd-indicator { right: 0.5rem; }
+
+              .why-bubbles-wrap {
+                align-items: flex-start;
+                padding-top: 2rem;
+              }
+
+              .why-bubbles-image {
+                width: 145%;
+                max-width: none;
+                opacity: 0.14;
+                transform: translateY(-10px);
+              }
+
+              .chat-bubble-wrap {
+                top: 0.75rem;
+                right: 0.75rem;
+                width: 4.75rem;
+                max-width: 4.75rem;
+              }
+
+              .chat-bubble-image {
+                opacity: 0.6;
+              }
           }
           /* ── Keep old classes from potential references ── */
           .wwd-noir-main { display: none; }
